@@ -11,69 +11,97 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
                 <div class="formControls col-xs-10 col-sm-10">
-                    <input type="text" class="input-text" style=" display: inline-block; width: 150px;" id="ClientCode1" readonly value="<?php echo $data['ClientCode1'];?>">
+                    <input type="text" class="input-text" style=" display: inline-block; width: 150px;" id="ClientCode1" name="ClientCode1" readonly value="<?php echo $data['ClientCode1'];?>">
                     -
-                    <input type="text" class="input-text" style="width: 150px;" id="ClientCode2" value="<?php echo $data['ClientCode2'];?>">
+                    <input type="text" class="input-text" style="width: 150px;" id="ClientCode2" name="ClientCode2" value="<?php echo $data['ClientCode2'];?>">
                     - 
-                    <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" value="<?php echo $data['ClientCode3'];?>">
+                    <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" name="ClientCode3" value="<?php echo $data['ClientCode3'];?>">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Client Name:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" id="ClientName" value="<?php echo $data['ClientName'];?>">
+                    <input type="text" class="input-text" id="ClientName" name="ClientName" value="<?php echo $data['ClientName'];?>">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Legal Entity:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <select id="ClientLegalEntity" class="client_LegalEntity">
+                    <select name="ClientLegalEntity">
+                        <?php foreach ($sys_param['ClientLegalEntity'] as $value) {
+                            $select = '';
+                            if ($value == $data['ClientLegalEntity']) {
+                                $select = 'selected';
+                            }
+                            echo '<option value="'.$value.'" '.$select.'>'.$value.'</option>';
+                        }?>
                     </select>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">Jurisdiction:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <select id="ClientJurisdiction" class="client_Jurisdiction">
+                    <select name="ClientJurisdiction">
+                        <?php foreach ($sys_param['ClientJurisdiction'] as $value) {
+                            $select = '';
+                            if ($value == $data['ClientJurisdiction']) {
+                                $select = 'selected';
+                            }
+                            echo '<option value="'.$value.'" '.$select.'>'.$value.'</option>';
+                        }?>
                     </select>
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Date of Incorporation:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text date" id="DateOfIncorp" value="<?php echo $data['DateOfIncorp'];?>">
+                    <input type="text" class="input-text date" name="DateOfIncorp" id="DateOfIncorp" value="<?php echo $data['DateOfIncorp'];?>" readonly>
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Normal Year End Date:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text date" id="NormalYearEndDate" value="<?php echo $data['NormalYearEndDate'];?>">
+                    <input type="text" class="input-text date" name="NormalYearEndDate" id="NormalYearEndDate" value="<?php echo $data['NormalYearEndDate'];?>" readonly>
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Non Tax Deadline | Nature:</label>
                 <div class="formControls col-xs-3 col-sm-3" value="<?php echo $data['NonTaxDeadlineNature'];?>">
-                    <select class="non_TaxDeadlineNature">
+                    <select name="NonTaxDeadlineNature">
+                        <?php foreach ($sys_param['NonTaxDeadlineNature'] as $value) {
+                            $select = '';
+                            if ($value == $data['NonTaxDeadlineNature']) {
+                                $select = 'selected';
+                            }
+                            echo '<option value="'.$value.'" '.$select.'>'.$value.'</option>';
+                        }?>
                     </select>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text date" value="<?php echo $data['NonTaxDeadlineDate'];?>">
+                    <input type="text" class="input-text date" value="<?php echo $data['NonTaxDeadlineDate'];?>" name="NonTaxDeadlineDate" id="NonTaxDeadlineDate" readonly>
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Client Status | Last:</label>
                 <div class="formControls col-xs-3 col-sm-3" value="<?php echo $data['LastClientStatus'];?>">
-                    <select id="LastClientStatus" class="last_ClientStatus">
+                    <select name="LastClientStatus">
+                        <?php foreach ($sys_param['LastClientStatus'] as $value) {
+                            $select = '';
+                            if ($value == $data['LastClientStatus']) {
+                                $select = 'selected';
+                            }
+                            echo '<option value="'.$value.'" '.$select.'>'.$value.'</option>';
+                        }?>
                     </select>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text date" id="LastClientStatusDate" value="<?php echo $data['LastClientStatusDate'];?>">
+                    <input type="text" class="input-text date" name="LastClientStatusDate" id="LastClientStatusDate" readonly value="<?php echo $data['LastClientStatusDate'];?>">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">AC Manager:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <select class="AC_Manager" id="AcMgr">
+                    <select class="AC_Manager" id="AcMgr" name="AcMgr">
                     </select>
                 </div>
             </div>
@@ -86,68 +114,62 @@
         </form>
     </article>
 </div>
-
+<link rel="stylesheet" type="text/css" href="<?php echo base_url('/css/bootstrap-datepicker.css')?>">
+<script type="text/javascript" src="<?php echo base_url('/lib/bootstrap-datepicker/bootstrap-datepicker.js')?>"></script>
 <script>
-var acMgr= <?php echo json_encode($acMgr); ?>; 
-var clientLegalEntity= <?php echo $clientLegalEntity; ?>; 
-var clientJurisdiction = <?php echo $clientJurisdiction; ?>;
-var nonTaxDeadlineNature = <?php echo $nonTaxDeadlineNature; ?>;
-var lastClientStatus = <?php echo $lastClientStatus; ?>;
-var uploadurl ="";
 $(function () {
+    var acMgr= <?php echo json_encode($acMgr); ?>; 
+    var ACManagerHtml='';
+    for(var i=0; i<acMgr.length; i++){
+        ACManagerHtml+='<option>'+acMgr[i].AcMgr+'</option>';
+    }
+    $(".AC_Manager").html(ACManagerHtml);
+    $(".AC_Manager").val("<?php echo $data['AcMgr']?>");
+    $("#NormalYearEndDate,#LastClientStatusDate,#NonTaxDeadlineDate,#DateOfIncorp").datetimepicker({
+        todayBtn: 1,
+        startView: 2,
+        minView: 2,
+        autoclose: 1,
+        format: 'yyyy-mm-dd'
+    });
     $("#edit_btn").click(function () {
-        let title_ch = $.trim($("#clientname").val());
+        let title_ch = $.trim($("#ClientName").val());
         if (!title_ch) {
-            alert("請填寫 Company Name");
+            alert("請填寫 Client name");
             return false;
         }
-        let title_en = $.trim($("#clientlegalentity").val());
-        if (!title_en) {
-            alert("請填寫 Legal Entity");
+        let ClientCode1 = $.trim($("#ClientCode1").val());
+        if (!ClientCode1) {
+            alert("請填寫 ClientCode1");
             return false;
         }
-        let resource_link = $.trim($("#acmgr").val());
-        if (!resource_link) {
-            alert("請填寫 Account Manager");
+        let ClientCode2 = $.trim($("#ClientCode2").val());
+        if (!ClientCode2) {
+            alert("請填寫 ClientCode2");
+            return false;
+        }
+        let ClientCode3 = $.trim($("#ClientCode3").val());
+        if (!ClientCode3) {
+            alert("請填寫 ClientCode3");
+            return false;
+        }
+        let NormalYearEndDate = $.trim($("#NormalYearEndDate").val());
+        if (!NormalYearEndDate) {
+            alert("請填寫 NormalYearEndDate");
+            return false;
+        }
+        let NonTaxDeadlineDate = $.trim($("#NonTaxDeadlineDate").val());
+        if (!NonTaxDeadlineDate) {
+            alert("請填寫 NonTaxDeadlineDate");
+            return false;
+        }
+        let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
+        if (!LastClientStatusDate) {
+            alert("請填寫 LastClientStatusDate");
             return false;
         }
         $("#ClientMtn_form").submit();
     });
 });
-
-var ACManagerHtml='';
-for(var i=0; i<acMgr.length; i++){
-    ACManagerHtml+='<option>'+acMgr[i].AcMgr+'</option>';
-}
-$(".AC_Manager").html(ACManagerHtml);
-$("#AcMgr").val("<?php echo $data['AcMgr'];?>");
-
-var clientLegalEntityHtml='';
-for(var i=0; i<clientLegalEntity.length; i++){
-    clientLegalEntityHtml+='<option>'+clientLegalEntity[i]+'</option>';
-}
-$(".client_LegalEntity").html(clientLegalEntityHtml);
-$("#ClientLegalEntity").val("<?php echo $data['ClientLegalEntity'];?>");
-
-var clientJurisdictionHtml='';
-for(var i=0; i<clientJurisdiction.length; i++){
-    clientJurisdictionHtml+='<option>'+clientJurisdiction[i]+'</option>';
-}
-$(".client_Jurisdiction").html(clientJurisdictionHtml);
-$("#ClientJurisdiction").val("<?php echo $data['ClientJurisdiction'];?>");
-
-var nonTaxDeadlineNatureHtml='';
-for(var i=0; i<nonTaxDeadlineNature.length; i++){
-    nonTaxDeadlineNatureHtml+='<option>'+nonTaxDeadlineNature[i]+'</option>';
-}
-$(".non_TaxDeadlineNature").html(nonTaxDeadlineNatureHtml);
-$("#NonTaxDeadlineNature").val("<?php echo $data['NonTaxDeadlineNature'];?>");
-
-var lastClientStatusHtml='';
-for(var i=0; i<lastClientStatus.length; i++){
-    lastClientStatusHtml+='<option>'+lastClientStatus[i]+'</option>';
-}
-$(".last_ClientStatus").html(lastClientStatusHtml);
-$("#LastClientStatus").val("<?php echo $data['LastClientStatus'];?>");
 
 </script>

@@ -4,8 +4,8 @@ include_once APPPATH.'libraries/MY_Basemodel.php';
 
 class ClientMtn_model extends MY_Basemodel {
     
-    public $table = 'ClientMtn';
-    public $primary_key = 'ClientCode1';
+    public $table = 'clientmtn';
+    public $primary_key = 'ID';
 
     // public $soft_deletes = true;
 

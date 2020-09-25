@@ -4,7 +4,7 @@ class ClientMtn extends MY_Controller {
 
     public function index() {
         $this->load->model('ClientMtn_model');
-        $ClientMtn_list = $this->ClientMtn_model->get_all();
+        $ClientMtn_list = $this->ClientMtn_model->get_all_data();
         $this->assign('ClientMtn_list', $ClientMtn_list);
         $this->display('clientmtn/index');
     }
@@ -29,19 +29,18 @@ class ClientMtn extends MY_Controller {
         $this->load->model('SysParam_model');
         $acMgr = $this->ListAcMgr_model->get_all();
         $data = $this->ClientMtn_model->getClientByCode($ClientCode1);
-        $clientLegalEntity = $this->SysParam_model->get_param('ClientLegalEntity');
-        $clientJurisdiction = $this->SysParam_model->get_param('ClientJurisdiction');
-        $nonTaxDeadlineNature = $this->SysParam_model->get_param('NonTaxDeadlineNature');
-        $lastClientStatus = $this->SysParam_model->get_param('LastClientStatus');
         if (!$data) {
             $this->redirect_msg('修改的數據不存在');
         }
         $this->assign('data', $data);
         $this->assign('acMgr', $acMgr);
-        $this->assign('clientLegalEntity', $clientLegalEntity);
-        $this->assign('clientJurisdiction', $clientJurisdiction);
-        $this->assign('nonTaxDeadlineNature', $nonTaxDeadlineNature);
-        $this->assign('lastClientStatus', $lastClientStatus);
+        $result = $this->SysParam_model->get_all_data();
+        $sys_param = array();
+        foreach ($result as $value) {
+            $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $value['ParamValue']);
+            $sys_param[$value['ParamType']] = explode(',', $param_value);
+        }
+        $this->assign('sys_param', $sys_param);
         $this->display();
     }
 
@@ -67,8 +66,14 @@ class ClientMtn extends MY_Controller {
             $operate = $postdata['operate'];
             unset($postdata['operate']);
             if ($operate == 'edit') {
-                $result = $this->ClientMtn_model->update_data(array('clientcode1' => $postdata['clientcode1']), $postdata);
+                $ClientCode1 = $postdata['ClientCode1'];
+                unset($postdata['ClientCode1']);
+                $result = $this->ClientMtn_model->update_data(array('ClientCode1' => $ClientCode1), $postdata);
             } else {
+                $is_exists = $this->ClientMtn_model->is_data_exists(array('ClientCode1' => $postdata['ClientCode1']));
+                if ($is_exists) {
+                    $this->redirect_msg('ClientCode1 已經存在');
+                }
                 $result = $this->ClientMtn_model->insert($postdata);
             }
             if ($result) {

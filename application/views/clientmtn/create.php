@@ -45,7 +45,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Date of Incorporation:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="DateOfIncorp">
+                    <input type="text" class="input-text" name="DateOfIncorp" id="DateOfIncorp" readonly>
                 </div>
             </div>
             <div class="row cl">
@@ -105,12 +105,12 @@ var acMgr= <?php echo json_encode($acMgr); ?>;
 console.log(acMgr);
 var uploadurl ="";
 $(function () {
-    $("#NormalYearEndDate,#LastClientStatusDate,#NonTaxDeadlineDate").datetimepicker({
+    $("#NormalYearEndDate,#LastClientStatusDate,#NonTaxDeadlineDate,#DateOfIncorp").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd'
+        format: 'yyyy-mm-dd HH:ii:ss'
     });
     $("#create_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());

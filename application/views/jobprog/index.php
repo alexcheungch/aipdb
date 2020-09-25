@@ -12,26 +12,24 @@
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
                 <tr>
-                    <td>Code1</td>
-                    <td>Name </td>
-                    <td>Legal Entity </td>
-                    <td>Account Manager </td>
+                    <td>ID</td>
+                    <td>JobCode</td>
+                    <td>S1DCDocRequestVia</td>
                     <td>操作</td>
                 </tr>
             </thead>
             <tbody>
             <?php 
-            if($ClientMtn_list && count($ClientMtn_list)>0){
-            foreach ($ClientMtn_list as $ClientMtn) {
+            if($JobProg_list && count($JobProg_list)>0){
+            foreach ($JobProg_list as $JobProgMtn) {
             ?>
                 <tr>
-                	<td><?php echo $ClientMtn['ClientCode1'];?></td>
-                    <td><?php echo $ClientMtn['ClientName'];?></td>
-                    <td><?php echo $ClientMtn['ClientLegalEntity'];?></td>
-                    <td><?php echo $ClientMtn['AcMgr'];?></td>
+                	<td><?php echo $JobProgMtn['ID'];?></td>
+                    <td><?php echo $JobProgMtn['JobCode'];?></td>
+                    <td><?php echo $JobProgMtn['S1DCDocRequestVia'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $ClientMtn['ID'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $ClientMtn['ID'];?>">刪除</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobProgMtn['ID'];?>">編輯</button>
+                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $JobProgMtn['ID'];?>">刪除</button>
                     </td>
                 </tr>
             <?php }}?>
@@ -48,12 +46,12 @@ $(function () {
     $('#coderesource_table tbody').on( 'click', ".delete_btn", function () {
         if (confirm("確認要刪除嗎？")) {
             var id=$(this).attr('attrid');
-            location.href = "<?php echo base_url('ClientMtn/delete') ?>/"+id;
+            location.href = "<?php echo base_url('JobProg/delete') ?>/"+id;
         }
     });
   	$('#coderesource_table tbody').on( 'click', ".edit_btn", function () {
         var id=$(this).attr('attrid');
-        location.href = "<?php echo base_url('ClientMtn/edit') ?>/"+id;
+        location.href = "<?php echo base_url('JobProg/edit') ?>/"+id;
     });
 
     function s2ab(s) {

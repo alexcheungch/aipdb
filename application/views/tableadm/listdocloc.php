@@ -9,7 +9,7 @@
 <div class="Hui-article">
     <article class="cl pd-20">
         <div class="text-right" style="margin-bottom: 20px;">
-            <button type="button" onClick="javascript:window.location.href='<?php echo base_url('/TableAdm/createstaff'); ?>'">+ Add</button>
+            <button type="button" onClick="javascript:window.location.href='<?php echo base_url('/TableAdm/createdocloc'); ?>'">+ Add</button>
         </div>
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
@@ -21,12 +21,12 @@
             </thead>
             <tbody>
             <?php           
-            if($ListStaffList_list && count($ListStaffList_list)>0){
-            foreach ($ListStaffList_list as $Record) {
+            if($ListDocLoc && count($ListDocLoc)>0){
+            foreach ($ListDocLoc as $Record) {
             ?>
                 <tr>
-                	<td><?php echo $Record['StaffCode'];?></td>
-                    <td><?php echo $Record['StaffName'];?></td>
+                	<td><?php echo $Record['ID'];?></td>
+                    <td><?php echo $Record['DocLoc'];?></td>
                     <td>
                         <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Record['ID'];?>">編輯</button>
                         <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $Record['ID'];?>">刪除</button>
