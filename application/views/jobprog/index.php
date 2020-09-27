@@ -24,12 +24,11 @@
             foreach ($JobProg_list as $JobProgMtn) {
             ?>
                 <tr>
-                	<td><?php echo $JobProgMtn['ID'];?></td>
+                    <td><?php echo $JobProgMtn['ID'];?></td>
                     <td><?php echo $JobProgMtn['JobCode'];?></td>
                     <td><?php echo $JobProgMtn['S1DCDocRequestVia'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobProgMtn['ID'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $JobProgMtn['ID'];?>">刪除</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobProgMtn['JobCode'];?>">編輯</button>
                     </td>
                 </tr>
             <?php }}?>
@@ -43,13 +42,7 @@ $(function () {
     $('#coderesource_table').DataTable({
         order: [[ 0, "asc" ]],
     });
-    $('#coderesource_table tbody').on( 'click', ".delete_btn", function () {
-        if (confirm("確認要刪除嗎？")) {
-            var id=$(this).attr('attrid');
-            location.href = "<?php echo base_url('JobProg/delete') ?>/"+id;
-        }
-    });
-  	$('#coderesource_table tbody').on( 'click', ".edit_btn", function () {
+    $('#coderesource_table tbody').on( 'click', ".edit_btn", function () {
         var id=$(this).attr('attrid');
         location.href = "<?php echo base_url('JobProg/edit') ?>/"+id;
     });

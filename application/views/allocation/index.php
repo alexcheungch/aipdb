@@ -8,29 +8,25 @@
 </nav>
 <div class="Hui-article">
     <article class="cl pd-20">
+        <button type="button" id="export_table">export xlsx</button><br /><br />
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
                 <tr>
-                    <td>RecordDate</td>
-                    <td>ClientCode1</td>
-                    <td>JobNature</td>
+                    <td>ID</td>
+                    <td>JobCode</td>
                     <td>操作</td>
                 </tr>
             </thead>
             <tbody>
             <?php 
-            if($JobMtn_list && count($JobMtn_list)>0){
-            foreach ($JobMtn_list as $JobMtn) {
+            if($Allocation_list && count($Allocation_list)>0){
+            foreach ($Allocation_list as $Allocation) {
             ?>
                 <tr>
-                	<td><?php echo $JobMtn['RecordDate'];?></td>
-                    <td><?php echo $JobMtn['ClientCode1'];?></td>
-                    <td><?php echo $JobMtn['JobNature'];?></td>
+                    <td><?php echo $Allocation['ID'];?></td>
+                    <td><?php echo $Allocation['JobCode'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobMtn['ID'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $JobMtn['ID'];?>">刪除</button>
-                        <button class="btn btn-default prog_btn"   type="button"  attrid="<?php echo $JobMtn['JobCode'];?>">工作進程</button>
-                        <button class="btn btn-default allocation_btn"   type="button"  attrid="<?php echo $JobMtn['JobCode'];?>">Allocation</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Allocation['JobCode'];?>">編輯</button>
                     </td>
                 </tr>
             <?php }}?>
@@ -44,23 +40,9 @@ $(function () {
     $('#coderesource_table').DataTable({
         order: [[ 0, "asc" ]],
     });
-    $('#coderesource_table tbody').on( 'click', ".delete_btn", function () {
-        if (confirm("刪除此條記錄會連同刪除關聯的JobProg，確認要刪除嗎？")) {
-            var id=$(this).attr('attrid');
-            location.href = "<?php echo base_url('JobMtn/delete') ?>/"+id;
-        }
-    });
     $('#coderesource_table tbody').on( 'click', ".edit_btn", function () {
         var id=$(this).attr('attrid');
-        location.href = "<?php echo base_url('JobMtn/edit') ?>/"+id;
-    });
-    $('#coderesource_table tbody').on( 'click', ".prog_btn", function () {
-        var jobcode=$(this).attr('attrid');
-        location.href = "<?php echo base_url('JobProg/edit') ?>/"+jobcode;
-    });
-    $('#coderesource_table tbody').on( 'click', ".allocation_btn", function () {
-        var jobcode=$(this).attr('attrid');
-        location.href = "<?php echo base_url('Allocation/edit') ?>/"+jobcode;
+        location.href = "<?php echo base_url('Allocation/edit') ?>/"+id;
     });
 
     function s2ab(s) {

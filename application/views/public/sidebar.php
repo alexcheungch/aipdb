@@ -5,8 +5,8 @@
             'TableAdm' => array('name' => 'Table Administration', 'li' => array(array('TableAdm/liststafflist', 'Table Administration', 'Staff List'), array('TableAdm/listacmgr', 'Table Administration', 'AC Manager List'), array('TableAdm/listdocloc', 'Table Administration', 'Document Location List'), array('TableAdm/listsentoutvia', 'Table Administration', 'Send Out Via List'))),
             'ClientMtn' => array('name' => 'Client Maintenance', 'li' => array(array('ClientMtn', 'Client List', 'list'), array('ClientMtn/create', 'Create new Client', 'Create'))),
             'JobMtn' => array('name' => 'Job Maintenance', 'li' => array(array('JobMtn', 'Job List', 'list'), array('JobMtn/create', 'Create New Job', 'Create'))),
-            'JobProg' => array('name' => 'Job Progress', 'li' => array(array('JobProg', 'Job Progess List', 'list'), array('JobProg/create', 'Create New Job Progress', 'Create'))),
-            'Allocation' => array('name' => 'Allocation', 'li' => array(array('Allocation', 'Allocation List', 'list'), array('Allocation/create', 'Create New Allocation', 'Create'))),
+            'JobProg' => array('name' => 'Job Progress', 'li' => array(array('JobProg', 'Job Progess List', 'list'))),
+            'Allocation' => array('name' => 'Allocation', 'li' => array(array('Allocation', 'Allocation List', 'list'))),
         );
         if (defined('ROLE0')) {
             $ROLE = array(ROLE0, ROLE1, ROLE2, ROLE3, ROLE4, ROLE5, ROLE6, ROLE7);

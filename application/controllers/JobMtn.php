@@ -11,12 +11,14 @@ class JobMtn extends MY_Controller {
 
     public function delete($id = 0) {
         $this->load->model('JobMtn_model');
-        $data = $this->JobMtn_model->get($id);
+        $data = $this->JobMtn_model->get_data($id);
         if (!$data) {
             $this->redirect_msg('刪除的數據不存在');
         }
         $result = $this->JobMtn_model->delete($id);
         if ($result) {
+            $this->load->model('JobProg_model');
+            $this->JobProg_model->delete(array('JobCode' =>$data['JobCode']));
             $this->redirect_msg('刪除成功', 'JobMtn');
         } else {
             $this->redirect_msg('刪除失敗');
@@ -46,9 +48,20 @@ class JobMtn extends MY_Controller {
                 unset($postdata['ID']);
                 $result = $this->JobMtn_model->update_data(array('ID' =>$id), $postdata);
             } else {
-                $result = $this->JobMtn_model->insert($postdata);
+                $jobMtnInfo = $this->JobMtn_model->get_data(array('JobCode' =>$postdata['JobCode']));
+                if ($jobMtnInfo) {
+                    $this->redirect_msg('JobCode 已經存在。');
+                } else {
+                    $result = $this->JobMtn_model->insert($postdata);
+                }
             }
             if ($result) {
+                if (!isset($postdata['ID'])) {
+                    $this->load->model('JobProg_model');
+                    $this->JobProg_model->insert(array('JobCode'=>$postdata['JobCode']));
+                    $this->load->model('Allocation_model');
+                    $this->Allocation_model->insert(array('JobCode'=>$postdata['JobCode']));
+                }
                 $this->redirect_msg('保存成功', 'JobMtn');
             } else {
                 $this->redirect_msg('保存失敗');
