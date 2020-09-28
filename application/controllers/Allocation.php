@@ -30,6 +30,7 @@ class Allocation extends MY_Controller {
         $this->load->model('ListDocLoc_model');
         $this->load->model('ListAcMgr_model');
         $this->load->model('ListSentOutVia_model');
+        $this->load->model('JobProg_model');
         $this_list = $this->ClientMtn_model->get_clients();
         $staffList = $this->ListStaffList_model->get_all();
         $docLoc = $this->ListDocLoc_model->get_all();
@@ -47,6 +48,9 @@ class Allocation extends MY_Controller {
         $this->assign('jobMtn', $jobMtn);
         $clientMtn = $this->ClientMtn_model->get_data(array('ClientCode1'=>$jobMtn['ClientCode1']));
         $this->assign('clientMtn', $clientMtn);
+        $jobProg = $this->JobProg_model->get_data(array('JobCode' => $jobcode));
+        $this->assign('jobProg', $jobProg);
+        $this->assign('jobcode', $jobcode);
         $this->display();
     }
 
@@ -75,11 +79,16 @@ class Allocation extends MY_Controller {
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             $this->load->model('Allocation_model');
             $postdata = $this->input->post(null, true);
-            if (isset($postdata['clientcode1']) && $postdata['clientcode1']) {
-                $result = $this->Allocation_model->update_data(array('clientcode1' => $postdata['clientcode1']), $postdata);
-            } else {
-                $result = $this->Allocation_model->insert($postdata);
+            if (!isset($postdata['JobCode']) || !$postdata['JobCode']) {
+                $this->redirect_msg('缺少JobCode');
             }
+            $job_prog_info = $this->Allocation_model->get_data(array('JobCode'=>$postdata['JobCode']));
+            if (!$job_prog_info) {
+                $this->redirect_msg('JobProg不存在');
+            }
+            $job_code = $postdata['JobCode'];
+            unset($postdata['JobCode']);
+            $result = $this->Allocation_model->update_data(array('JobCode' => $job_code), $postdata);
             if ($result) {
                 $this->redirect_msg('保存成功', 'Allocation');
             } else {

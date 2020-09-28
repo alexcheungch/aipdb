@@ -19,6 +19,8 @@ class JobMtn extends MY_Controller {
         if ($result) {
             $this->load->model('JobProg_model');
             $this->JobProg_model->delete(array('JobCode' =>$data['JobCode']));
+            $this->load->model('Allocation_model');
+            $this->Allocation_model->delete(array('JobCode' =>$data['JobCode']));
             $this->redirect_msg('刪除成功', 'JobMtn');
         } else {
             $this->redirect_msg('刪除失敗');

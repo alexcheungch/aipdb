@@ -45,7 +45,7 @@ $(function () {
         order: [[ 0, "asc" ]],
     });
     $('#coderesource_table tbody').on( 'click', ".delete_btn", function () {
-        if (confirm("刪除此條記錄會連同刪除關聯的JobProg，確認要刪除嗎？")) {
+        if (confirm("刪除此條記錄會連同刪除關聯的JobProg和Allocation，確認要刪除嗎？")) {
             var id=$(this).attr('attrid');
             location.href = "<?php echo base_url('JobMtn/delete') ?>/"+id;
         }
