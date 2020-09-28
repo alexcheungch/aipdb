@@ -23,12 +23,13 @@ class ClientMtn extends MY_Controller {
         }
     }
 
-    public function edit($ClientCode1) {
+    public function edit($id) {
         $this->load->model('ClientMtn_model');
         $this->load->model('ListAcMgr_model');
         $this->load->model('SysParam_model');
         $acMgr = $this->ListAcMgr_model->get_all();
-        $data = $this->ClientMtn_model->getClientByCode($ClientCode1);
+        //$data = $this->ClientMtn_model->getClientByCode($ClientCode1);
+        $data = $this->ClientMtn_model->get($id);
         if (!$data) {
             $this->redirect_msg('修改的數據不存在');
         }
