@@ -36,7 +36,7 @@ class Index extends MY_Controller {
         if ($this->user_info) {
             redirect('/');
         }
-        $this->load->model('admin_model');
+        $this->load->model('ASUser_model');
         $loginname = $this->input->post('admin_loginname');
         $password = $this->input->post('admin_loginpw');
         $post_captcha_word = $this->input->post('captcha_word');
@@ -44,7 +44,7 @@ class Index extends MY_Controller {
         if (strtolower($post_captcha_word) != strtolower($session_captcha_word)) {
             $this->redirect_msg("驗證碼輸入不正確。", '/Index/login');
         }
-        $userinfo = $this->admin_model->login($loginname, $password);
+        $userinfo = $this->ASUser_model->login($loginname, $password);
         if ($userinfo === false) {
             redirect('/Index/login');
         } else {

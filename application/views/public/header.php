@@ -4,7 +4,7 @@
             <a class="logo navbar-logo f-l mr-10 hidden-xs" href="ClientMtn">Job Progress</a>
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
-                    <li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><?php echo $user_info['admin_loginname'];?> <i class="Hui-iconfont">&#xe6d5;</i></a>
+                    <li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><?php echo $user_info['UserName'];?> <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
 <!--                                    <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="#">切换账户</a></li>-->

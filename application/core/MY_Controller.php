@@ -18,7 +18,42 @@ class MY_Controller extends CI_Controller {
             redirect('/index/login');
         }
         $this->assign('user_info', $this->user_info);
-        $this->assign('admin_role', $this->user_info['admin_role']);
+//        $this->assign('admin_role', $this->user_info['admin_role']);
+        $role = array(
+            'clientmtn/edit' => 'UClient',
+            'clientmtn/create' => 'UClient',
+            'clientmtn/delete' => 'UClient',
+            'clientmtn/index' => 'QClient',
+            'jobmtn/edit' => 'UJob',
+            'jobmtn/create' => 'UJob',
+            'jobmtn/delete' => 'UJob',
+            'jobmtn/index' => 'QJob',
+            'jobprog/edit' => 'UJobProg',
+            'jobprog/create' => 'UJobProg',
+            'jobprog/delete' => 'UJobProg',
+            'jobprog/index' => 'QJobProg',
+            'allocation/edit' => 'UAlloc',
+            'allocation/create' => 'UAlloc',
+            'allocation/delete' => 'UAlloc',
+            'allocation/index' => 'QAlloc',
+        );
+        $current_class = strtolower($this->router->class);
+        $current_method = strtolower($this->router->method);
+        if ($current_class != 'index') {
+            if ($current_class == 'tableadm' && $this->user_info['MMenu'] == 0) {
+                $this->redirect_msg('無權限訪問 TableAdm', 'index/logout');
+            }
+            if ($current_class != 'tableadm') {
+                if (!isset($role[$current_class.'/'.$current_method])) {
+                    $this->redirect_msg('未設置權限 '.$current_class.'/'.$current_method, 'index/logout');
+                } else {
+                    $role_field = $role[$current_class.'/'.$current_method];
+                    if (!isset($this->user_info[$role_field]) || $this->user_info[$role_field] == 0) {
+                        $this->redirect_msg('無權限訪問 '.$current_class.'/'.$current_method, 'index/logout');
+                    }
+                }
+            }
+        }
         date_default_timezone_set("Asia/Shanghai");
     }
 
