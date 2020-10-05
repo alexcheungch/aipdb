@@ -3,13 +3,13 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=0" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>School Admin</title>
+        <title>AS DEPT PROGRESS RECORD</title>
         <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
     </head>
     <body style="text-align: center; margin-top: 50px;">
         <div class="container login_box">
             <div class="row" >
-                <h2 style='margin-left:50px;'>賬戶登入</h2>
+                <h2 style='margin-left:50px;'>Login</h2>
                 <?php
                 if (isset($massage) && $massage != '') {
                     echo "<h3 style='color:red; margin-left:50px;'>" . $massage . "</h3>";
@@ -18,19 +18,19 @@
                 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-md-6 col-md-offset-3 col-lg-4 col-lg-offset-4">
                     <form class="form-horizontal" method="post" id="loginform" action="<?php echo base_url('index.php/index/dologin') ?>">
                         <div class="form-group">
-                            <label for="admin_loginname" class="col-sm-3 control-label">賬戶名稱</label>
+                            <label for="admin_loginname" class="col-sm-3 control-label">User ID</label>
                             <div class="col-sm-9">
                                 <input type="text" class="form-control" id="admin_loginname" name="admin_loginname" placeholder="賬戶名稱">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="admin_loginpw" class="col-sm-3 control-label">密碼</label>
+                            <label for="admin_loginpw" class="col-sm-3 control-label">Password</label>
                             <div class="col-sm-9">
                                 <input type="password" class="form-control" id="admin_loginpw" name="admin_loginpw" placeholder="密碼">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="admin_loginpw" class="col-sm-3 control-label">驗證碼</label>
+                            <label for="admin_loginpw" class="col-sm-3 control-label">Captcha</label>
                             <div class="col-sm-3">
                                 <input type="text" class="form-control" id="captcha_word" name="captcha_word" placeholder="驗證碼">
                             </div>
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="button" id="loginbtn" class="btn btn-default btn-response active">登入</button>
+                                <button type="button" id="loginbtn" class="btn btn-default btn-response active">Login</button>
                             </div>
                         </div>
                     </form>
