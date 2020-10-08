@@ -21,8 +21,16 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">JobNature:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="JobNature" id="JobNature" value="<?php echo $data['JobNature'];?>">
-                </div>
+                    <select name="JobNature">
+                         <?php foreach ($sys_param['JobNature'] as $value) {
+                            $select = '';
+                            if ($value == $data['JobNature']) {
+                                $select = 'selected';
+                            }
+                            echo '<option value="'.$value.'" '.$select.'>'.$value.'</option>';
+                        }?>
+                     </select>
+                </div> 
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">JobPeriodFrom:</label>
@@ -75,7 +83,7 @@
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-2 col-sm-2">WorkingDeadline:</label>
+                <label class="form-label col-xs-2 col-sm-2">AS Deadline:</label>
                 <div class="formControls col-xs-3 col-sm-3">
                     <input type="text" class="input-text" name="WorkingDeadline" id="WorkingDeadline" readonly value="<?php echo $data['WorkingDeadline'];?>">
                 </div>
@@ -88,8 +96,8 @@
             </div>
             <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                    <input type="button" id="create_btn" value="保存" class="btn btn-primary radius"/>
-                    <a class="btn btn-primary" href="<?php echo base_url('JobMtn');?>">返回</a>
+                    <input type="button" id="create_btn" value="Save" class="btn btn-primary radius"/>
+                    <a class="btn btn-primary" href="<?php echo base_url('JobMtn');?>">Cancel</a>
                 </div>
             </div>
             <!-- <div class="row cl">
@@ -117,11 +125,6 @@ $(function () {
         let ClientCode1 = $.trim($("#ClientCode1").val());
         if (!ClientCode1) {
             alert("請填寫 ClientCode1");
-            return false;
-        }
-        let JobNature = $.trim($("#JobNature").val());
-        if (!JobNature) {
-            alert("請填寫 JobNature");
             return false;
         }
         let JobPeriodTo = $.trim($("#JobPeriodTo").val());

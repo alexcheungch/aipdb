@@ -16,6 +16,7 @@ class JobProg extends MY_Controller {
         $this->load->model('ListAcMgr_model');
         $this->load->model('ListSentOutVia_model');
         $this->load->model('ClientMtn_model');
+        $this->load->model('SysParam_model');
         $this_list = $this->ClientMtn_model->get_clients();
         $staffList = $this->ListStaffList_model->get_all();
         $docLoc = $this->ListDocLoc_model->get_all();
@@ -28,6 +29,13 @@ class JobProg extends MY_Controller {
         $this->assign('sentOutVia', $sentOutVia);
         $data = $this->JobProg_model->getfullJob($jobcode);
         $this->assign('data', $data);
+        $result = $this->SysParam_model->get_all_data();
+        $sys_param = array();
+        foreach ($result as $value) {
+            $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $value['ParamValue']);
+            $sys_param[$value['ParamType']] = explode(',', $param_value);
+        }
+        $this->assign('sys_param', $sys_param);
         $this->assign('jobcode', $jobcode);
         $this->display();
     }

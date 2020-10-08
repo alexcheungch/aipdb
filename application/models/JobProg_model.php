@@ -12,6 +12,7 @@ class JobProg_model extends MY_Basemodel {
     public function getfullJob($jobcode)
     {
     return $this->join('JobMtn', 'JobMtn.JobCode = JobProg.JobCode') 
+         ->join('ClientMtn', 'JobMtn.ClientCode1 = ClientMtn.ClientCode1')
          ->where('JobCode', $jobcode)
          ->get();
     }

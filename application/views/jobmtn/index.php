@@ -14,7 +14,7 @@
                     <td>RecordDate</td>
                     <td>ClientCode1</td>
                     <td>JobNature</td>
-                    <td>操作</td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
@@ -27,9 +27,9 @@
                     <td><?php echo $JobMtn['ClientCode1'];?></td>
                     <td><?php echo $JobMtn['JobNature'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobMtn['ID'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $JobMtn['ID'];?>">刪除</button>
-                        <button class="btn btn-default prog_btn"   type="button"  attrid="<?php echo $JobMtn['JobCode'];?>">工作進程</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobMtn['ID'];?>">Edit</button>
+                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $JobMtn['ID'];?>">Delete</button>
+                        <button class="btn btn-default prog_btn"   type="button"  attrid="<?php echo $JobMtn['JobCode'];?>">Job Progress</button>
                         <button class="btn btn-default allocation_btn"   type="button"  attrid="<?php echo $JobMtn['JobCode'];?>">Allocation</button>
                     </td>
                 </tr>

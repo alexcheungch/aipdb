@@ -91,11 +91,11 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" value="<?php if ($data['MSPctI'] != '') {echo $data['MSPctI'].'%';}?>" name="MSPctI" id="MSPctI">
+                    <input type="text" class="input-text" value="<?php if (($data['MSPctI'] != '') && ($data['MSPctI'] != '0')) {echo $data['MSPctI'].'%';} else {echo '5%'; } ?>" name="MSPctI" id="MSPctI">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" value="<?php if ($data['MSPctII'] != '') {echo $data['MSPctII'].'%';}?>" name="MSPctII" id="MSPctII">
+                    <input type="text" class="input-text" value="<?php if (($data['MSPctII'] != '') && ($data['MSPctII'] != '0')) {echo $data['MSPctII'].'%';} else {echo '0%'; } ?>" name="MSPctII" id="MSPctII">
                 </div>
             </div>
             <div class="row cl">
@@ -122,7 +122,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Overall Bonus%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" value="<?php if ($data['SIBSOverallPct'] != '') {echo $data['SIBSOverallPct'].'%';}?>" name="SIBSOverallPct">
+                    <input type="text" class="input-text" value="<?php if (($data['SIBSOverallPct'] != '') && ($data['SIBSOverallPct'] != '0')) {echo $data['SIBSOverallPct'].'%';} else {echo '30%'; } ?>" name="SIBSOverallPct">
                 </div>
             </div>
         
@@ -153,40 +153,38 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Entitled % | Set:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>">
+                                    <input type="text" class="input-text" value="<?php if (($data['SIBSS1SetPct'] != '') && ($data['SIBSS1SetPct'] != '0')) {echo $data['SIBSS1SetPct'].'%';} else {echo '11%'; } ?>" name="SIBSS1SetPct" id="SIBSS1SetPct">                                    
                                 </div>
                             </div>
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">| Adj:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS1AdjPct" value="<?php echo $data['SIBSS1AdjPct'];?>">
+                                    <input type="text" class="input-text" value="<?php if (($data['SIBSS1AdjPct'] != '') && ($data['SIBSS1AdjPct'] != '0')) {echo $data['SIBSS1AdjPct'].'%';} else {echo '-1%'; } ?>" name="SIBSS1AdjPct" id="SIBSS1AdjPct">                  
                                 </div>
                             </div>
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">CS Factor:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS1CSFtr" value="<?php echo $data['SIBSS1CSFtr'];?>">
+                                    <input type="text" class="input-text" value="<?php if (($data['SIBSS1CSFtr'] != '') && ($data['SIBSS1CSFtr'] != '0')) {echo $data['SIBSS1CSFtr'];} else {echo '1'; } ?>" name="SIBSS1CSFtr" id="SIBSS1CSFtr">                  
                                 </div>
                             </div>
+                            <div class="row cl">
+                                <label class="form-label col-xs-2 col-sm-2">Entitled Amount</label>
+                                <div class="formControls col-xs-3 col-sm-3">
+                                    <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>">
+                                </div>
+                            </div> 
+                            <br />
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Paid Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
                                     <input type="text" class="input-text need_date" name="SIBSS1PaidDate" value="<?php echo $data['SIBSS1PaidDate'];?>" readonly>
                                 </div>
                             </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2"></label>
-                                <div class="formControls col-xs-10 col-sm-10">                                
-                                    <label>
-                                        <input type="checkbox" name="SIBSS1SetPct" value="1" <?php if ($data['SIBSS1SetPct'] == 1) {echo 'checked';}?>> S1 ok
-                                    </label>
-                                </div>
-                            </div>
-                        </div>   
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_1" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_1" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('Allocation');?>" style="color: #fff;">Cancel</a>
                             </div>
                         </div>
                     </div>
