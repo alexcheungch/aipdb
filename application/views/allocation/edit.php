@@ -135,7 +135,7 @@
                         <li><a href="#tab1" data-toggle="tab">Part 1</a></li>
                         <li><a href="#tab2" data-toggle="tab">Part 2</a></li>
                         <li><a href="#tab3" data-toggle="tab">Part 3</a></li>
-                        <li><a href="#tab4" data-toggle="tab">PRemarks</a></li>
+                        <li><a href="#tab4" data-toggle="tab">Remarks</a></li>
                     </ul>
                 </div>
                 <div class="tab-content">
@@ -328,14 +328,6 @@
                                 </div>
                             </div>
                             <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2"></label>
-                                <div class="formControls col-xs-10 col-sm-10">                                
-                                    <label>
-                                        <input type="checkbox" name="SIBSS3SetPct" value="1" <?php if ($data['SIBSS3SetPct'] == 1) {echo 'checked';}?>> P2 ok
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row cl">
                                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                                     <input type="button" id="create_btn_3" value="Save" class="btn btn-primary radius"/>
                                     <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
@@ -417,14 +409,6 @@
                             </div>
                         </div>
                         <div class="row cl">
-                            <label class="form-label col-xs-2"></label>
-                            <div class="formControls col-xs-10">                                
-                                <label>
-                                    <input type="checkbox" name="SIBSS5SetPct" value="1" <?php if ($data['SIBSS5SetPct'] == 1) {echo 'checked';}?>> P3 ok
-                                </label>
-                            </div>
-                        </div>
-                        <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
                                 <input type="button" id="create_btn_5" value="Save" class="btn btn-primary radius"/>
                                 <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
@@ -437,14 +421,6 @@
                                 <label class="form-label col-xs-2 col-sm-2">Packed Up:</label>
                                 <div class="formControls col-xs-10 col-sm-10">
                                     <textarea class="input-textarea" rows="6" name="MSSIBSRemarks"><?php echo $data['MSSIBSRemarks'];?></textarea>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2"></label>
-                                <div class="formControls col-xs-10 col-sm-10">                                
-                                    <label>
-                                        <input type="checkbox"> PRemarks ok
-                                    </label>
                                 </div>
                             </div>
                             <div class="row cl">
