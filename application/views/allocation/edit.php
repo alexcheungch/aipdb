@@ -132,12 +132,10 @@
             <div id="rootwizard">
                 <div class="cm-step">
                     <ul>
-                        <li><a href="#tab1" data-toggle="tab">Step1</a></li>
-                        <li><a href="#tab2" data-toggle="tab">Step2</a></li>
-                        <li><a href="#tab3" data-toggle="tab">Step3</a></li>
-                        <li><a href="#tab4" data-toggle="tab">Step4</a></li>
-                        <li><a href="#tab5" data-toggle="tab">Step5</a></li>
-                        <li><a href="#tab6" data-toggle="tab">Step6</a></li>
+                        <li><a href="#tab1" data-toggle="tab">Part 1</a></li>
+                        <li><a href="#tab2" data-toggle="tab">Part 2</a></li>
+                        <li><a href="#tab3" data-toggle="tab">Part 3</a></li>
+                        <li><a href="#tab4" data-toggle="tab">PRemarks</a></li>
                     </ul>
                 </div>
                 <div class="tab-content">
@@ -333,7 +331,7 @@
                                 <label class="form-label col-xs-2 col-sm-2"></label>
                                 <div class="formControls col-xs-10 col-sm-10">                                
                                     <label>
-                                        <input type="checkbox" name="SIBSS3SetPct" value="1" <?php if ($data['SIBSS3SetPct'] == 1) {echo 'checked';}?>> S2 ok
+                                        <input type="checkbox" name="SIBSS3SetPct" value="1" <?php if ($data['SIBSS3SetPct'] == 1) {echo 'checked';}?>> P2 ok
                                     </label>
                                 </div>
                             </div>
@@ -422,7 +420,7 @@
                             <label class="form-label col-xs-2"></label>
                             <div class="formControls col-xs-10">                                
                                 <label>
-                                    <input type="checkbox" name="SIBSS5SetPct" value="1" <?php if ($data['SIBSS5SetPct'] == 1) {echo 'checked';}?>> S3 ok
+                                    <input type="checkbox" name="SIBSS5SetPct" value="1" <?php if ($data['SIBSS5SetPct'] == 1) {echo 'checked';}?>> P3 ok
                                 </label>
                             </div>
                         </div>
@@ -436,104 +434,6 @@
                     <div class="tab-pane" id="tab4">
                         <div class="form form-horizontal">
                             <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Staff:</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <select class="select_staff" id="jobProg_5">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Entitled % | Set:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS4EntitledAmount" value="<?php echo $data['SIBSS4EntitledAmount'];?>" disabled>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">| Adj:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS4AdjPct" value="<?php echo $data['SIBSS4AdjPct'];?>">
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">CS Factor:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS4CSFtr" value="<?php echo $data['SIBSS4CSFtr'];?>">
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Paid Date:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="SIBSS4PaidDate" value="<?php echo $data['SIBSS4PaidDate'];?>" readonly>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2"></label>
-                                <div class="formControls col-xs-10 col-sm-10">                                
-                                    <label>
-                                        <input type="checkbox" name="SIBSS4SetPct" value="1" <?php if ($data['SIBSS4SetPct'] == 1) {echo 'checked';}?>> S4 ok
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_4" value="Save" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab5">
-                        <div class="form form-horizontal">
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Staff:</label>
-                                <div class="formControls col-xs-10 col-sm-10">
-                                    <select class="select_staff">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Entitled % | Set:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS5EntitledAmount" value="<?php echo $data['SIBSS5EntitledAmount'];?>" disabled>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">| Adj:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS5AdjPct" value="<?php echo $data['SIBSS5AdjPct'];?>">
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">CS Factor:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS5CSFtr" value="<?php echo $data['SIBSS5CSFtr'];?>">
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Paid Date:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="SIBSS5PaidDate" value="<?php echo $data['SIBSS5PaidDate'];?>" readonly>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2"></label>
-                                <div class="formControls col-xs-10 col-sm-10">                                
-                                    <label>
-                                        <input type="checkbox" name="SIBSS5SetPct" value="1" <?php if ($data['SIBSS5SetPct'] == 1) {echo 'checked';}?>> S5 ok
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_5" value="Save" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="tab-pane" id="tab6">
-                        <div class="form form-horizontal">
-                            <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Packed Up:</label>
                                 <div class="formControls col-xs-10 col-sm-10">
                                     <textarea class="input-textarea" rows="6" name="MSSIBSRemarks"><?php echo $data['MSSIBSRemarks'];?></textarea>
@@ -543,7 +443,7 @@
                                 <label class="form-label col-xs-2 col-sm-2"></label>
                                 <div class="formControls col-xs-10 col-sm-10">                                
                                     <label>
-                                        <input type="checkbox"> S6 ok
+                                        <input type="checkbox"> PRemarks ok
                                     </label>
                                 </div>
                             </div>
