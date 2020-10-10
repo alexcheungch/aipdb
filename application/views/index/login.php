@@ -9,6 +9,7 @@
     <body style="text-align: center; margin-top: 50px;">
         <div class="container login_box">
             <div class="row" >
+                <div class="text-center"><img src="<?php echo base_url('images/logo1.png'); ?>" height="50"></div>
                 <h2 style='margin-left:50px;'>Login</h2>
                 <?php
                 if (isset($massage) && $massage != '') {

@@ -1,7 +1,7 @@
 <header class="navbar-wrapper">
     <div class="navbar navbar-fixed-top">
         <div class="container-fluid cl"> 
-            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="ClientMtn">AS DEPT PROGRESS RECORD</a>
+            <a class="logo navbar-logo f-l mr-10 hidden-xs" href="ClientMtn"><img src="<?php echo base_url('images/logo1.png'); ?>" height="30"></a>
             <nav id="Hui-userbar" class="nav navbar-nav navbar-userbar hidden-xs">
                 <ul class="cl">
                     <li class="dropDown dropDown_hover"> <a href="#" class="dropDown_A"><?php echo $user_info['UserName'];?> <i class="Hui-iconfont">&#xe6d5;</i></a>
