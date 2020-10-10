@@ -162,16 +162,18 @@
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
                                             <!-- <input type="text" class="input-text" value="<?php if (($data['SIBSS1AdjPct'] != '') && ($data['SIBSS1AdjPct'] != '0')) {echo $data['SIBSS1AdjPct'].'%';} else {echo '-1%'; } ?>" name="SIBSS1AdjPct" id="SIBSS1AdjPct">                   -->
-                                            <select class="select_staff" id="">
-                                                <option>-2%</option>
-                                                <option>-1.5%</option>
-                                                <option>-1%</option>
-                                                <option>-0.5%</option>
-                                                <option>0</option>
-                                                <option>+0.5%</option>
-                                                <option>+1%</option>
-                                                <option>+1.5%</option>
-                                                <option>+2%</option>
+                                            <select class="select_staff" id="setp1_Adj_l">
+                                                <option value="-2.5%">-2.5%</option>
+                                                <option value="-2%">-2%</option>
+                                                <option value="-1.5%">-1.5%</option>
+                                                <option value="-1%">-1%</option>
+                                                <option value="-0.5%">-0.5%</option>
+                                                <option value="0%" selected>0%</option>
+                                                <option value="+0.5%">+0.5%</option>
+                                                <option value="+1%">+1%</option>
+                                                <option value="+1.5%">+1.5%</option>
+                                                <option value="+2%">+2%</option>
+                                                <option value="+2.5%">+2.5%</option>
                                             </select>
                                         </div>
                                     </div>
@@ -179,10 +181,10 @@
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
                                             <!-- <input type="text" class="input-text" value="<?php if (($data['SIBSS1CSFtr'] != '') && ($data['SIBSS1CSFtr'] != '0')) {echo $data['SIBSS1CSFtr'];} else {echo '1'; } ?>" name="SIBSS1CSFtr" id="SIBSS1CSFtr">                   -->
-                                            <select class="select_staff" id="">
+                                            <select class="select_staff" id="step1_CSFactor_l">
                                                 <option>0.9</option>
                                                 <option>0.95</option>
-                                                <option>1</option>
+                                                <option selected>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
                                                 <option>1.125</option>
@@ -192,20 +194,13 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled Amount</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>">
+                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>" id="step1_EntitledAmount_l">
                                         </div>
-                                    </div> 
-                                    <br />
+                                    </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text need_date" name="SIBSS1PaidDate" value="<?php echo $data['SIBSS1PaidDate'];?>" readonly>
-                                        </div>
-                                    </div>
-                                    <div class="row cl">
-                                        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                            <input type="button" id="create_btn_1" value="Save" class="btn btn-primary radius"/>
-                                            <a class="btn btn-primary" href="<?php echo base_url('Allocation');?>" style="color: #fff;">Cancel</a>
                                         </div>
                                     </div>
                                 </div>
@@ -229,46 +224,54 @@
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
                                             <!-- <input type="text" class="input-text" name="SIBSS2AdjPct" value="<?php echo $data['SIBSS2AdjPct'];?>"> -->
-                                            <select class="select_staff" id="">
-                                                <option>-2%</option>
-                                                <option>-1.5%</option>
-                                                <option>-1%</option>
-                                                <option>-0.5%</option>
-                                                <option>0</option>
-                                                <option>+0.5%</option>
-                                                <option>+1%</option>
-                                                <option>+1.5%</option>
-                                                <option>+2%</option>
+                                            <select class="select_staff" id="setp1_Adj_r">
+                                                <option value="-2.5%">-2.5%</option>
+                                                <option value="-2%">-2%</option>
+                                                <option value="-1.5%">-1.5%</option>
+                                                <option value="-1%">-1%</option>
+                                                <option value="-0.5%">-0.5%</option>
+                                                <option value="0%" selected>0%</option>
+                                                <option value="+0.5%">+0.5%</option>
+                                                <option value="+1%">+1%</option>
+                                                <option value="+1.5%">+1.5%</option>
+                                                <option value="+2%">+2%</option>
+                                                <option value="+2.5%">+2.5%</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS2CSFtr" value="<?php echo $data['SIBSS2CSFtr'];?>">
+                                            <!-- <input type="text" class="input-text" name="SIBSS2CSFtr" value="<?php echo $data['SIBSS2CSFtr'];?>"> -->
+                                            <select class="select_staff" id="step1_CSFactor_r">
+                                                <option>0.9</option>
+                                                <option>0.95</option>
+                                                <option selected>1</option>
+                                                <option>1.05</option>
+                                                <option>1.1</option>
+                                                <option>1.125</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled Amount</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>" id="step1_EntitledAmount_r">
+                                        </div>
+                                    </div> 
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text need_date" name="SIBSS2PaidDate" value="<?php echo $data['SIBSS2PaidDate'];?>" readonly>
                                         </div>
                                     </div>
-                                    <div class="row cl">
-                                        <label class="form-label col-xs-4"></label>
-                                        <div class="formControls col-xs-8">                                
-                                            <label>
-                                                <input type="checkbox" name="SIBSS2SetPct" value="1" <?php if ($data['SIBSS2SetPct'] == 1) {echo 'checked';}?>> S2 ok
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row cl">
-                                        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                            <input type="button" id="create_btn" value="保存" class="btn btn-primary radius"/>
-                                            <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>     
+                        </div>                       
+                        <div class="row cl">
+                            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                                <input type="button" id="create_btn" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -330,14 +333,14 @@
                                 <label class="form-label col-xs-2 col-sm-2"></label>
                                 <div class="formControls col-xs-10 col-sm-10">                                
                                     <label>
-                                        <input type="checkbox" name="SIBSS3SetPct" value="1" <?php if ($data['SIBSS3SetPct'] == 1) {echo 'checked';}?>> S3 ok
+                                        <input type="checkbox" name="SIBSS3SetPct" value="1" <?php if ($data['SIBSS3SetPct'] == 1) {echo 'checked';}?>> S2 ok
                                     </label>
                                 </div>
                             </div>
                             <div class="row cl">
                                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_3" value="保存" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                    <input type="button" id="create_btn_3" value="Save" class="btn btn-primary radius"/>
+                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -377,20 +380,6 @@
                                             <input type="text" class="input-text need_date" name="SIBSS4PaidDate" value="<?php echo $data['SIBSS4PaidDate'];?>" readonly>
                                         </div>
                                     </div>
-                                    <div class="row cl">
-                                        <label class="form-label col-xs-4"></label>
-                                        <div class="formControls col-xs-8">                                
-                                            <label>
-                                                <input type="checkbox" name="SIBSS4SetPct" value="1" <?php if ($data['SIBSS4SetPct'] == 1) {echo 'checked';}?>> S4 ok
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row cl">
-                                        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                            <input type="button" id="create_btn_4" value="保存" class="btn btn-primary radius"/>
-                                            <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="col-xs-12 col-sm-6">
@@ -426,21 +415,21 @@
                                             <input type="text" class="input-text need_date" name="SIBSS5PaidDate" value="<?php echo $data['SIBSS5PaidDate'];?>" readonly>
                                         </div>
                                     </div>
-                                    <div class="row cl">
-                                        <label class="form-label col-xs-4"></label>
-                                        <div class="formControls col-xs-8">                                
-                                            <label>
-                                                <input type="checkbox" name="SIBSS5SetPct" value="1" <?php if ($data['SIBSS5SetPct'] == 1) {echo 'checked';}?>> S5 ok
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="row cl">
-                                        <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                            <input type="button" id="create_btn_5" value="保存" class="btn btn-primary radius"/>
-                                            <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
-                                        </div>
-                                    </div>
                                 </div>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <label class="form-label col-xs-2"></label>
+                            <div class="formControls col-xs-10">                                
+                                <label>
+                                    <input type="checkbox" name="SIBSS5SetPct" value="1" <?php if ($data['SIBSS5SetPct'] == 1) {echo 'checked';}?>> S3 ok
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row cl">
+                            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+                                <input type="button" id="create_btn_5" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -487,8 +476,8 @@
                             </div>
                             <div class="row cl">
                                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_4" value="保存" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                    <input type="button" id="create_btn_4" value="Save" class="btn btn-primary radius"/>
+                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -536,8 +525,8 @@
                             </div>
                             <div class="row cl">
                                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_5" value="保存" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                    <input type="button" id="create_btn_5" value="Save" class="btn btn-primary radius"/>
+                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -560,8 +549,8 @@
                             </div>
                             <div class="row cl">
                                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_6" value="保存" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                    <input type="button" id="create_btn_6" value="Save" class="btn btn-primary radius"/>
+                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -586,7 +575,7 @@ $(function () {
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
     $("input[id^='create_btn_']").click(function () {
         $("#Allocation_form").submit();        
@@ -698,4 +687,51 @@ for(var i=0; i<acMgr.length; i++){
 $(".AC_Manager").html(ACManagerHtml);
 
 $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
+
+$("#setp1_Adj_l").change(function(){
+    var value=$(this).val();
+    adj_public('setp1_Adj_r',value);
+});
+$("#setp1_Adj_r").change(function(){
+    var value=$(this).val();
+    adj_public('setp1_Adj_l',value);
+});
+function adj_public(id,value){
+    if(value == '-2.5%'){
+        $("#"+id).val('+2.5%');
+    }else if(value == '-2%'){
+        $("#"+id).val('+2%');
+    }else if(value == '-1.5%'){
+        $("#"+id).val('+1.5%');
+    }else if(value == '-1%'){
+        $("#"+id).val('+1%');
+    }else if(value == '-0.5%'){
+        $("#"+id).val('+0.5%');
+    }else if(value == '0%'){
+        $("#"+id).val('0%');
+    }else if(value == '+0.5%'){
+        $("#"+id).val('-0.5%');
+    }else if(value == '+1%'){
+        $("#"+id).val('-1%');
+    }else if(value == '+1.5%'){
+        $("#"+id).val('-1.5%');
+    }else if(value == '+2%'){
+        $("#"+id).val('-2%');
+    }else if(value == '+2.5%'){
+        $("#"+id).val('-2.5%');
+    }
+
+    EntitledAmount_l();
+}
+$("#step1_CSFactor_l").change(function(){
+    EntitledAmount_l();
+});
+
+function EntitledAmount_l(){
+    var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
+    var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
+    var CSFactor=$("#step1_CSFactor_l").val();
+    var value=(1000 * (Entitled - Adj) * CSFactor).toFixed(2);
+    $("#step1_EntitledAmount_l").val(value);
+}
 </script>
