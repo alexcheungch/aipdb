@@ -34,10 +34,26 @@ class JobMtn extends MY_Controller {
             $this->redirect_msg('修改的數據不存在');
         }
         $this->assign('data', $data);
+        $this->load->model('SysParam_model');
+        $result = $this->SysParam_model->get_all_data();
+        $sys_param = array();
+        foreach ($result as $value) {
+            $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $value['ParamValue']);
+            $sys_param[$value['ParamType']] = explode(',', $param_value);
+        }
+        $this->assign('sys_param', $sys_param);
         $this->display();
     }
 
     public function create() {
+        $this->load->model('SysParam_model');
+        $result = $this->SysParam_model->get_all_data();
+        $sys_param = array();
+        foreach ($result as $value) {
+            $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $value['ParamValue']);
+            $sys_param[$value['ParamType']] = explode(',', $param_value);
+        }
+        $this->assign('sys_param', $sys_param);
         $this->display();
     }
 
