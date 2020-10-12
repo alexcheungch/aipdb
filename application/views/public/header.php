@@ -8,6 +8,7 @@
                         <ul class="dropDown-menu menu radius box-shadow">
 <!--                                    <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
                             <li><a href="#">切换账户</a></li>-->
+                            <li><a href="javascript:void(0);" onClick="changePW()">Change password</a></li>
                             <li><a href="<?php echo base_url('index.php/index/logout'); ?>">Logout</a></li>
                         </ul>
                     </li>
@@ -26,4 +27,44 @@
             </nav>
         </div>
     </div>
+
+    <div class="modal fade" id="myModalChangePW" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Change password</h4>
+            </div>
+            <div class="modal-body clearfix">
+                <form class="form-horizontal">
+                    <div class="form-group col-sm-12">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Old password">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="New password">
+                        </div>
+                    </div>
+                    <div class="form-group col-sm-12">
+                        <div class="col-sm-12">
+                            <input type="email" class="form-control" id="inputEmail3" placeholder="Repeat new password">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save</button>
+            </div>
+            </div>
+        </div>
+    </div>
 </header>
+
+<script>
+    function changePW(){
+        $("#myModalChangePW").modal("show");
+    }
+</script>

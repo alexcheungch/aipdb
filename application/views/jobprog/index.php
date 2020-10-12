@@ -32,14 +32,61 @@
                 <tr>
                     <td><?php echo $JobProgMtn['ID'];?></td>
                     <td><?php echo $JobProgMtn['JobCode'];?></td>
-                    <td><?php echo $JobProgMtn['S1DCok'];?></td><td><?php echo $JobProgMtn['S1DCStaff'];?></td>
-                    <td><?php echo $JobProgMtn['S2DDok'];?></td><td><?php echo $JobProgMtn['S2DDStaff'];?></td>
-                    <td><?php echo $JobProgMtn['S3ACok'];?></td><td><?php echo $JobProgMtn['S3ACStaff1'];?></td>
-                    <td><?php echo $JobProgMtn['S4FSRok'];?></td><td><?php echo $JobProgMtn['S4FSRStaff'];?></td>
-                    <td><?php echo $JobProgMtn['S5FSFok'];?></td><td><?php echo $JobProgMtn['S5FSFDNIssuedBy'];?></td>
-                    <td><?php echo $JobProgMtn['S6DFok'];?></td><td><?php echo $JobProgMtn['S6DFFiledStaff'];?></td>
-                    <td><?php echo $JobProgMtn['SRDRok'];?></td>
-                   
+                    <td>
+                        <?php if($JobProgMtn['S1DCok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['S1DCok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>
+                    <td><?php echo $JobProgMtn['S1DCStaff'];?></td>
+                    <td>
+                        <?php if($JobProgMtn['S2DDok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['S2DDok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>
+                    <td><?php echo $JobProgMtn['S2DDStaff'];?></td>
+                    <td>
+                        <?php if($JobProgMtn['S3ACok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['S3ACok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>
+                    <td><?php echo $JobProgMtn['S3ACStaff1'];?></td>
+                    <td>
+                        <?php if($JobProgMtn['S4FSRok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['S4FSRok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>
+                    <td><?php echo $JobProgMtn['S4FSRStaff'];?></td>
+                    <td>
+                        <?php if($JobProgMtn['S5FSFok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['S5FSFok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>
+                    <td><?php echo $JobProgMtn['S5FSFDNIssuedBy'];?></td>
+                    <td>
+                        <?php if($JobProgMtn['S6DFok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['S6DFok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>
+                    <td><?php echo $JobProgMtn['S6DFFiledStaff'];?></td>
+                    <td>
+                        <?php if($JobProgMtn['SRDRok']==0):?>
+                            <span class="step_info"></span>
+                            <?php elseif($JobProgMtn['SRDRok']==1):?>
+                            <span class="step_info success_info"></span>
+                        <?php endif;?>
+                    </td>                   
                     <td>
                         <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobProgMtn['JobCode'];?>">Edit</button>
                     </td>
