@@ -110,7 +110,7 @@ $(function () {
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
     $("#create_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());
