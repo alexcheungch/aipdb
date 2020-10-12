@@ -36,27 +36,27 @@
                 <h4 class="modal-title" id="myModalLabel">Change password</h4>
             </div>
             <div class="modal-body clearfix">
-                <form class="form-horizontal">
+                <form class="form-horizontal" method="post" action="<?php echo base_url('index.php/index/changepw');?>" id="change_pw_form">
                     <div class="form-group col-sm-12">
                         <div class="col-sm-12">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Old password">
+                            <input type="password" class="form-control" id="old_password" name="old_password" placeholder="Old password">
                         </div>
                     </div>
                     <div class="form-group col-sm-12">
                         <div class="col-sm-12">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="New password">
+                            <input type="password" class="form-control" id="new_password1" name="new_password1" placeholder="New password">
                         </div>
                     </div>
                     <div class="form-group col-sm-12">
                         <div class="col-sm-12">
-                            <input type="email" class="form-control" id="inputEmail3" placeholder="Repeat new password">
+                            <input type="password" class="form-control" id="new_password2" name="new_password2" placeholder="Repeat new password">
                         </div>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save</button>
+                <button type="button" class="btn btn-primary" id="btn_save_pw">Save</button>
             </div>
             </div>
         </div>
@@ -67,4 +67,20 @@
     function changePW(){
         $("#myModalChangePW").modal("show");
     }
+    $(function () {
+        $("#btn_save_pw").click(function () {
+            var old_pw = $.trim($("#old_password").val());
+            var new_pw1 = $.trim($("#new_password1").val());
+            var new_pw2 = $.trim($("#new_password2").val());
+            if (!old_pw || !new_pw1 || !new_pw2) {
+                alert("請填寫所有項");
+                return;
+            }
+            if (new_pw1 != new_pw2) {
+                alert("兩次輸入的新密碼不一致");
+                return;
+            }
+            $("#change_pw_form").submit();
+        });
+    });
 </script>
