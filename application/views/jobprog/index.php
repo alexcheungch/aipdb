@@ -2,7 +2,7 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.dataTables.min.js') ?>"></script>
 <nav class="breadcrumb">
     <i class="Hui-iconfont"></i> 
-    <a href="<?php echo base_url('/') ?>" class="maincolor">Client</a> 
+    <a href="<?php echo base_url('/') ?>" class="maincolor">Job Progress</a> 
     <span class="c-999 en">&gt;</span>
     <span class="c-666">List</span>
 </nav>
@@ -14,8 +14,14 @@
                 <tr>
                     <td>ID</td>
                     <td>JobCode</td>
-                    <td>S1DCDocRequestVia</td>
-                    <td>操作</td>
+                    <td colspan=2>S1 </td>
+                    <td colspan=2>S2 </td>
+                    <td colspan=2>S3 </td>
+                    <td colspan=2>S4 </td>
+                    <td colspan=2>S5 </td>
+                    <td colspan=2>S6 </td>
+                    <td>SR </td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
@@ -26,9 +32,16 @@
                 <tr>
                     <td><?php echo $JobProgMtn['ID'];?></td>
                     <td><?php echo $JobProgMtn['JobCode'];?></td>
-                    <td><?php echo $JobProgMtn['S1DCDocRequestVia'];?></td>
+                    <td><?php echo $JobProgMtn['S1DCok'];?></td><td><?php echo $JobProgMtn['S1DCStaff'];?></td>
+                    <td><?php echo $JobProgMtn['S2DDok'];?></td><td><?php echo $JobProgMtn['S2DDStaff'];?></td>
+                    <td><?php echo $JobProgMtn['S3ACok'];?></td><td><?php echo $JobProgMtn['S3ACStaff1'];?></td>
+                    <td><?php echo $JobProgMtn['S4FSRok'];?></td><td><?php echo $JobProgMtn['S4FSRStaff'];?></td>
+                    <td><?php echo $JobProgMtn['S5FSFok'];?></td><td><?php echo $JobProgMtn['S5FSFDNIssuedBy'];?></td>
+                    <td><?php echo $JobProgMtn['S6DFok'];?></td><td><?php echo $JobProgMtn['S6DFFiledStaff'];?></td>
+                    <td><?php echo $JobProgMtn['SRDRok'];?></td>
+                   
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobProgMtn['JobCode'];?>">編輯</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobProgMtn['JobCode'];?>">Edit</button>
                     </td>
                 </tr>
             <?php }}?>
