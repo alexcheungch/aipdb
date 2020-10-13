@@ -97,7 +97,7 @@
             </div>
            <label class="form-label col-xs-2 col-sm-2">| Proposed Fee</label>
             <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationProposedFee'];?>
+                <div id="QuotationProposedFee"></div>
             </div>
         </div>
         <div class="row cl">
@@ -107,7 +107,7 @@
             </div>
             <label class="form-label col-xs-2 col-sm-2">| Agreed Fee</label>
             <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationAgreedFee'];?>
+                <div id="QuotationAgreedFee"></div>
             </div>
         </div>
         <div class="row cl">
@@ -582,7 +582,7 @@ $(function () {
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
     $("input[id^='create_btn_']").click(function () {
 //        let ClientCode1 = $.trim($("#ClientCode1").val());
@@ -599,7 +599,17 @@ var acMgr     = <?php echo json_encode($acMgr); ?>;
 var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
 var clientList= <?php echo json_encode($clientList); ?>;  
 var DDOfficeHandled =   <?php echo json_encode($sys_param['S2DDOfficeHandled']); ?>; 
-var DDDocTsfvia =   <?php echo json_encode($sys_param['S2DDDocTsfvia']); ?>; 
+var DDDocTsfvia =   <?php echo json_encode($sys_param['S2DDDocTsfvia']); ?>;
+
+$("#QuotationProposedFee").html(formatFee(<?php echo $data['QuotationProposedFee'];?>));
+$("#QuotationAgreedFee").html(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
+
+function formatFee(value){
+    return value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+}
 
 var clientCode=[];
 for(var i=0; i<clientList.length; i++){

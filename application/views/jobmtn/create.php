@@ -40,7 +40,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">OfficialDeadline:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="OfficialDeadline" id="OfficialDeadline" readonly>
+                    <input type="text" class="input-text" name="OfficialDeadline" id="OfficialDeadline" value="2020-10-31" readonly>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">JobNo:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -109,13 +109,68 @@
 <script>
 var uploadurl ="";
 $(function () {
-    $("#RecordDate,#JobPeriodFrom,#JobPeriodTo,#OfficialDeadline,#QuotationSentDate,#QuotationConfirmedDate,#WorkingDeadline,#JobDeadline").datetimepicker({
+    $("#RecordDate,#JobPeriodFrom,#JobPeriodTo,#QuotationSentDate,#QuotationConfirmedDate,#JobDeadline").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
+
+    $("#OfficialDeadline").datetimepicker({
+        todayBtn: 1,
+        startView: 2,
+        minView: 2,
+        autoclose: 1,
+        format: 'yyyy-mm-dd'
+    }).on('change',function(e){
+        var OfficialDeadline=$("#OfficialDeadline").val();
+        var date = new Date(OfficialDeadline.replace(/-/g, '/'));
+        var newDate=addDate(date,-59);
+        $("#WorkingDeadline").val(newDate);
+    });
+
+    var OfficialDeadline=$("#OfficialDeadline").val();
+    var date = new Date(OfficialDeadline.replace(/-/g, '/'));
+    var newDate=addDate(date,-59);
+    $("#WorkingDeadline").val(newDate);
+    $("#WorkingDeadline").datetimepicker({
+        todayBtn: 1,
+        startView: 2,
+        minView: 2,
+        autoclose: 1,
+        format: 'yyyy-mm-dd'
+    }).on('change',function(e){
+        var WorkingDeadline=$("#WorkingDeadline").val();
+        var date = new Date(WorkingDeadline.replace(/-/g, '/'));
+        var newDate=addDate(date,59);
+        $("#OfficialDeadline").val(newDate);
+    });
+
+    function addDate(date, days) {
+        if (days == undefined || days == '') {
+            days = 1;
+        }
+        var date = new Date(date);
+        date.setDate(date.getDate() + days);
+        var month = date.getMonth() + 1;
+        var day = date.getDate();
+        return date.getFullYear() + '-' + getFormatDate(month) + '-' + getFormatDate(day);
+    }
+
+    function getFormatDate(arg) {
+        if (arg == undefined || arg == '') {
+            return '';
+        }
+
+        var re = arg + '';
+        if (re.length < 2) {
+            re = '0' + re;
+        }
+
+        return re;
+    }
+
     $("#create_btn").click(function () {
         let ClientCode1 = $.trim($("#ClientCode1").val());
         if (!ClientCode1) {

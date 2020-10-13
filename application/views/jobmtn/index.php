@@ -2,7 +2,7 @@
 <script type="text/javascript" src="<?php echo base_url('js/jquery.dataTables.min.js') ?>"></script>
 <nav class="breadcrumb">
     <i class="Hui-iconfont"></i> 
-    <a href="<?php echo base_url('/') ?>" class="maincolor">Client</a> 
+    <a href="<?php echo base_url('/') ?>" class="maincolor">Job Maintenance</a> 
     <span class="c-999 en">&gt;</span>
     <span class="c-666">List</span>
 </nav>

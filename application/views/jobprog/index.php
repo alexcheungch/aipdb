@@ -14,13 +14,19 @@
                 <tr>
                     <td>ID</td>
                     <td>JobCode</td>
-                    <td colspan=2>S1 </td>
-                    <td colspan=2>S2 </td>
-                    <td colspan=2>S3 </td>
-                    <td colspan=2>S4 </td>
-                    <td colspan=2>S5 </td>
-                    <td colspan=2>S6 </td>
-                    <td>SR </td>
+                    <td>S1</td>
+                    <td></td>
+                    <td>S2</td>
+                    <td></td>
+                    <td>S3</td>
+                    <td></td>
+                    <td>S4</td>
+                    <td></td>
+                    <td>S5</td>
+                    <td></td>
+                    <td>S6</td>
+                    <td></td>
+                    <td>SR</td>
                     <td>Actions</td>
                 </tr>
             </thead>
@@ -100,7 +106,24 @@
 var uploadurl ="";
 $(function () {
     $('#coderesource_table').DataTable({
-        order: [[ 0, "asc" ]],
+        "aaSorting": [[ 0, "desc" ]],
+        "aoColumnDefs": [
+            { "bSortable": false, "aTargets": [ 2 ] },
+            { "bSortable": false, "aTargets": [ 3 ] },
+            { "bSortable": false, "aTargets": [ 4 ] },
+            { "bSortable": false, "aTargets": [ 4 ] },
+            { "bSortable": false, "aTargets": [ 5 ] },
+            { "bSortable": false, "aTargets": [ 6 ] },
+            { "bSortable": false, "aTargets": [ 7 ] },
+            { "bSortable": false, "aTargets": [ 8 ] },
+            { "bSortable": false, "aTargets": [ 9 ] },
+            { "bSortable": false, "aTargets": [ 10 ] },
+            { "bSortable": false, "aTargets": [ 11 ] },
+            { "bSortable": false, "aTargets": [ 12 ] },
+            { "bSortable": false, "aTargets": [ 13 ] },
+            { "bSortable": false, "aTargets": [ 14 ] },
+            { "bSortable": false, "aTargets": [ 15 ] },
+        ],
     });
     $('#coderesource_table tbody').on( 'click', ".edit_btn", function () {
         var id=$(this).attr('attrid');
