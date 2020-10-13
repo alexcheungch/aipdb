@@ -3,14 +3,14 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1,user-scalable=0" />
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <title>AS DEPT PROGRESS RECORD</title>
+        <title>ASD Management</title>
         <link href="<?php echo base_url('css/bootstrap.min.css') ?>" rel="stylesheet" type="text/css" />
     </head>
     <body style="text-align: center; margin-top: 50px;">
         <div class="container login_box">
             <div class="row" >
                 <div class="text-center"><img src="<?php echo base_url('images/logo1.png'); ?>" height="50"></div>
-                <h2 style='margin-left:50px;'>Login</h2>
+                <h2 style='margin-left:50px;'>ASD Management<br/>Login</h2>
                 <?php
                 if (isset($massage) && $massage != '') {
                     echo "<h3 style='color:red; margin-left:50px;'>" . $massage . "</h3>";
@@ -81,3 +81,4 @@
         </script>
     </body>
 </html>
+
