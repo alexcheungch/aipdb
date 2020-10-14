@@ -11,11 +11,19 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
                 <div class="formControls col-xs-10 col-sm-10">
-                    <input type="text" class="input-text" style=" display: inline-block; width: 150px;" id="ClientCode1" name="ClientCode1">
+                    <input type="text" class="input-text" style=" display: inline-block; width: 150px;" maxlength="4" id="ClientCode1" name="ClientCode1">
                     /
                     <input type="text" class="input-text" style="width: 150px;" id="ClientCode2" name="ClientCode2">
                     / 
-                    <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" name="ClientCode3">
+                    <!-- <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" name="ClientCode3"> -->
+                    <select id="ClientCode3" name="ClientCode2">
+                        <option>A1</option>
+                        <option>A5</option>
+                        <option>A6</option>
+                        <option>B1</option>
+                        <option>D1</option>
+                        <option>E1</option>
+                    </select>
                 </div>
             </div>
             <div class="row cl">
@@ -105,6 +113,19 @@ var acMgr= <?php echo json_encode($acMgr); ?>;
 console.log(acMgr);
 var uploadurl ="";
 $(function () {
+    $("#ClientCode1").keyup(function(){
+        var value=$(this).val();
+        var reg=/^[a-zA-Z][0-9]{3}$/;
+        var flag=reg.test(value);
+        if(value.length == 4){
+            if(!flag){
+                $(this).val('');
+            }else{
+                $(this).val(value);
+            }
+        }
+    });
+
     $("#NormalYearEndDate,#LastClientStatusDate,#NonTaxDeadlineDate,#DateOfIncorp").datetimepicker({
         todayBtn: 1,
         startView: 2,

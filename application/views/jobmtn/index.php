@@ -11,9 +11,14 @@
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
                 <tr>
-                    <td>RecordDate</td>
-                    <td>ClientCode1</td>
-                    <td>JobNature</td>
+                    <td>Job Code</td>
+                    <td>Client name (limited to first 15 character)</td>
+                    <td>Job Nature</td>
+                    <td>Period From</td>
+                    <td>Period To</td>
+                    <td>AS deadline</td>
+                    <td>Job Deadline</td>
+                    <td>Days left</td>
                     <td>Actions</td>
                 </tr>
             </thead>
@@ -21,11 +26,17 @@
             <?php 
             if($JobMtn_list && count($JobMtn_list)>0){
             foreach ($JobMtn_list as $JobMtn) {
+                var_dump($JobMtn_list)
             ?>
                 <tr>
-                	<td><?php echo $JobMtn['RecordDate'];?></td>
-                    <td><?php echo $JobMtn['ClientCode1'];?></td>
-                    <td><?php echo $JobMtn['JobNature'];?></td>
+                	<td><?php echo $JobMtn['JobCode'];?></td>
+                    <td><?php echo $JobMtn['ClientMtn'];?></td>
+                    <td><?php echo $JobMtn['ClientName'];?></td>
+                    <td><?php echo $JobMtn['JobPeriodFrom'];?></td>
+                    <td><?php echo $JobMtn['JobPeriodTo'];?></td>
+                    <td><?php echo $JobMtn['WorkingDeadline'];?></td>
+                    <td><?php echo $JobMtn['JobDeadline'];?></td>
+                    <td><?php echo $JobMtn['WorkingDeadline'];?></td>
                     <td>
                         <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $JobMtn['ID'];?>">Edit</button>
                         <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $JobMtn['ID'];?>">Delete</button>
