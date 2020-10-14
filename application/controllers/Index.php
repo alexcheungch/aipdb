@@ -48,6 +48,8 @@ class Index extends MY_Controller {
         if ($userinfo === false) {
             redirect('/Index/login');
         } else {
+            $this->load->model('LoginHistory_model');
+            $this->LoginHistory_model->insert(array('UserName'=>$userinfo['UserName'], 'LoginTime'=>date('Y-m-d H:i:s')));
             $this->session->set_userdata(array('user_info' => $userinfo));
             redirect('/Index');
         }
