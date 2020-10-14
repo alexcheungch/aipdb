@@ -2,7 +2,7 @@
     <i class="Hui-iconfont"></i> 
     <a href="<?php echo base_url('/') ?>" class="maincolor">Job Maintenance</a> 
     <span class="c-999 en">&gt;</span>
-    <span class="c-666">Create</span>
+    <span class="c-666">Edit</span>
 </nav>
 <div class="Hui-article">
     <article class="cl pd-20">
@@ -65,7 +65,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">QuotationProposedFee:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFee" value="<?php echo $data['QuotationProposedFee'];?>">
+                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFee" value="">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">QuotationConfirmedDate:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -75,7 +75,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">QuotationAgreedFee:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFee" value="<?php echo $data['QuotationAgreedFee'];?>">
+                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFee" value="">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">JobCode:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -114,12 +114,23 @@
 <script>
 var uploadurl ="";
 $(function () {
+
+    $("#QuotationProposedFee").val(formatFee(<?php echo $data['QuotationProposedFee'];?>));
+    $("#QuotationAgreedFee").val(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
+
+    function formatFee(value){
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+    }
+
     $("#RecordDate,#JobPeriodFrom,#JobPeriodTo,#OfficialDeadline,#QuotationSentDate,#QuotationConfirmedDate,#WorkingDeadline,#JobDeadline").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
     $("#create_btn").click(function () {
         let ClientCode1 = $.trim($("#ClientCode1").val());
