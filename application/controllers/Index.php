@@ -59,4 +59,30 @@ class Index extends MY_Controller {
         $this->session->unset_userdata('user_info');
         redirect('/Index/login');
     }
+    
+    public function changepw() {
+        if (!$this->user_info) {
+            redirect('/Index/login');
+        }
+        $this->load->model('ASUser_model');
+        $old_password = $this->input->post('old_password');
+        $new_password1 = $this->input->post('new_password1');
+        $new_password2 = $this->input->post('new_password2');
+        if ($new_password1 != $new_password2) {
+            $this->redirect_msg("兩次輸入的新密碼不一致。", '/clientMtn');
+        }
+        $userinfo = $this->ASUser_model->get_data(array('UserName' => $this->user_info['UserName']));
+        if (!$userinfo) {
+            $this->redirect_msg("用戶不存在。", '/clientMtn');
+        }
+        if (md5($old_password) != $userinfo['UserPW']) {
+            $this->redirect_msg("舊密碼輸入不正確。", '/clientMtn');
+        }
+        $result = $this->ASUser_model->update_data(array('UserName' => $this->user_info['UserName']), array('UserPW'=>md5($new_password1)));
+        if ($result) {
+            $this->redirect_msg("密碼修改成功。", '/clientMtn');
+        } else {
+            $this->redirect_msg("密碼修改失敗。", '/clientMtn');
+        }
+    }
 }

@@ -12,9 +12,9 @@
                 <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
                 <div class="formControls col-xs-10 col-sm-10">
                     <input type="text" class="input-text" style=" display: inline-block; width: 150px;" id="ClientCode1" name="ClientCode1">
-                    -
+                    /
                     <input type="text" class="input-text" style="width: 150px;" id="ClientCode2" name="ClientCode2">
-                    - 
+                    / 
                     <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" name="ClientCode3">
                 </div>
             </div>
@@ -91,8 +91,8 @@
             </div>
             <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                    <input type="button" id="create_btn" value="保存" class="btn btn-primary radius"/>
-                    <a class="btn btn-primary" href="<?php echo base_url('ClientMtn');?>">返回</a>
+                    <input type="button" id="create_btn" value="Create" class="btn btn-primary radius"/>
+                    <a class="btn btn-primary" href="<?php echo base_url('ClientMtn');?>">Cancel</a>
                 </div>
             </div>
         </form>
@@ -110,7 +110,7 @@ $(function () {
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
     $("#create_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());

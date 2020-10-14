@@ -14,7 +14,7 @@
                 <tr>
                     <td>ID</td>
                     <td>JobCode</td>
-                    <td>操作</td>
+                    <td>Operation</td>
                 </tr>
             </thead>
             <tbody>
@@ -26,7 +26,7 @@
                     <td><?php echo $Allocation['ID'];?></td>
                     <td><?php echo $Allocation['JobCode'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Allocation['JobCode'];?>">編輯</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Allocation['JobCode'];?>">Edit</button>
                     </td>
                 </tr>
             <?php }}?>

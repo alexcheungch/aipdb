@@ -2,94 +2,121 @@
     <i class="Hui-iconfont"></i> 
     <a href="<?php echo base_url('/') ?>" class="maincolor">Job Prog</a> 
     <span class="c-999 en">&gt;</span>
-    <span class="c-666">Create</span>
+    <span class="c-666">Update</span>
 </nav>
 <div class="Hui-article">
     <article class="cl pd-20">
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">Record Date:</label>
+            <label class="form-label col-xs-2 col-sm-2">Record ID:</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <?php echo $data['ID'];?>
+            </div>
+            <label class="form-label col-xs-2 col-sm-2">Date:</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['RecordDate'];?>
             </div>
-            <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['ClientCode1'];?>
-            </div>
+
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">JobNature:</label>
+            <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
+                <div class="formControls col-xs-10 col-sm-10">
+                    <?php echo $data['ClientCode1'];?>
+                    /
+                    <?php echo $data['ClientCode2'];?>
+                    / 
+                    <?php echo $data['ClientCode3'];?>
+                </div>
+        </div>
+        <div class="row cl">
+                <label class="form-label col-xs-2 col-sm-2">Client Name</label>
+                <div class="formControls col-xs-3 col-sm-3">
+                    <?php echo $data['ClientName'];?>
+                </div>
+        </div>
+        <div class="row cl">
+                <label class="form-label col-xs-2 col-sm-2">Normal Year End Date</label>
+                <div class="formControls col-xs-3 col-sm-3">
+                    <?php echo $data['NormalYearEndDate'];?>
+                </div>
+                <label class="form-label col-xs-2 col-sm-2">Non Tax Deadline Date</label>
+                <div class="formControls col-xs-3 col-sm-3">
+                    <?php echo $data['NonTaxDeadlineDate'];?>
+                </div>          
+        </div>
+        <br />
+
+        <div class="row cl">
+            <label class="form-label col-xs-2 col-sm-2">Job Nature</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['JobNature'];?>
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">JobPeriodFrom:</label>
+            <label class="form-label col-xs-2 col-sm-2">Period From:</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['JobPeriodFrom'];?>
             </div>
-            <label class="form-label col-xs-2 col-sm-2">JobPeriodTo:</label>
+            <label class="form-label col-xs-2 col-sm-2">To:</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['JobPeriodTo'];?>
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">OfficialDeadline:</label>
+            <label class="form-label col-xs-2 col-sm-2">Official Deadline</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['OfficialDeadline'];?>
             </div>
-            <label class="form-label col-xs-2 col-sm-2">JobNo:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['JobNo'];?>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">QuotationVia:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationVia'];?>
-            </div>
-            <label class="form-label col-xs-2 col-sm-2">QuotationSentDate:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationSentDate'];?>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">QuotationProposedFee:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationProposedFee'];?>
-            </div>
-            <label class="form-label col-xs-2 col-sm-2">QuotationConfirmedDate:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationConfirmedDate'];?>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">QuotationAgreedFee:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['QuotationAgreedFee'];?>
-            </div>
-            <label class="form-label col-xs-2 col-sm-2">JobCode:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['JobCode'];?>
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">WorkingDeadline:</label>
+            <label class="form-label col-xs-2 col-sm-2">[-60 days] = AS Deadline:</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['WorkingDeadline'];?>
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">JobDeadline:</label>
+            <label class="form-label col-xs-2 col-sm-2">Job Deadline</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['JobDeadline'];?>
             </div>
+
+            <label class="form-label col-xs-2 col-sm-2">Job No</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <?php echo $data['JobNo'];?>
+            </div>
         </div>            
+        <br />
+
         <div class="row cl">
-            <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input type="button" id="create_btn" value="保存" class="btn btn-primary radius"/>
-                <a class="btn btn-primary" href="<?php echo base_url('JobMtn');?>">返回</a>
+            <label class="form-label col-xs-2 col-sm-2">Quotation | Via</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <?php echo $data['QuotationVia'];?>
             </div>
         </div>
+        <div class="row cl">
+             <label class="form-label col-xs-2 col-sm-2">| Sent Date</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <?php echo $data['QuotationSentDate'];?>
+            </div>
+           <label class="form-label col-xs-2 col-sm-2">| Proposed Fee</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <div id="QuotationProposedFee"></div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-2 col-sm-2">| Confirmed Date</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <?php echo $data['QuotationConfirmedDate'];?>
+            </div>
+            <label class="form-label col-xs-2 col-sm-2">| Agreed Fee</label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <div id="QuotationAgreedFee"></div>
+            </div>
+        </div>
+        <div class="row cl">
+            <label class="form-label col-xs-2 col-sm-2">Job Code Assigned : </label>
+            <div class="formControls col-xs-3 col-sm-3">
+                <?php echo $data['JobCode'];?>
+            </div>
+        </div>
+
         <br />
         <br />
         <form action="<?php echo base_url('JobProg/save')?>" method="POST" id="JobProg_form" class="form form-horizontal">
@@ -112,7 +139,9 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Doc Request | Via:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="S1DCDocRequestVia" value="<?php echo $data['S1DCDocRequestVia'];?>">
+                                    <select class="docrequest_via" name="S1DCDocRequestVia">
+                                    </select>
+
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
@@ -163,8 +192,8 @@
                         </div>   
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_1" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_1" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -209,8 +238,8 @@
 
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_2" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_2" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -288,8 +317,8 @@
 
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_3" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_3" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -340,8 +369,8 @@
                             </div>
                             <div class="row cl">
                                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                    <input type="button" id="create_btn_4" value="保存" class="btn btn-primary radius"/>
-                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                    <input type="button" id="create_btn_4" value="Save" class="btn btn-primary radius"/>
+                                    <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>
                             </div>
                         </div>
@@ -371,10 +400,16 @@
                                 </div>
                             </div>
                             <div class="row cl">
+                                <label class="form-label col-xs-2 col-sm-2">DN Issued By:</label>
+                                <div class="formControls col-xs-3 col-sm-3">
+                                    <select name="S5FSFDNIssuedBy" id="S5FSFDNIssuedBy">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">DN | No:</label>
                                 <div class="formControls col-xs-2 col-sm-2">
-                                    <select class="select_staff" name="S5FSFDNNoxx" id="S5FSFDNNoxx">
-                                    </select>
+                                    <input type="text" class="input-text" name="S5FSFDNNoxx" value="<?php echo $data['S5FSFDNNoxx'];?>">
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                                 <div class="formControls col-xs-2 col-sm-2">
@@ -410,8 +445,8 @@
                         </div>
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_5" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_5" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                             </div>
                         </div>
                     </div>
@@ -462,8 +497,8 @@
 
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_6" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_6" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>   
                             </div>
                         </div>
@@ -521,8 +556,8 @@
 
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn_7" value="保存" class="btn btn-primary radius"/>
-                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">返回</a>
+                                <input type="button" id="create_btn_7" value="Save" class="btn btn-primary radius"/>
+                                <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                                 </div>   
                             </div>
                         </div>
@@ -547,7 +582,7 @@ $(function () {
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd HH:ii:ss'
+        format: 'yyyy-mm-dd'
     });
     $("input[id^='create_btn_']").click(function () {
 //        let ClientCode1 = $.trim($("#ClientCode1").val());
@@ -562,7 +597,19 @@ var staffList = <?php echo json_encode($staffList); ?>;
 var docLoc    = <?php echo json_encode($docLoc); ?>;
 var acMgr     = <?php echo json_encode($acMgr); ?>;
 var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
-var clientList= <?php echo json_encode($clientList); ?>;    
+var clientList= <?php echo json_encode($clientList); ?>;  
+var DDOfficeHandled =   <?php echo json_encode($sys_param['S2DDOfficeHandled']); ?>; 
+var DDDocTsfvia =   <?php echo json_encode($sys_param['S2DDDocTsfvia']); ?>;
+
+$("#QuotationProposedFee").html(formatFee(<?php echo $data['QuotationProposedFee'];?>));
+$("#QuotationAgreedFee").html(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
+
+function formatFee(value){
+    return value.toLocaleString('en-US', {
+        style: 'currency',
+        currency: 'USD',
+    });
+}
 
 var clientCode=[];
 for(var i=0; i<clientList.length; i++){
@@ -591,24 +638,40 @@ $('#autocomplete_clientCode1').bind('input propertychange', function(){
     }
 });
 
-var officeHandledHtml='';
-for(var i=0; i<docLoc.length; i++){
-    officeHandledHtml+='<option>'+docLoc[i].DocLoc+'</option>';
-}
-$(".office_handled").html(officeHandledHtml);
-$(".office_handled").val("<?php echo $data['S2DDOfficeHandled'];?>");
-
-var docTransferHtml='';
+var docrequestViaHtml='';
 for(var i=0; i<sentOutVia.length; i++){
-    docTransferHtml+='<option>'+sentOutVia[i].SentOutMeans+'</option>';
+    docrequestViaHtml+='<option>'+sentOutVia[i].SentOutMeans+'</option>';
 }
-$(".doc_transfer").html(docTransferHtml);
-$(".doc_transfer").val("<?php echo $data['S2DDDocTsfvia'];?>");
+$(".docrequest_via").html(docrequestViaHtml);
+$(".docrequest_via").val("<?php echo $data['S1DCDocRequestVia'];?>");
+
+var docLocHtml='';
+for(var i=0; i<docLoc.length; i++){
+    docLocHtml+='<option>'+docLoc[i].DocLoc+'</option>';
+}
+$(".select_docLoc").html(docLocHtml);
+$("#SRDRStoreLoc").val("<?php echo $data['SRDRStoreLoc'];?>");
 
 var staffHtml='';
 for(var i=0; i<staffList.length; i++){
     staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
 }
+
+var officeHandledHtml='';
+for(var i=0; i<DDOfficeHandled.length; i++){
+    officeHandledHtml+='<option>'+DDOfficeHandled[i]+'</option>';
+}
+$(".office_handled").html(officeHandledHtml);
+$("#S2DDOfficeHandled").val("<?php echo $data['S2DDOfficeHandled'];?>");
+
+var docTransferHtml='';
+for(var i=0; i<DDDocTsfvia.length; i++){
+    docTransferHtml+='<option>'+DDDocTsfvia[i]+'</option>';
+}
+$(".doc_transfer").html(docTransferHtml);
+$("#S2DDDocTsfvia").val("<?php echo $data['S2DDDocTsfvia'];?>");
+
+
 $("#S3ACStaff1").html(staffHtml);
 $("#S3ACStaff1").val("<?php echo $data['S3ACStaff1'];?>");
 $("#S3ACStaff2").html(staffHtml);
@@ -627,23 +690,18 @@ $("#S5FSFChecklistSignoffBy").html(staffHtml);
 $("#S5FSFChecklistSignoffBy").val("<?php echo $data['S5FSFChecklistSignoffBy'];?>");
 $("#S5FSFFSPrintedBy").html(staffHtml);
 $("#S5FSFFSPrintedBy").val("<?php echo $data['S5FSFFSPrintedBy'];?>");
-$("#S5FSFDNNoxx").html(staffHtml);
-$("#S5FSFDNNoxx").val("<?php echo $data['S5FSFDNNoxx'];?>");
+$("#S5FSFDNIssuedBy").html(staffHtml);
+$("#S5FSFDNIssuedBy").val("<?php echo $data['S5FSFDNIssuedBy'];?>");
 $("#S5FSFFSPackeSentBy").html(staffHtml);
 $("#S5FSFFSPackeSentBy").val("<?php echo $data['S5FSFFSPackeSentBy'];?>");
 $("#S6DFFiledStaff").html(staffHtml);
 $("#S6DFFiledStaff").val("<?php echo $data['S6DFFiledStaff'];?>");
-$("#S6DFDocLoc").html(staffHtml);
+$("#S6DFDocLoc").html(docLocHtml);
 $("#S6DFDocLoc").val("<?php echo $data['S6DFDocLoc'];?>");
 $("#SRDRDocDespatchedDeliveryStaff").html(staffHtml);
 $("#SRDRDocDespatchedDeliveryStaff").val("<?php echo $data['SRDRDocDespatchedDeliveryStaff'];?>");
 
-var docLocHtml='';
-for(var i=0; i<docLoc.length; i++){
-    docLocHtml+='<option>'+docLoc[i].DocLoc+'</option>';
-}
-$(".select_docLoc").html(docLocHtml);
-$("#SRDRStoreLoc").val("<?php echo $data['SRDRStoreLoc'];?>");
+
 
 $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 </script>

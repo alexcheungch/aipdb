@@ -4,6 +4,7 @@ include_once APPPATH.'libraries/MY_Basemodel.php';
 
 class ASUser_model extends MY_Basemodel {
     
+    public $table = 'ASUser';    
     public $primary_key = 'ID';
     
     public function login($loginname = '', $password = '') {

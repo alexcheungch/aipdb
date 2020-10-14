@@ -15,8 +15,10 @@
                     <td>Code1</td>
                     <td>Name </td>
                     <td>Legal Entity </td>
-                    <td>Account Manager </td>
-                    <td>操作</td>
+                    <td>Normal Year End Date </td>
+                    <td>Non tax deadline nature </td>
+                    <td>Client Status </td>
+                    <td>Actions</td>
                 </tr>
             </thead>
             <tbody>
@@ -25,13 +27,15 @@
             foreach ($ClientMtn_list as $ClientMtn) {
             ?>
                 <tr>
-                	<td><?php echo $ClientMtn['ClientCode1'];?></td>
+                	<td><?php echo $ClientMtn['ClientCode1'];?>/<?php echo $ClientMtn['ClientCode2'];?>/<?php echo $ClientMtn['ClientCode3'];?></td>
                     <td><?php echo $ClientMtn['ClientName'];?></td>
                     <td><?php echo $ClientMtn['ClientLegalEntity'];?></td>
-                    <td><?php echo $ClientMtn['AcMgr'];?></td>
+                    <td><?php echo $ClientMtn['NormalYearEndDate'];?></td>
+                    <td><?php echo $ClientMtn['NonTaxDeadlineNature'];?></td>
+                    <td><?php echo $ClientMtn['LastClientStatus'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $ClientMtn['ID'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $ClientMtn['ID'];?>">刪除</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $ClientMtn['ID'];?>">Edit</button>
+                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $ClientMtn['ID'];?>">Delete</button>
                     </td>
                 </tr>
             <?php }}?>

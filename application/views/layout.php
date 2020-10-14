@@ -56,7 +56,7 @@
         <script type="text/javascript" src="<?php echo base_url('lib/export/xlsx.full.min.js') ?>"></script> 
         <script type="text/javascript" src="<?php echo base_url('static/h-ui/js/H-ui.js') ?>"></script> 
         <script type="text/javascript" src="<?php echo base_url('static/h-ui.admin/js/H-ui.admin.page.js') ?>"></script> 
-        <title>System Administration</title>
+        <title>AS DEPT PROGRESS RECORD</title>
     </head>
     <body>
         <?php
