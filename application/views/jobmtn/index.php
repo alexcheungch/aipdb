@@ -26,7 +26,6 @@
             <?php 
             if($JobMtn_list && count($JobMtn_list)>0){
             foreach ($JobMtn_list as $JobMtn) {
-                var_dump($JobMtn_list)
             ?>
                 <tr>
                 	<td><?php echo $JobMtn['JobCode'];?></td>

@@ -125,12 +125,26 @@ $(function () {
     }
     $(".AC_Manager").html(ACManagerHtml);
     $(".AC_Manager").val("<?php echo $data['AcMgr']?>");
-    $("#NormalYearEndDate,#LastClientStatusDate,#NonTaxDeadlineDate,#DateOfIncorp").datetimepicker({
+    $("#NormalYearEndDate,#LastClientStatusDate").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
         autoclose: 1,
         format: 'yyyy-mm-dd'
+    });
+    $("#DateOfIncorp").datetimepicker({
+        todayBtn: 1,
+        startView: 2,
+        minView: 2,
+        autoclose: 1,
+        format: 'mm-dd'
+    });
+    $("#NonTaxDeadlineDate").datetimepicker({
+        todayBtn: 1,
+        startView: 2,
+        minView: 2,
+        autoclose: 1,
+        format: 'mm-dd'
     });
     $("#edit_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());
