@@ -24,18 +24,22 @@ class MY_Controller extends CI_Controller {
             'clientmtn/create' => 'UClient',
             'clientmtn/delete' => 'UClient',
             'clientmtn/index' => 'QClient',
+            'clientmtn/save' => 'UClient',
             'jobmtn/edit' => 'UJob',
             'jobmtn/create' => 'UJob',
             'jobmtn/delete' => 'UJob',
             'jobmtn/index' => 'QJob',
+            'jobmtn/save' => 'UJob',
             'jobprog/edit' => 'UJobProg',
             'jobprog/create' => 'UJobProg',
             'jobprog/delete' => 'UJobProg',
             'jobprog/index' => 'QJobProg',
+            'jobprog/save' => 'UJobProg',
             'allocation/edit' => 'UAlloc',
             'allocation/create' => 'UAlloc',
             'allocation/delete' => 'UAlloc',
             'allocation/index' => 'QAlloc',
+            'allocation/save' => 'UAlloc',
         );
         $current_class = strtolower($this->router->class);
         $current_method = strtolower($this->router->method);
