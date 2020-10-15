@@ -12,18 +12,14 @@
                 <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
                 <div class="formControls col-xs-10 col-sm-10">
                     <input type="text" class="input-text" style=" display: inline-block; width: 150px;" maxlength="4" id="ClientCode1" name="ClientCode1">
-                    /
+                    -
                     <input type="text" class="input-text" style="width: 150px;" id="ClientCode2" name="ClientCode2">
                     / 
-                    <!-- <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" name="ClientCode3"> -->
-                    <select id="ClientCode3" name="ClientCode2">
-                        <option>A1</option>
-                        <option>A5</option>
-                        <option>A6</option>
-                        <option>B1</option>
-                        <option>D1</option>
-                        <option>E1</option>
-                    </select>
+                    <select id="ClientCode3" name="ClientCode3">
+                        <?php foreach ($sys_param['ClientCode3'] as $value) {
+                            echo '<option value="'.$value.'">'.$value.'</option>';
+                        }?>
+                    </select>                    
                 </div>
             </div>
             <div class="row cl">
@@ -125,13 +121,19 @@ $(function () {
             }
         }
     });
-
-    $("#NormalYearEndDate,#LastClientStatusDate,#NonTaxDeadlineDate,#DateOfIncorp").datetimepicker({
+    $("#DateOfIncorp,#LastClientStatusDate").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
         autoclose: 1,
         format: 'yyyy-mm-dd'
+    });
+    $("#NormalYearEndDate,#NonTaxDeadlineDate").datetimepicker({
+        todayBtn: 1,
+        startView: 2,
+        minView: 2,
+        autoclose: 1,
+        format: 'mm-dd'
     });
     $("#create_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());
@@ -143,7 +145,7 @@ $(function () {
         if (!ClientCode1) {
             alert("請填寫 ClientCode1");
             return false;
-        }
+        }        
         let ClientCode2 = $.trim($("#ClientCode2").val());
         if (!ClientCode2) {
             alert("請填寫 ClientCode2");

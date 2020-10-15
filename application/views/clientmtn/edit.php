@@ -12,11 +12,19 @@
                 <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
                 <div class="formControls col-xs-10 col-sm-10">
                     <input type="text" class="input-text" style=" display: inline-block; width: 150px;" id="ClientCode1" name="ClientCode1" readonly value="<?php echo $data['ClientCode1'];?>">
-                    /
+                    -
                     <input type="text" class="input-text" style="width: 150px;" id="ClientCode2" name="ClientCode2" value="<?php echo $data['ClientCode2'];?>">
                     / 
-                    <input type="text" class="input-text" style="width: 150px;" id="ClientCode3" name="ClientCode3" value="<?php echo $data['ClientCode3'];?>">
-                </div>
+                    <select name="ClientCode3">
+                        <?php foreach ($sys_param['ClientCode3'] as $value) {
+                            $select = '';
+                            if ($value == $data['ClientCode3']) {
+                                $select = 'selected';
+                            }
+                            echo '<option value="'.$value.'" '.$select.'>'.$value.'</option>';
+                        }?>
+                    </select>
+                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Client Name:</label>
@@ -125,21 +133,14 @@ $(function () {
     }
     $(".AC_Manager").html(ACManagerHtml);
     $(".AC_Manager").val("<?php echo $data['AcMgr']?>");
-    $("#NormalYearEndDate,#LastClientStatusDate").datetimepicker({
+    $("#DateOfIncorp,#LastClientStatusDate").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
         autoclose: 1,
         format: 'yyyy-mm-dd'
     });
-    $("#DateOfIncorp").datetimepicker({
-        todayBtn: 1,
-        startView: 2,
-        minView: 2,
-        autoclose: 1,
-        format: 'mm-dd'
-    });
-    $("#NonTaxDeadlineDate").datetimepicker({
+    $("#NormalYearEndDate,#NonTaxDeadlineDate").datetimepicker({
         todayBtn: 1,
         startView: 2,
         minView: 2,
@@ -160,11 +161,6 @@ $(function () {
         let ClientCode2 = $.trim($("#ClientCode2").val());
         if (!ClientCode2) {
             alert("請填寫 ClientCode2");
-            return false;
-        }
-        let ClientCode3 = $.trim($("#ClientCode3").val());
-        if (!ClientCode3) {
-            alert("請填寫 ClientCode3");
             return false;
         }
         let NormalYearEndDate = $.trim($("#NormalYearEndDate").val());

@@ -27,7 +27,7 @@
             foreach ($ClientMtn_list as $ClientMtn) {
             ?>
                 <tr>
-                	<td><?php echo $ClientMtn['ClientCode1'];?>/<?php echo $ClientMtn['ClientCode2'];?>/<?php echo $ClientMtn['ClientCode3'];?></td>
+                	<td><?php echo $ClientMtn['ClientCode1'];?>-<?php echo $ClientMtn['ClientCode2'];?>/<?php echo $ClientMtn['ClientCode3'];?></td>
                     <td><?php echo $ClientMtn['ClientName'];?></td>
                     <td><?php echo $ClientMtn['ClientLegalEntity'];?></td>
                     <td><?php echo $ClientMtn['NormalYearEndDate'];?></td>
