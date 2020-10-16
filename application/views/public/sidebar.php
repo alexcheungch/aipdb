@@ -15,14 +15,14 @@
                 'name' => 'Client Maintenance', 
                 'li' => array(
                     array('ClientMtn', 'Client List', 'list'), 
-                    array('ClientMtn/create', 'Create new Client', 'Create')
+                    // array('ClientMtn/create', 'Create new Client', 'Create')
                 )
             ),
             'JobMtn' => array(
                 'name' => 'Job Maintenance', 
                 'li' => array(
                     array('JobMtn', 'Job List', 'list'), 
-                    array('JobMtn/create', 'Create New Job', 'Create')
+                    // array('JobMtn/create', 'Create New Job', 'Create')
                 )
             ),
             'JobProg' => array(
