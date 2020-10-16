@@ -5,7 +5,10 @@ class JobMtn extends MY_Controller {
     public function index() {
         $this->load->model('JobMtn_model');
         $this_list = $this->JobMtn_model->get_all_data();
+        $this->load->model('ClientMtn_model');
+        $clientList = $this->ClientMtn_model->get_clients();
         $this->assign('JobMtn_list', $this_list);
+        $this->assign('clientList', $clientList);
         $this->display();
     }
 
