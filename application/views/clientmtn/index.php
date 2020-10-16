@@ -8,7 +8,10 @@
 </nav>
 <div class="Hui-article">
     <article class="cl pd-20">
-        <button type="button" id="export_table">export xlsx</button><br /><br />
+        <div class="clearfix">
+            <div class="pull-right"><button type="button" onclick="window.location.href='ClientMtn/create'">+ add</button></div>
+            <button type="button" id="export_table">export xlsx</button><br /><br />
+        </div>
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
                 <tr>

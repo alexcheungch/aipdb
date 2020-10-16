@@ -8,6 +8,9 @@
 </nav>
 <div class="Hui-article">
     <article class="cl pd-20">
+        <div class="clearfix">
+            <div class="pull-right"><button type="button" onclick="window.location.href='JobMtn/create'">+ add</button><br><br></div>
+        </div>
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
                 <tr>
@@ -53,23 +56,25 @@ var uploadurl ="";
 $(function () {
     var JobMtn_list = <?php echo json_encode($JobMtn_list); ?>;
     var clientList = <?php echo json_encode($clientList); ?>;
-    var html='';
+    var todyDate=new Date();    
+    var html='';    
     for(var i=0; i<JobMtn_list.length; i++){
         var ClientName='';
         for(var j=0; j<clientList.length; j++){
             if(JobMtn_list[i].ClientCode1 == clientList[j].ClientCode1){
-                ClientName=clientList[j].ClientName;
+                ClientName=clientList[j].ClientName.substr(0,15);
             }
         }
+        var daysLeft = DateDiff(getMyDate(todyDate),JobMtn_list[i].WorkingDeadline)
         html+='<tr>'+
             '<td>'+JobMtn_list[i].JobCode+'</td>'+
             '<td>'+ClientName+'</td>'+
-            '<td>'+JobMtn_list[i].JobNature+'</td>'+
+            '<td>'+JobMtn_list[i].ClientName+'</td>'+
             '<td>'+JobMtn_list[i].JobPeriodFrom+'</td>'+
             '<td>'+JobMtn_list[i].JobPeriodTo+'</td>'+
             '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
             '<td>'+JobMtn_list[i].JobDeadline+'</td>'+
-            '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
+            '<td>'+daysLeft+'</td>'+
             '<td>'+
                 '<button class="btn btn-default edit_btn" type="button"  attrid="'+JobMtn_list[i].ID+'">Edit</button>'+
                 '<button class="btn btn-default delete_btn"   type="button"  attrid="'+JobMtn_list[i].ID+'">Delete</button>'+
@@ -78,7 +83,35 @@ $(function () {
             '</td>'+
         '</tr>';
     }
-    $("#tableData").html(html);
+    $("#tableData").html(html);    
+
+    function DateDiff(sDate, eDate) {
+    　　var date1 = new Date(sDate);
+    　　var date2 = new Date(eDate);
+    　　var date3=date2.getTime()-date1.getTime();
+    　　var days=Math.floor(date3/(24*3600*1000));
+    　　return days;
+    }
+
+
+    function getMyDate(str){
+        var oDate = new Date(str),
+            oYear = oDate.getFullYear(),
+            oMonth = oDate.getMonth()+1,
+            oDay = oDate.getDate(),
+            oHour = oDate.getHours(),
+            oMin = oDate.getMinutes(),
+            oSen = oDate.getSeconds(),
+            oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay);
+        return oTime;
+    };
+    
+    function getzf(num){
+        if(parseInt(num) < 10){
+            num = '0'+num;
+        }
+        return num;
+    }
 
     $('#coderesource_table').DataTable({
         order: [[ 0, "asc" ]],

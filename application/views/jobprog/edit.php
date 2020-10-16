@@ -7,15 +7,9 @@
 <div class="Hui-article">
     <article class="cl pd-20">
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">Record ID:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['ID'];?>
+            <div class="col-sm-12">
+                <b style="margin-right: 10px;">Record ID:</b> <?php echo $data['ID'];?> <b style="margin:0 10px 0 20px;">Date:</b> <?php echo $data['RecordDate'];?>
             </div>
-            <label class="form-label col-xs-2 col-sm-2">Date:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['RecordDate'];?>
-            </div>
-
         </div>
         <div class="row cl">
             <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
@@ -35,13 +29,19 @@
         </div>
         <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Normal Year End Date</label>
-                <div class="formControls col-xs-3 col-sm-3">
-                    <?php echo $data['NormalYearEndDate'];?>
-                </div>
-                <label class="form-label col-xs-2 col-sm-2">Non Tax Deadline Date</label>
-                <div class="formControls col-xs-3 col-sm-3">
-                    <?php echo $data['NonTaxDeadlineDate'];?>
-                </div>          
+                <div class="formControls col-xs-10 col-sm-10">
+                    <?php 
+                        $Date = date_parse_from_format('Y-m-d',$data['NormalYearEndDate']);
+                        $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
+                        echo $NormalYearEndDate;
+                    ?>
+                    <b style="margin: 0 10px 0 20px;">Non Tax Deadline Date</b>
+                    <?php 
+                        $Date = date_parse_from_format('Y-m-d',$data['NonTaxDeadlineDate']);
+                        $NonTaxDeadlineDate = $Date['month'] .'-'. $Date['day'];
+                        echo $NonTaxDeadlineDate;
+                    ?>
+                </div>         
         </div>
         <br />
 
@@ -52,34 +52,21 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">Period From:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['JobPeriodFrom'];?>
-            </div>
-            <label class="form-label col-xs-2 col-sm-2">To:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['JobPeriodTo'];?>
+            <label class="form-label col-xs-2 col-sm-2">Period | From:</label>
+            <div class="formControls col-xs-10 col-sm-10">
+                <?php echo $data['JobPeriodFrom'];?> <b style="margin: 0 10px 0 20px;">To</b> <?php echo $data['JobPeriodTo'];?>
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-2 col-sm-2">Official Deadline</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['OfficialDeadline'];?>
-            </div>
-            <label class="form-label col-xs-2 col-sm-2">[-60 days] = AS Deadline:</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['WorkingDeadline'];?>
+            <div class="formControls col-xs-10 col-sm-10">
+                <?php echo $data['OfficialDeadline'];?> <b style="margin: 0 10px 0 20px;">[-60 days] = AS Deadline</b> <?php echo $data['WorkingDeadline'];?>
             </div>
         </div>
         <div class="row cl">
             <label class="form-label col-xs-2 col-sm-2">Job Deadline</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['JobDeadline'];?>
-            </div>
-
-            <label class="form-label col-xs-2 col-sm-2">Job No</label>
-            <div class="formControls col-xs-3 col-sm-3">
-                <?php echo $data['JobNo'];?>
+            <div class="formControls col-xs-10 col-sm-10">
+                <?php echo $data['JobDeadline'];?> <b style="margin: 0 10px 0 20px;">Job No:</b> <?php echo $data['JobNo'];?>
             </div>
         </div>            
         <br />
@@ -91,7 +78,7 @@
             </div>
         </div>
         <div class="row cl">
-             <label class="form-label col-xs-2 col-sm-2">| Sent Date</label>
+             <label class="form-label col-xs-offset-2 col-xs-2 col-sm-2">| Sent Date</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['QuotationSentDate'];?>
             </div>
@@ -101,7 +88,7 @@
             </div>
         </div>
         <div class="row cl">
-            <label class="form-label col-xs-2 col-sm-2">| Confirmed Date</label>
+            <label class="form-label col-xs-offset-2 col-xs-2 col-sm-2">| Confirmed Date</label>
             <div class="formControls col-xs-3 col-sm-3">
                 <?php echo $data['QuotationConfirmedDate'];?>
             </div>
