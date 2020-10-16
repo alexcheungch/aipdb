@@ -605,10 +605,12 @@ $("#QuotationProposedFee").html(formatFee(<?php echo $data['QuotationProposedFee
 $("#QuotationAgreedFee").html(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
 
 function formatFee(value){
-    return value.toLocaleString('en-US', {
+    if (value) {
+      return value.toLocaleString('en-US', {
         style: 'currency',
         currency: 'USD',
-    });
+      });
+    } else { return ' ';};
 }
 
 var clientCode=[];
@@ -705,3 +707,4 @@ $("#SRDRDocDespatchedDeliveryStaff").val("<?php echo $data['SRDRDocDespatchedDel
 
 $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 </script>
+
