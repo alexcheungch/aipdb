@@ -30,7 +30,13 @@
                 	<td><?php echo $ClientMtn['ClientCode1'];?>-<?php echo $ClientMtn['ClientCode2'];?>/<?php echo $ClientMtn['ClientCode3'];?></td>
                     <td><?php echo $ClientMtn['ClientName'];?></td>
                     <td><?php echo $ClientMtn['ClientLegalEntity'];?></td>
-                    <td><?php echo $ClientMtn['NormalYearEndDate'];?></td>
+                    <td>
+                        <?php 
+                            $Date = date_parse_from_format('Y-m-d',$ClientMtn['NormalYearEndDate']);
+                            $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
+                            echo $NormalYearEndDate;
+                        ?>
+                    </td>
                     <td><?php echo $ClientMtn['NonTaxDeadlineNature'];?></td>
                     <td><?php echo $ClientMtn['LastClientStatus'];?></td>
                     <td>
