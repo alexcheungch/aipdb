@@ -64,7 +64,7 @@ $(function () {
         html+='<tr>'+
             '<td>'+JobMtn_list[i].JobCode+'</td>'+
             '<td>'+ClientName+'</td>'+
-            '<td>'+JobMtn_list[i].ClientName+'</td>'+
+            '<td>'+JobMtn_list[i].JobNature+'</td>'+
             '<td>'+JobMtn_list[i].JobPeriodFrom+'</td>'+
             '<td>'+JobMtn_list[i].JobPeriodTo+'</td>'+
             '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
