@@ -15,7 +15,7 @@
             <thead>
                 <tr>
                     <td>Job Code</td>
-                    <td>Client name (limited to first 15 character)</td>
+                    <td>Client name</td>
                     <td>Job Nature</td>
                     <td>Period From</td>
                     <td>Period To</td>
@@ -31,7 +31,7 @@
             foreach ($JobMtn_list as $JobMtn) {
             ?>
                 <tr>
-                	<td><?php echo $JobMtn['JobCode'];?></td>
+                    <td><?php echo $JobMtn['JobCode'];?></td>
                     <td><?php echo $JobMtn['ClientMtn'];?></td>
                     <td><?php echo $JobMtn['ClientName'];?></td>
                     <td><?php echo $JobMtn['JobPeriodFrom'];?></td>
@@ -69,7 +69,7 @@ $(function () {
         html+='<tr>'+
             '<td>'+JobMtn_list[i].JobCode+'</td>'+
             '<td>'+ClientName+'</td>'+
-            '<td>'+JobMtn_list[i].ClientName+'</td>'+
+            '<td>'+JobMtn_list[i].JobNature+'</td>'+
             '<td>'+JobMtn_list[i].JobPeriodFrom+'</td>'+
             '<td>'+JobMtn_list[i].JobPeriodTo+'</td>'+
             '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
