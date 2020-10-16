@@ -46,8 +46,12 @@ class MY_Controller extends CI_Controller {
         if ($current_class != 'index') {
             if ($current_class == 'tableadm' && $this->user_info['MMenu'] == 0) {
                 $this->redirect_msg('無權限訪問 TableAdm', 'index/logout');
+            } elseif ($current_class == 'sysparam' && $this->user_info['UMenu'] == 0) {
+                $this->redirect_msg('無權限訪問 SysParam', 'index/logout');
+            } elseif ($current_class == 'asuser' && $this->user_info['UMenu'] == 0) {
+                $this->redirect_msg('無權限訪問 ASUser', 'index/logout');
             }
-            if ($current_class != 'tableadm') {
+            if (!in_array($current_class, array('tableadm','sysparam','asuser'))) {
                 if (!isset($role[$current_class.'/'.$current_method])) {
                     $this->redirect_msg('未設置權限 '.$current_class.'/'.$current_method, 'index/logout');
                 } else {

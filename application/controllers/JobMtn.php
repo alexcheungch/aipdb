@@ -3,8 +3,19 @@
 class JobMtn extends MY_Controller {
 
     public function index() {
+        $condition = array();
+        $from = $this->input->get('from');
+        $to = $this->input->get('to');
+        if ($from) {
+            $from = strtotime($from);
+            $condition['JobPeriodFrom >='] = date('Y-m-d',$from);
+        }
+        if ($to) {
+            $to = strtotime($to);
+            $condition['JobPeriodTo <='] = date('Y-m-d',$to);
+        }
         $this->load->model('JobMtn_model');
-        $this_list = $this->JobMtn_model->get_all_data();
+        $this_list = $this->JobMtn_model->get_all_data($condition);
         $this->load->model('ClientMtn_model');
         $clientList = $this->ClientMtn_model->get_clients();
         $this->assign('JobMtn_list', $this_list);

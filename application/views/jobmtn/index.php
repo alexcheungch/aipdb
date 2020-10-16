@@ -22,8 +22,8 @@
                     <td>Actions</td>
                 </tr>
             </thead>
-            <tbody>
-            <?php 
+            <tbody id="tableData">
+            <!-- <?php 
             if($JobMtn_list && count($JobMtn_list)>0){
             foreach ($JobMtn_list as $JobMtn) {
             ?>
@@ -43,7 +43,7 @@
                         <button class="btn btn-default allocation_btn"   type="button"  attrid="<?php echo $JobMtn['JobCode'];?>">Allocation</button>
                     </td>
                 </tr>
-            <?php }}?>
+            <?php }}?> -->
             </tbody>
         </table>
     </article>
@@ -51,6 +51,35 @@
 <script>
 var uploadurl ="";
 $(function () {
+    var JobMtn_list = <?php echo json_encode($JobMtn_list); ?>;
+    var clientList = <?php echo json_encode($clientList); ?>;
+    var html='';
+    for(var i=0; i<JobMtn_list.length; i++){
+        var ClientName='';
+        for(var j=0; j<clientList.length; j++){
+            if(JobMtn_list[i].ClientCode1 == clientList[j].ClientCode1){
+                ClientName=clientList[j].ClientName;
+            }
+        }
+        html+='<tr>'+
+            '<td>'+JobMtn_list[i].JobCode+'</td>'+
+            '<td>'+ClientName+'</td>'+
+            '<td>'+JobMtn_list[i].JobNature+'</td>'+
+            '<td>'+JobMtn_list[i].JobPeriodFrom+'</td>'+
+            '<td>'+JobMtn_list[i].JobPeriodTo+'</td>'+
+            '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
+            '<td>'+JobMtn_list[i].JobDeadline+'</td>'+
+            '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
+            '<td>'+
+                '<button class="btn btn-default edit_btn" type="button"  attrid="'+JobMtn_list[i].ID+'">Edit</button>'+
+                '<button class="btn btn-default delete_btn"   type="button"  attrid="'+JobMtn_list[i].ID+'">Delete</button>'+
+                '<button class="btn btn-default prog_btn"   type="button"  attrid="'+JobMtn_list[i].JobCode+'">Job Progress</button>'+
+                '<button class="btn btn-default allocation_btn"   type="button"  attrid="'+JobMtn_list[i].JobCode+'">Allocation</button>'+
+            '</td>'+
+        '</tr>';
+    }
+    $("#tableData").html(html);
+
     $('#coderesource_table').DataTable({
         order: [[ 0, "asc" ]],
     });
