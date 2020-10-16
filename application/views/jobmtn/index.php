@@ -12,8 +12,8 @@
             <div class="pull-right"><button type="button" onclick="window.location.href='JobMtn/create'">+ add</button><br><br></div>
         </div>
         <div class="clearfix" style="margin-bottom: 20px;">
-            from: <input type="text" id="from">
-            to: <input type="text" id="to">
+            from: <input type="text" id="from" name='from'>
+            to: <input type="text" id="to" name='to'>
             <button type="button" id="search">Search</button>
         </div>
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
@@ -98,7 +98,7 @@ $(function () {
     $("#search").click(function(){
         let from = $("#from").val();
         let to = $("#to").val();
-        window.location.href="jobmtn/index?from="+from+'&to='+to;
+        window.location.href="JobMtn?from="+from+'&to='+to;
     });
 
     function DateDiff(sDate, eDate) {
@@ -128,6 +128,41 @@ $(function () {
         }
         return num;
     }
+
+    function DatePicker(beginSelector,endSelector){
+        $(beginSelector).datetimepicker(
+            {
+                language: 'en',
+                autoclose: true,
+                startView: 'month',
+                format: 'yyyy-mm-dd',
+                clearBtn:false,
+                minView: 2
+                }).on('changeDate', function(ev){
+                if(ev.date){
+                    $(endSelector).datetimepicker('setStartDate', new Date(ev.date.valueOf()))
+                }else{
+                    $(endSelector).datetimepicker('setStartDate',null);
+            }
+        })
+
+        $(endSelector).datetimepicker(
+            {
+                language: "en",
+                autoclose: true,
+                startView:'month',
+                format: "yyyy-mm-dd",
+                clearBtn:true,
+                minView: 2
+                }).on('changeDate', function(ev){
+                if(ev.date){
+                    $(beginSelector).datetimepicker('setEndDate', new Date(ev.date.valueOf()))
+                }else{
+                    $(beginSelector).datetimepicker('setEndDate',new Date());
+            }
+        })
+    }
+    DatePicker("#from","#to");
 
     $('#coderesource_table').DataTable({
         order: [[ 0, "asc" ]],
