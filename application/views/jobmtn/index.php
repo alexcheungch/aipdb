@@ -11,6 +11,11 @@
         <div class="clearfix">
             <div class="pull-right"><button type="button" onclick="window.location.href='JobMtn/create'">+ add</button><br><br></div>
         </div>
+        <div class="clearfix" style="margin-bottom: 20px;">
+            from: <input type="text" id="from">
+            to: <input type="text" id="to">
+            <button type="button" id="search">Search</button>
+        </div>
         <table id="coderesource_table" style="width: 100%;text-align: center;" class="table">
             <thead>
                 <tr>
@@ -54,36 +59,47 @@
 <script>
 var uploadurl ="";
 $(function () {
+    var baseUrl = "<?php  echo config_item('base_url') ?>";
     var JobMtn_list = <?php echo json_encode($JobMtn_list); ?>;
     var clientList = <?php echo json_encode($clientList); ?>;
-    var todyDate=new Date();    
-    var html='';    
-    for(var i=0; i<JobMtn_list.length; i++){
-        var ClientName='';
-        for(var j=0; j<clientList.length; j++){
-            if(JobMtn_list[i].ClientCode1 == clientList[j].ClientCode1){
-                ClientName=clientList[j].ClientName.substr(0,15);
+
+    init(JobMtn_list,clientList);
+    function init(JobMtn_list,clientList){
+        var todyDate=new Date();    
+        var html='';    
+        for(var i=0; i<JobMtn_list.length; i++){
+            var ClientName='';
+            for(var j=0; j<clientList.length; j++){
+                if(JobMtn_list[i].ClientCode1 == clientList[j].ClientCode1){
+                    ClientName=clientList[j].ClientName.substr(0,15);
+                }
             }
+            var daysLeft = DateDiff(getMyDate(todyDate),JobMtn_list[i].WorkingDeadline)
+            html+='<tr>'+
+                '<td>'+JobMtn_list[i].JobCode+'</td>'+
+                '<td>'+ClientName+'</td>'+
+                '<td>'+JobMtn_list[i].JobNature+'</td>'+
+                '<td>'+JobMtn_list[i].JobPeriodFrom+'</td>'+
+                '<td>'+JobMtn_list[i].JobPeriodTo+'</td>'+
+                '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
+                '<td>'+JobMtn_list[i].JobDeadline+'</td>'+
+                '<td>'+daysLeft+'</td>'+
+                '<td>'+
+                    '<button class="btn btn-default edit_btn" type="button"  attrid="'+JobMtn_list[i].ID+'">Edit</button>'+
+                    '<button class="btn btn-default delete_btn"   type="button"  attrid="'+JobMtn_list[i].ID+'">Delete</button>'+
+                    '<button class="btn btn-default prog_btn"   type="button"  attrid="'+JobMtn_list[i].JobCode+'">Job Progress</button>'+
+                    '<button class="btn btn-default allocation_btn"   type="button"  attrid="'+JobMtn_list[i].JobCode+'">Allocation</button>'+
+                '</td>'+
+            '</tr>';
         }
-        var daysLeft = DateDiff(getMyDate(todyDate),JobMtn_list[i].WorkingDeadline)
-        html+='<tr>'+
-            '<td>'+JobMtn_list[i].JobCode+'</td>'+
-            '<td>'+ClientName+'</td>'+
-            '<td>'+JobMtn_list[i].JobNature+'</td>'+
-            '<td>'+JobMtn_list[i].JobPeriodFrom+'</td>'+
-            '<td>'+JobMtn_list[i].JobPeriodTo+'</td>'+
-            '<td>'+JobMtn_list[i].WorkingDeadline+'</td>'+
-            '<td>'+JobMtn_list[i].JobDeadline+'</td>'+
-            '<td>'+daysLeft+'</td>'+
-            '<td>'+
-                '<button class="btn btn-default edit_btn" type="button"  attrid="'+JobMtn_list[i].ID+'">Edit</button>'+
-                '<button class="btn btn-default delete_btn"   type="button"  attrid="'+JobMtn_list[i].ID+'">Delete</button>'+
-                '<button class="btn btn-default prog_btn"   type="button"  attrid="'+JobMtn_list[i].JobCode+'">Job Progress</button>'+
-                '<button class="btn btn-default allocation_btn"   type="button"  attrid="'+JobMtn_list[i].JobCode+'">Allocation</button>'+
-            '</td>'+
-        '</tr>';
+        $("#tableData").html(html);
     }
-    $("#tableData").html(html);    
+    
+    $("#search").click(function(){
+        let from = $("#from").val();
+        let to = $("#to").val();
+        window.location.href="jobmtn/index?from="+from+'&to='+to;
+    });
 
     function DateDiff(sDate, eDate) {
     　　var date1 = new Date(sDate);
