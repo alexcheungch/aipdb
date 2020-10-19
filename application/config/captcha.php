@@ -13,7 +13,7 @@ $config = array(
         'word_length' => 6,
         'font_size' => 20,
         'img_id' => 'captcha_id',
-        'pool' => '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ',
+        'pool' => 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
 
         'colors' => array(
             'background' => array(255, 255, 255),

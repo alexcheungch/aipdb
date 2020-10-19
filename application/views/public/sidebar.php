@@ -34,7 +34,8 @@
             'Allocation' => array(
                 'name' => 'Allocation', 
                 'li' => array(
-                    array('Allocation', 'Allocation List', 'list')
+                    array('Allocation', 'Allocation List', 'list'),
+                    array('Allocation/defaultvalue', 'Allocation Default Value', 'default value')
                 )
             ),
             'SystemAdm' => array(

@@ -92,7 +92,15 @@ class JobMtn extends MY_Controller {
                     $this->load->model('JobProg_model');
                     $this->JobProg_model->insert(array('JobCode'=>$postdata['JobCode']));
                     $this->load->model('Allocation_model');
-                    $this->Allocation_model->insert(array('JobCode'=>$postdata['JobCode']));
+                    $this->load->model('Allocationparam_model');
+                    $default_value = $this->Allocationparam_model->get_all_data();
+                    $allocation_data = array('JobCode'=>$postdata['JobCode']);
+                    foreach ($default_value as $value) {
+                        if ($value) {
+                            $allocation_data[$value['FieldName']] = $value['FieldValue'];
+                        }
+                    }
+                    $this->Allocation_model->insert($allocation_data);
                 }
                 $this->redirect_msg('保存成功', 'JobMtn');
             } else {

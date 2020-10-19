@@ -40,6 +40,8 @@ class MY_Controller extends CI_Controller {
             'allocation/delete' => 'UAlloc',
             'allocation/index' => 'QAlloc',
             'allocation/save' => 'UAlloc',
+            'allocation/defaultvalue' => 'UAlloc',
+            'allocation/savedefault' => 'UAlloc',
         );
         $current_class = strtolower($this->router->class);
         $current_method = strtolower($this->router->method);
