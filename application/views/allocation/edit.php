@@ -47,9 +47,8 @@
                 </div>
             </div>
             <div class="row cl">
-                <label class="form-label col-xs-2 col-sm-2">Quotatin Amount:</label>
-                <div class="formControls col-xs-3 col-sm-3">
-                    <?php echo $jobMtn['QuotationAgreedFee'];?>
+                <label class="form-label col-xs-2 col-sm-2">Quotation Amount:</label>
+                <div class="formControls col-xs-3 col-sm-3" id="QuotationAgreedFee">
                 </div>
             </div>
             <div class="row cl">
@@ -122,7 +121,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Overall Bonus%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" value="<?php if (($data['SIBSOverallPct'] != '') && ($data['SIBSOverallPct'] != '0')) {echo $data['SIBSOverallPct'].'%';} else {echo '30%'; } ?>" name="SIBSOverallPct">
+                    <input type="text" class="input-text" id="overallBonus" value="<?php if (($data['SIBSOverallPct'] != '') && ($data['SIBSOverallPct'] != '0')) {echo $data['SIBSOverallPct'].'%';} else {echo '30%'; } ?>" name="SIBSOverallPct">
                 </div>
             </div>
         
@@ -192,7 +191,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled Amount</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>" id="step1_EntitledAmount_l">
+                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>" id="step1_EntitledAmount_l" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
@@ -254,7 +253,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled Amount</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>" id="step1_EntitledAmount_r">
+                                            <input type="text" class="input-text" name="SIBSS1EntitledAmount" value="<?php echo $data['SIBSS1EntitledAmount'];?>" id="step1_EntitledAmount_r" disabled>
                                         </div>
                                     </div> 
                                     <div class="row cl">
@@ -445,7 +444,17 @@ var acMgr     = <?php echo json_encode($acMgr); ?>;
 var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
 var clientList= <?php echo json_encode($clientList); ?>; 
 var uploadurl ="";
-$(function () {
+$(function () {    
+    $("#QuotationAgreedFee").html(formatFee(<?php echo $jobMtn['QuotationAgreedFee'];?>));
+    function formatFee(value){
+        if (value) {
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+        } else { return ' ';};
+    }
+
     $(".need_date").datetimepicker({
         todayBtn: 1,
         startView: 2,
@@ -598,16 +607,29 @@ function adj_public(id,value){
     }
 
     EntitledAmount_l();
+    EntitledAmount_r();
 }
-$("#step1_CSFactor_l").change(function(){
+$("#step1_CSFactor_l,#step1_CSFactor_r").change(function(){
     EntitledAmount_l();
+    EntitledAmount_r();
 });
 
 function EntitledAmount_l(){
+    var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
     var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
     var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
     var CSFactor=$("#step1_CSFactor_l").val();
-    var value=(1000 * (Entitled - Adj) * CSFactor).toFixed(2);
+    var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
     $("#step1_EntitledAmount_l").val(value);
 }
+
+function EntitledAmount_r(){
+    var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+    var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
+    var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
+    var CSFactor=$("#step1_CSFactor_r").val();
+    var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
+    $("#step1_EntitledAmount_r").val(value);
+}
+
 </script>
