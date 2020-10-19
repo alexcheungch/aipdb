@@ -277,7 +277,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Step 3 %:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text">
+                                    <input type="text" class="input-text" name="SIBSS3SetPct" value="<?php echo $data['SIBSS3SetPct'];?>">
                                 </div>
                             </div>
                             <div class="row cl">
@@ -631,5 +631,4 @@ function EntitledAmount_r(){
     var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
     $("#step1_EntitledAmount_r").val(value);
 }
-
 </script>
