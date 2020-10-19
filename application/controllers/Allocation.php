@@ -107,13 +107,15 @@ class Allocation extends MY_Controller {
     public function savedefault() {
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
             $this->load->model('Allocationparam_model');
+            $this->load->model('Allocationhistory_model');
             $postdata = $this->input->post(null, true);
             foreach ($postdata as $key => $value) {
                 $value = trim($value);
                 if (!$value) {
                     $value = '';
                 }
-                $this->Allocationparam_model->update_data(array('FieldName' => $key), array('FieldValue'=>$value,'ModifyDate'=>date('Y-m-d H:i:s')));
+                $this->Allocationparam_model->update_data(array('FieldName' => $key), array('FieldValue'=>$value));
+                $this->Allocationhistory_model->insert(array('FieldName' => $key,'FieldValue'=>$value,'ModifyDate'=>date('Y-m-d H:i:s')));
             }
             $this->redirect_msg('保存成功', 'Allocation/defaultvalue');
         }

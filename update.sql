@@ -11,13 +11,21 @@ CREATE TABLE `allocationparam`  (
   `ID` int(10) NOT NULL AUTO_INCREMENT,
   `FieldName` varchar(255) not NULL,
   `FieldValue` varchar(255) not NULL,
+  PRIMARY KEY (`ID`)
+) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci;
+INSERT INTO `allocationparam` (`ID`, `FieldName`, `FieldValue`) VALUES
+(1, 'SIBSOverallPct', ''),
+(2, 'SIBSS1SetPct', ''),
+(3, 'SIBSS2SetPct', ''),
+(4, 'SIBSS3SetPct', ''),
+(5, 'SIBSS4SetPct', ''),
+(6, 'SIBSS5SetPct', '');
+
+
+CREATE TABLE `allocationhistory`  (
+  `ID` int(10) NOT NULL AUTO_INCREMENT,
+  `FieldName` varchar(255) not NULL,
+  `FieldValue` varchar(255) not NULL,
   `ModifyDate` datetime not NULL,
   PRIMARY KEY (`ID`)
 ) ENGINE = InnoDB CHARACTER SET = utf8 COLLATE = utf8_general_ci;
-INSERT INTO `allocationparam` (`ID`, `FieldName`, `FieldValue`, `ModifyDate`) VALUES
-(1, 'SIBSOverallPct', '', '2020-10-19 09:00:00'),
-(2, 'SIBSS1SetPct', '', '2020-10-19 09:00:00'),
-(3, 'SIBSS2SetPct', '', '2020-10-19 09:00:00'),
-(4, 'SIBSS3SetPct', '', '2020-10-19 09:00:00'),
-(5, 'SIBSS4SetPct', '', '2020-10-19 09:00:00'),
-(6, 'SIBSS5SetPct', '', '2020-10-19 09:00:00');
