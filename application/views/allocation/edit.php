@@ -348,7 +348,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled % | Set:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS4EntitledAmount" value="<?php echo $data['SIBSS4EntitledAmount'];?>" disabled>
+                                            <input type="text" class="input-text" name="SIBSS4SetPct" value="<?php echo $data['SIBSS4SetPct'];?>" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
@@ -364,6 +364,12 @@
                                         </div>
                                     </div>
                                     <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled Amount:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS4EntitledAmount" id="SIBSS4EntitledAmount" value="" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text need_date" name="SIBSS4PaidDate" value="<?php echo $data['SIBSS4PaidDate'];?>" readonly>
@@ -376,14 +382,14 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Staff:</label>
                                         <div class="formControls col-xs-8">
-                                            <select class="select_staff">
+                                            <select class="select_staff" id="jobProg_6">
                                             </select>
                                         </div>
                                     </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled % | Set:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS5EntitledAmount" value="<?php echo $data['SIBSS5EntitledAmount'];?>" disabled>
+                                            <input type="text" class="input-text" name="SIBSS5SetPct" value="<?php echo $data['SIBSS5SetPct'];?>" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
@@ -396,6 +402,12 @@
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" name="SIBSS5CSFtr" value="<?php echo $data['SIBSS5CSFtr'];?>">
+                                        </div>
+                                    </div>                                    
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled Amount:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS5EntitledAmount" id="SIBSS5EntitledAmount" value="" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
@@ -564,6 +576,12 @@ $("#jobProg_5").val("<?php echo $jobProg['S4FSRStaff'];?>");
 <?php } else {?>
 $("#jobProg_5").attr("disabled", true);
 <?php }?>
+<?php if ($jobProg['S5FSFChecklistSignoffBy']) {?>
+$("#jobProg_6").html(staffHtml);
+$("#jobProg_6").val("<?php echo $jobProg['S5FSFChecklistSignoffBy'];?>");
+<?php } else {?>
+$("#jobProg_6").attr("disabled", true);
+<?php }?>
 
 var ACManagerHtml='';
 for(var i=0; i<acMgr.length; i++){
@@ -573,6 +591,7 @@ $(".AC_Manager").html(ACManagerHtml);
 
 $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 
+//part1
 $("#setp1_Adj_l").change(function(){
     var value=$(this).val();
     adj_public('setp1_Adj_r',value);
@@ -633,4 +652,31 @@ function EntitledAmount_r(){
 }
 EntitledAmount_l();
 EntitledAmount_r();
+
+//part3
+$("#SIBSS4EntitledAmount").val(part3EA('SIBSS4EntitledAmount'));
+$("#SIBSS5EntitledAmount").val(part3EA('SIBSS5EntitledAmount'));
+function part3EA(id){
+    var QuotationAgreedFee,overallBonus,SIBSSNCSFtr,SIBSSNSetPct,SIBSSNAdjPct;
+    if(id == 'SIBSS4EntitledAmount'){
+        QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        overallBonus=$("#overallBonus").val().split('%')[0]/100;
+        SIBSSNCSFtr = <?php echo $data['SIBSS4CSFtr'];?>;
+        SIBSSNSetPct = <?php echo $data['SIBSS4SetPct'];?>;
+        SIBSSNAdjPct = <?php echo $data['SIBSS4AdjPct'];?>;
+    }else if(id == 'SIBSS5EntitledAmount'){
+        QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        overallBonus=$("#overallBonus").val().split('%')[0]/100;
+        SIBSSNCSFtr = <?php echo $data['SIBSS5CSFtr'];?>;
+        SIBSSNSetPct = <?php echo $data['SIBSS5SetPct'];?>;
+        SIBSSNAdjPct = <?php echo $data['SIBSS5AdjPct'];?>;
+    }
+    // console.log(QuotationAgreedFee);
+    // console.log(overallBonus);
+    // console.log(SIBSSNCSFtr);
+    // console.log(SIBSSNSetPct);
+    // console.log(SIBSSNAdjPct);
+    return QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct);
+    
+}
 </script>
