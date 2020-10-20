@@ -15,7 +15,7 @@
             <label class="form-label col-xs-2 col-sm-2">Client Code:</label>
                 <div class="formControls col-xs-10 col-sm-10">
                     <?php echo $data['ClientCode1'];?>
-                    /
+                    -
                     <?php echo $data['ClientCode2'];?>
                     / 
                     <?php echo $data['ClientCode3'];?>
@@ -126,7 +126,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Doc Request | Via:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <select class="docrequest_via" name="S1DCDocRequestVia">
+                                    <select class="docrequest_via" name="S1DCDocRequestVia" id="S1DCDocRequestVia">
                                     </select>
 
                                 </div>
@@ -189,14 +189,14 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Office Handled:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <select class="office_handled" name="S2DDOfficeHandled">
+                                    <select class="office_handled" name="S2DDOfficeHandled" id="S2DDOfficeHandled">
                                     </select>
                                 </div>
                             </div>
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Doc Transfer | via:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <select class="doc_transfer" name="S2DDDocTsfvia">
+                                    <select class="doc_transfer" name="S2DDDocTsfvia" id="S2DDDocTsfvia">
                                     </select>
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Arrival Date:</label>
@@ -499,7 +499,7 @@
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">Storage Location:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <select class="select_docLoc" name="SRDRStoreLoc">
+                                    <select class="select_docLoc" name="SRDRStoreLoc" id="SRDRStoreLoc">
                                     </select>
                                 </div>
                             </div>
@@ -629,17 +629,30 @@ $('#autocomplete_clientCode1').bind('input propertychange', function(){
 
 var docrequestViaHtml='';
 for(var i=0; i<sentOutVia.length; i++){
-    docrequestViaHtml+='<option>'+sentOutVia[i].SentOutMeans+'</option>';
+    if (sentOutVia[i].SentOutMeans == "<?php echo $data['S1DCDocRequestVia'];?>")
+        docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+' selected>'+sentOutVia[i].SentOutMeans+'</option>';
+    else 
+        docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+'>'+sentOutVia[i].SentOutMeans+'</option>';
 }
-$(".docrequest_via").html(docrequestViaHtml);
-$(".docrequest_via").val("<?php echo $data['S1DCDocRequestVia'];?>");
+$("#S1DCDocRequestVia").html(docrequestViaHtml);
 
 var docLocHtml='';
 for(var i=0; i<docLoc.length; i++){
-    docLocHtml+='<option>'+docLoc[i].DocLoc+'</option>';
+    if (docLoc[i].DocLoc == "<?php echo $data['SRDRStoreLoc'];?>" )
+      docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
+    else
+      docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
 }
-$(".select_docLoc").html(docLocHtml);
-$("#SRDRStoreLoc").val("<?php echo $data['SRDRStoreLoc'];?>");
+$("#SRDRStoreLoc").html(docLocHtml);
+var docLocHtml='';
+for(var i=0; i<docLoc.length; i++){
+    if (docLoc[i].DocLoc == "<?php echo $data['S6DFDocLoc'];?>" )
+      docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
+    else
+      docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
+}
+$("#S6DFDocLoc").html(docLocHtml);
+
 
 var staffHtml='';
 for(var i=0; i<staffList.length; i++){
@@ -648,47 +661,133 @@ for(var i=0; i<staffList.length; i++){
 
 var officeHandledHtml='';
 for(var i=0; i<DDOfficeHandled.length; i++){
-    officeHandledHtml+='<option>'+DDOfficeHandled[i]+'</option>';
+    if (DDOfficeHandled[i] == "<?php echo $data['S2DDOfficeHandled'];?>")
+       officeHandledHtml+='<option value='+DDOfficeHandled[i]+' selected>'+DDOfficeHandled[i]+'</option>';
+    else 
+       officeHandledHtml+='<option value='+DDOfficeHandled[i]+'>'+DDOfficeHandled[i]+'</option>';
 }
-$(".office_handled").html(officeHandledHtml);
-$("#S2DDOfficeHandled").val("<?php echo $data['S2DDOfficeHandled'];?>");
+$("#S2DDOfficeHandled").html(officeHandledHtml);
 
 var docTransferHtml='';
 for(var i=0; i<DDDocTsfvia.length; i++){
-    docTransferHtml+='<option>'+DDDocTsfvia[i]+'</option>';
+    if (DDDocTsfvia[i] == "<?php echo $data['S2DDDocTsfvia'];?>")
+       docTransferHtml+='<option value='+DDDocTsfvia[i]+' selected>'+DDDocTsfvia[i]+'</option>';
+    else 
+       docTransferHtml+='<option value='+DDDocTsfvia[i]+'>'+DDDocTsfvia[i]+'</option>';
 }
-$(".doc_transfer").html(docTransferHtml);
-$("#S2DDDocTsfvia").val("<?php echo $data['S2DDDocTsfvia'];?>");
+$("#S2DDDocTsfvia").html(docTransferHtml);
 
 
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff1'];?>" )
+       staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S3ACStaff1").html(staffHtml);
-$("#S3ACStaff1").val("<?php echo $data['S3ACStaff1'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff2'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S3ACStaff2").html(staffHtml);
-$("#S3ACStaff2").val("<?php echo $data['S3ACStaff2'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff3'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S3ACStaff3").html(staffHtml);
-$("#S3ACStaff3").val("<?php echo $data['S3ACStaff3'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff4'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S3ACStaff4").html(staffHtml);
-$("#S3ACStaff4").val("<?php echo $data['S3ACStaff4'];?>");
+
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S1DCStaff'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S1DCStaff").html(staffHtml);
-$("#S1DCStaff").val("<?php echo $data['S1DCStaff'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S2DDStaff'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S2DDStaff").html(staffHtml);
-$("#S2DDStaff").val("<?php echo $data['S2DDStaff'];?>");
+
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S4FSRStaff'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S4FSRStaff").html(staffHtml);
-$("#S4FSRStaff").val("<?php echo $data['S4FSRStaff'];?>");
+
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S5FSFChecklistSignoffBy'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S5FSFChecklistSignoffBy").html(staffHtml);
-$("#S5FSFChecklistSignoffBy").val("<?php echo $data['S5FSFChecklistSignoffBy'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S5FSFFSPrintedBy'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S5FSFFSPrintedBy").html(staffHtml);
-$("#S5FSFFSPrintedBy").val("<?php echo $data['S5FSFFSPrintedBy'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S5FSFDNIssuedBy'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S5FSFDNIssuedBy").html(staffHtml);
-$("#S5FSFDNIssuedBy").val("<?php echo $data['S5FSFDNIssuedBy'];?>");
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S5FSFFSPackeSentBy'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S5FSFFSPackeSentBy").html(staffHtml);
-$("#S5FSFFSPackeSentBy").val("<?php echo $data['S5FSFFSPackeSentBy'];?>");
+
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['S6DFFiledStaff'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#S6DFFiledStaff").html(staffHtml);
-$("#S6DFFiledStaff").val("<?php echo $data['S6DFFiledStaff'];?>");
-$("#S6DFDocLoc").html(docLocHtml);
-$("#S6DFDocLoc").val("<?php echo $data['S6DFDocLoc'];?>");
+
+
+staffHtml='';
+for(var i=0; i<staffList.length; i++){
+    if (staffList[i].StaffCode == "<?php echo $data['SRDRDocDespatchedDeliveryStaff'];?>" )
+    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    else 
+       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+}
 $("#SRDRDocDespatchedDeliveryStaff").html(staffHtml);
-$("#SRDRDocDespatchedDeliveryStaff").val("<?php echo $data['SRDRDocDespatchedDeliveryStaff'];?>");
 
 
 
