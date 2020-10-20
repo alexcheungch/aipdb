@@ -61,12 +61,15 @@ class JobMtn extends MY_Controller {
 
     public function create() {
         $this->load->model('SysParam_model');
+        $this->load->model('ClientMtn_model');
         $result = $this->SysParam_model->get_all_data();
         $sys_param = array();
         foreach ($result as $value) {
             $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $value['ParamValue']);
             $sys_param[$value['ParamType']] = explode(',', $param_value);
         }
+        $this_list = $this->ClientMtn_model->get_clients();
+        $this->assign('clientList', $this_list);
         $this->assign('sys_param', $sys_param);
         $this->display();
     }

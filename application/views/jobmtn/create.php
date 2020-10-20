@@ -109,6 +109,19 @@
 <script>
 var uploadurl ="";
 $(function () {
+    var clientList= <?php echo json_encode($clientList); ?>;  
+
+    var clientCode=[];
+    for(var i=0; i<clientList.length; i++){
+        clientCode.push(clientList[i].ClientCode1);
+    }
+    $('#ClientCode1').autocomplete({
+        lookup: clientCode,
+        onSelect: function (suggestion) {
+            // console.log('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        }
+    });
+
     $("#RecordDate,#JobPeriodFrom,#JobPeriodTo,#QuotationSentDate,#QuotationConfirmedDate,#JobDeadline").datetimepicker({
         todayBtn: 1,
         startView: 2,
