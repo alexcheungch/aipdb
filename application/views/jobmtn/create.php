@@ -122,6 +122,25 @@ $(function () {
         }
     });
 
+    $("#QuotationProposedFee,#QuotationAgreedFee").focus(function(){
+        $(this).val('');
+    })
+    $("#QuotationProposedFee").change(function(){
+        $(this).val(formatFee(Number($(this).val())));
+    });
+
+    $("#QuotationAgreedFee").change(function(){
+        $(this).val(formatFee(Number($(this).val())));
+    });
+    function formatFee(value){
+        if (value) {
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+        } else { return ' ';};
+    }
+
     $("#RecordDate,#JobPeriodFrom,#JobPeriodTo,#QuotationSentDate,#QuotationConfirmedDate,#JobDeadline").datetimepicker({
         todayBtn: 1,
         startView: 2,
