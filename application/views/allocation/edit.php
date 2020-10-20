@@ -214,7 +214,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled % | Set:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS2EntitledAmount" value="<?php echo $data['SIBSS2EntitledAmount'];?>" disabled>
+                                            <input type="text" class="input-text" name="SIBSS2SetPct" value="<?php if (($data['SIBSS2SetPct'] != '') && ($data['SIBSS2SetPct'] != '0')) {echo $data['SIBSS2SetPct'].'%';} else {echo '11%'; } ?>" id="SIBSS2SetPct" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
@@ -625,7 +625,7 @@ function EntitledAmount_l(){
 
 function EntitledAmount_r(){
     var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-    var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
+    var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
     var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
     var CSFactor=$("#step1_CSFactor_r").val();
     var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
