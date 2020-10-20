@@ -631,4 +631,6 @@ function EntitledAmount_r(){
     var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
     $("#step1_EntitledAmount_r").val(value);
 }
+EntitledAmount_l();
+EntitledAmount_r();
 </script>
