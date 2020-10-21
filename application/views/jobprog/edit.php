@@ -201,13 +201,13 @@
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Arrival Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S2DDDocTsfArrivalDate" value="<?php echo $data['S2DDDocTsfArrivalDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S2DDDocTsfArrivalDate" value="<?php if($data['S2DDDocTsfArrivalDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S2DDDocTsfArrivalDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Briefing Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S2DDBreifingDate" value="<?php echo $data['S2DDBreifingDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S2DDBreifingDate" value="<?php if($data['S2DDBreifingDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S2DDBreifingDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -236,7 +236,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Commence Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S3ACCommenceDate" value="<?php echo $data['S3ACCommenceDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S3ACCommenceDate" value="<?php if($data['S3ACCommenceDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S3ACCommenceDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -257,21 +257,21 @@
                                     <div class="row">
                                         <label class="form-label col-xs-2 col-sm-2">1st:</label>
                                         <div class="formControls col-xs-3 col-sm-3">
-                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding1st" value="<?php echo $data['S3ACInfoOutstanding1st'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding1st" value="<?php if($data['S3ACInfoOutstanding1st'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S3ACInfoOutstanding1st'];}?>" readonly>
                                         </div>
                                         <label class="form-label col-xs-2 col-sm-2">| Reply:</label>
                                         <div class="formControls col-xs-3 col-sm-3">
-                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding1stReply" value="<?php echo $data['S3ACInfoOutstanding1stReply'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding1stReply" value="<?php if($data['S3ACInfoOutstanding1stReply'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S3ACInfoOutstanding1stReply'];}?>" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <label class="form-label col-xs-2 col-sm-2">2nd:</label>
                                         <div class="formControls col-xs-3 col-sm-3">
-                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding2nd" value="<?php echo $data['S3ACInfoOutstanding2nd'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding2nd" value="<?php if($data['S3ACInfoOutstanding2nd'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S3ACInfoOutstanding2nd'];}?>" readonly>
                                         </div>
                                         <label class="form-label col-xs-2 col-sm-2">| Reply:</label>
                                         <div class="formControls col-xs-3 col-sm-3">
-                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding2ndReply" value="<?php echo $data['S3ACInfoOutstanding2ndReply'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="S3ACInfoOutstanding2ndReply" value="<?php if($data['S3ACInfoOutstanding2ndReply'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S3ACInfoOutstanding2ndReply'];}?>" readonly>
                                         </div>
                                     </div>
                                 </div>
@@ -286,7 +286,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Draft FS ready Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S3ACDraftFSDate" value="<?php echo $data['S3ACDraftFSDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S3ACDraftFSDate" value="<?php if($data['S3ACDraftFSDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S3ACDraftFSDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -315,21 +315,21 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">1st Review | Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S4FSR1stReviewDate" value="<?php echo $data['S4FSR1stReviewDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S4FSR1stReviewDate" value="<?php if($data['S4FSR1stReviewDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S4FSR1stReviewDate'];}?>" readonly>
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Amended Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S4FSR1stReviewAmendedDate" value="<?php echo $data['S4FSR1stReviewAmendedDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S4FSR1stReviewAmendedDate" value="<?php if($data['S4FSR1stReviewAmendedDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S4FSR1stReviewAmendedDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">2nd Review | Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S4FSR2ndReviewDate" value="<?php echo $data['S4FSR2ndReviewDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S4FSR2ndReviewDate" value="<?php if($data['S4FSR2ndReviewDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S4FSR2ndReviewDate'];}?>" readonly>
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Amended Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S4FSR2ndReviewAmendedDate" value="<?php echo $data['S4FSR2ndReviewAmendedDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S4FSR2ndReviewAmendedDate" value="<?php if($data['S4FSR2ndReviewAmendedDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S4FSR2ndReviewAmendedDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -372,7 +372,7 @@
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S5FSFChecklistSignoffDate" value="<?php echo $data['S5FSFChecklistSignoffDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S5FSFChecklistSignoffDate" value="<?php if($data['S5FSFChecklistSignoffDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S5FSFChecklistSignoffDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -383,7 +383,7 @@
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S5FSFFSPrintedDate" value="<?php echo $data['S5FSFFSPrintedDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S5FSFFSPrintedDate" value="<?php if($data['S5FSFFSPrintedDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S5FSFFSPrintedDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -400,11 +400,11 @@
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                                 <div class="formControls col-xs-2 col-sm-2">
-                                    <input type="text" class="input-text need_date" name="S5FSFDNDatexx" value="<?php echo $data['S5FSFDNDatexx'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S5FSFDNDatexx" value="<?php if($data['S5FSFDNDatexx'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S5FSFDNDatexx'];}?>" readonly>
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Amount:</label>
                                 <div class="formControls col-xs-2 col-sm-2">
-                                    <input type="text" class="input-text" name="S5FSFDNAmountxx" value="<?php echo $data['S5FSFDNAmountxx'];?>">
+                                    <input type="text" class="input-text" name="S5FSFDNAmountxx" value="<?php echo $data['S5FSFDNAmountxx'];?>" id="S5FSFDNAmountxx">
                                 </div>
                             </div>
                             <div class="row cl">
@@ -415,7 +415,7 @@
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S5FSFFSPackeSentDate" value="<?php echo $data['S5FSFFSPackeSentDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S5FSFFSPackeSentDate" value="<?php if($data['S5FSFFSPackeSentDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S5FSFFSPackeSentDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -459,7 +459,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="S6DFFiledDate" value="<?php echo $data['S6DFFiledDate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="S6DFFiledDate" value="<?php if($data['S6DFFiledDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['S6DFFiledDate'];}?>" readonly>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -495,7 +495,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">HK Office Date:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="SRDRHKODate" value="<?php echo $data['SRDRHKODate'];?>" readonly>
+                                    <input type="text" class="input-text need_date" name="SRDRHKODate" value="<?php if($data['SRDRHKODate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['SRDRHKODate'];}?>" readonly>
                                 </div>
                                 <label class="form-label col-xs-2 col-sm-2">Storage Location:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
@@ -516,13 +516,13 @@
                                         <div class="col-xs-4">
                                             <label class="form-label col-xs-4">Invite:</label>
                                             <div class="formControls col-xs-8">
-                                                <input type="text" class="input-text need_date" name="SRDRDocDespatchedInviteDate" value="<?php echo $data['SRDRDocDespatchedInviteDate'];?>" readonly>
+                                                <input type="text" class="input-text need_date" name="SRDRDocDespatchedInviteDate" value="<?php if($data['SRDRDocDespatchedInviteDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['SRDRDocDespatchedInviteDate'];}?>" readonly>
                                             </div>
                                         </div>
                                         <div class="col-xs-4">
                                             <label class="form-label col-xs-4">Delivery Date:</label>
                                             <div class="formControls col-xs-8">
-                                                <input type="text" class="input-text need_date" name="SRDRDocDespatchedDeliveryDate" value="<?php echo $data['SRDRDocDespatchedDeliveryDate'];?>" readonly>
+                                                <input type="text" class="input-text need_date" name="SRDRDocDespatchedDeliveryDate" value="<?php if($data['SRDRDocDespatchedDeliveryDate'] == '0000-00-00'){echo "".date("Y-m-d")."";}else{echo $data['SRDRDocDespatchedDeliveryDate'];}?>" readonly>
                                             </div>
                                         </div>
                                     </div>
@@ -580,217 +580,232 @@ $(function () {
         $("#JobProg_form").submit();
     });
 });
-var staffList = <?php echo json_encode($staffList); ?>;
-var docLoc    = <?php echo json_encode($docLoc); ?>;
-var acMgr     = <?php echo json_encode($acMgr); ?>;
-var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
-var clientList= <?php echo json_encode($clientList); ?>;  
-var DDOfficeHandled =   <?php echo json_encode($sys_param['S2DDOfficeHandled']); ?>; 
-var DDDocTsfvia =   <?php echo json_encode($sys_param['S2DDDocTsfvia']); ?>;
+    var staffList = <?php echo json_encode($staffList); ?>;
+    var docLoc    = <?php echo json_encode($docLoc); ?>;
+    var acMgr     = <?php echo json_encode($acMgr); ?>;
+    var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
+    var clientList= <?php echo json_encode($clientList); ?>;  
+    var DDOfficeHandled =   <?php echo json_encode($sys_param['S2DDOfficeHandled']); ?>; 
+    var DDDocTsfvia =   <?php echo json_encode($sys_param['S2DDDocTsfvia']); ?>;
 
-$("#QuotationProposedFee").html(formatFee(<?php echo $data['QuotationProposedFee'];?>));
-$("#QuotationAgreedFee").html(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
+    $("#QuotationProposedFee").html(formatFee(<?php echo $data['QuotationProposedFee'];?>));
+    $("#QuotationAgreedFee").html(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
 
-function formatFee(value){
-    if (value) {
-      return value.toLocaleString('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      });
-    } else { return ' ';};
-}
-
-var clientCode=[];
-for(var i=0; i<clientList.length; i++){
-    clientCode.push({value: clientList[i].ClientCode1, data: clientList[i].ClientName, clientcode2: clientList[i].ClientCode2, clientcode3: clientList[i].ClientCode3, NormalYearEndDate: clientList[i].NormalYearEndDate, NonTaxDeadlineDate: clientList[i].NonTaxDeadlineDate});
-}
-
-$('#autocomplete_clientCode1').autocomplete({
-    lookup: clientCode,
-    onSelect: function (suggestion) {
-        $("#client_Code2").val(suggestion.clientcode2);
-        $("#client_code3").val(suggestion.clientcode3);
-        $("#client_name").val(suggestion.data);
-        $("#NormalYearEndDate").val(suggestion.NormalYearEndDate);
-        $("#NonTaxDeadlineDate").val(suggestion.NonTaxDeadlineDate);
+    function formatFee(value){
+        if (value) {
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
+        } else { return ' ';};
     }
-});
+    
+    $("#S5FSFDNAmountxx").focus(function(){
+        $(this).val('');
+    })
 
-$('#autocomplete_clientCode1').bind('input propertychange', function(){
-    var value = $(this).val();
-    if(!value){
-        $("#client_Code2").val('');
-        $("#client_code3").val('');
-        $("#client_name").val('');
-        $("#NormalYearEndDate").val('');
-        $("#NonTaxDeadlineDate").val('');
+    $("#S5FSFDNAmountxx").change(function(){
+        $(this).val(formatFeeEdit(Number($(this).val())));
+    });
+
+    function formatFeeEdit(value){
+        return value.toLocaleString('en-US', {
+            style: 'currency',
+            currency: 'USD',
+        });
     }
-});
 
-var docrequestViaHtml='';
-for(var i=0; i<sentOutVia.length; i++){
-    if (sentOutVia[i].SentOutMeans == "<?php echo $data['S1DCDocRequestVia'];?>")
-        docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+' selected>'+sentOutVia[i].SentOutMeans+'</option>';
-    else 
-        docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+'>'+sentOutVia[i].SentOutMeans+'</option>';
-}
-$("#S1DCDocRequestVia").html(docrequestViaHtml);
+    var clientCode=[];
+    for(var i=0; i<clientList.length; i++){
+        clientCode.push({value: clientList[i].ClientCode1, data: clientList[i].ClientName, clientcode2: clientList[i].ClientCode2, clientcode3: clientList[i].ClientCode3, NormalYearEndDate: clientList[i].NormalYearEndDate, NonTaxDeadlineDate: clientList[i].NonTaxDeadlineDate});
+    }
 
-var docLocHtml='';
-for(var i=0; i<docLoc.length; i++){
-    if (docLoc[i].DocLoc == "<?php echo $data['SRDRStoreLoc'];?>" )
-      docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
-    else
-      docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
-}
-$("#SRDRStoreLoc").html(docLocHtml);
-var docLocHtml='';
-for(var i=0; i<docLoc.length; i++){
-    if (docLoc[i].DocLoc == "<?php echo $data['S6DFDocLoc'];?>" )
-      docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
-    else
-      docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
-}
-$("#S6DFDocLoc").html(docLocHtml);
+    $('#autocomplete_clientCode1').autocomplete({
+        lookup: clientCode,
+        onSelect: function (suggestion) {
+            $("#client_Code2").val(suggestion.clientcode2);
+            $("#client_code3").val(suggestion.clientcode3);
+            $("#client_name").val(suggestion.data);
+            $("#NormalYearEndDate").val(suggestion.NormalYearEndDate);
+            $("#NonTaxDeadlineDate").val(suggestion.NonTaxDeadlineDate);
+        }
+    });
 
+    $('#autocomplete_clientCode1').bind('input propertychange', function(){
+        var value = $(this).val();
+        if(!value){
+            $("#client_Code2").val('');
+            $("#client_code3").val('');
+            $("#client_name").val('');
+            $("#NormalYearEndDate").val('');
+            $("#NonTaxDeadlineDate").val('');
+        }
+    });
 
-var staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
+    var docrequestViaHtml='';
+    for(var i=0; i<sentOutVia.length; i++){
+        if (sentOutVia[i].SentOutMeans == "<?php echo $data['S1DCDocRequestVia'];?>")
+            docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+' selected>'+sentOutVia[i].SentOutMeans+'</option>';
+        else 
+            docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+'>'+sentOutVia[i].SentOutMeans+'</option>';
+    }
+    $("#S1DCDocRequestVia").html(docrequestViaHtml);
 
-var officeHandledHtml='';
-for(var i=0; i<DDOfficeHandled.length; i++){
-    if (DDOfficeHandled[i] == "<?php echo $data['S2DDOfficeHandled'];?>")
-       officeHandledHtml+='<option value='+DDOfficeHandled[i]+' selected>'+DDOfficeHandled[i]+'</option>';
-    else 
-       officeHandledHtml+='<option value='+DDOfficeHandled[i]+'>'+DDOfficeHandled[i]+'</option>';
-}
-$("#S2DDOfficeHandled").html(officeHandledHtml);
-
-var docTransferHtml='';
-for(var i=0; i<DDDocTsfvia.length; i++){
-    if (DDDocTsfvia[i] == "<?php echo $data['S2DDDocTsfvia'];?>")
-       docTransferHtml+='<option value='+DDDocTsfvia[i]+' selected>'+DDDocTsfvia[i]+'</option>';
-    else 
-       docTransferHtml+='<option value='+DDDocTsfvia[i]+'>'+DDDocTsfvia[i]+'</option>';
-}
-$("#S2DDDocTsfvia").html(docTransferHtml);
-
-
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff1'];?>" )
-       staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S3ACStaff1").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff2'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S3ACStaff2").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff3'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S3ACStaff3").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff4'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S3ACStaff4").html(staffHtml);
-
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S1DCStaff'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S1DCStaff").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S2DDStaff'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S2DDStaff").html(staffHtml);
-
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S4FSRStaff'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S4FSRStaff").html(staffHtml);
-
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S5FSFChecklistSignoffBy'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S5FSFChecklistSignoffBy").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S5FSFFSPrintedBy'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S5FSFFSPrintedBy").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S5FSFDNIssuedBy'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S5FSFDNIssuedBy").html(staffHtml);
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S5FSFFSPackeSentBy'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S5FSFFSPackeSentBy").html(staffHtml);
-
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['S6DFFiledStaff'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#S6DFFiledStaff").html(staffHtml);
+    var docLocHtml='';
+    for(var i=0; i<docLoc.length; i++){
+        if (docLoc[i].DocLoc == "<?php echo $data['SRDRStoreLoc'];?>" )
+        docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
+        else
+        docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
+    }
+    $("#SRDRStoreLoc").html(docLocHtml);
+    var docLocHtml='';
+    for(var i=0; i<docLoc.length; i++){
+        if (docLoc[i].DocLoc == "<?php echo $data['S6DFDocLoc'];?>" )
+        docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
+        else
+        docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
+    }
+    $("#S6DFDocLoc").html(docLocHtml);
 
 
-staffHtml='';
-for(var i=0; i<staffList.length; i++){
-    if (staffList[i].StaffCode == "<?php echo $data['SRDRDocDespatchedDeliveryStaff'];?>" )
-    staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-    else 
-       staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-$("#SRDRDocDespatchedDeliveryStaff").html(staffHtml);
+    var staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+
+    var officeHandledHtml='';
+    for(var i=0; i<DDOfficeHandled.length; i++){
+        if (DDOfficeHandled[i] == "<?php echo $data['S2DDOfficeHandled'];?>")
+        officeHandledHtml+='<option value='+DDOfficeHandled[i]+' selected>'+DDOfficeHandled[i]+'</option>';
+        else 
+        officeHandledHtml+='<option value='+DDOfficeHandled[i]+'>'+DDOfficeHandled[i]+'</option>';
+    }
+    $("#S2DDOfficeHandled").html(officeHandledHtml);
+
+    var docTransferHtml='';
+    for(var i=0; i<DDDocTsfvia.length; i++){
+        if (DDDocTsfvia[i] == "<?php echo $data['S2DDDocTsfvia'];?>")
+        docTransferHtml+='<option value='+DDDocTsfvia[i]+' selected>'+DDDocTsfvia[i]+'</option>';
+        else 
+        docTransferHtml+='<option value='+DDDocTsfvia[i]+'>'+DDDocTsfvia[i]+'</option>';
+    }
+    $("#S2DDDocTsfvia").html(docTransferHtml);
+
+
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff1'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S3ACStaff1").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff2'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S3ACStaff2").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff3'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S3ACStaff3").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S3ACStaff4'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S3ACStaff4").html(staffHtml);
+
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S1DCStaff'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S1DCStaff").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S2DDStaff'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S2DDStaff").html(staffHtml);
+
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S4FSRStaff'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S4FSRStaff").html(staffHtml);
+
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S5FSFChecklistSignoffBy'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S5FSFChecklistSignoffBy").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S5FSFFSPrintedBy'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S5FSFFSPrintedBy").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S5FSFDNIssuedBy'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S5FSFDNIssuedBy").html(staffHtml);
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S5FSFFSPackeSentBy'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S5FSFFSPackeSentBy").html(staffHtml);
+
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['S6DFFiledStaff'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#S6DFFiledStaff").html(staffHtml);
+
+
+    staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        if (staffList[i].StaffCode == "<?php echo $data['SRDRDocDespatchedDeliveryStaff'];?>" )
+        staffHtml+='<option value='+staffList[i].StaffCode+' selected>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+        else 
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    $("#SRDRDocDespatchedDeliveryStaff").html(staffHtml);
 
 
 
-$('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
+    $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 </script>
 

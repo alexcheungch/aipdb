@@ -2,7 +2,7 @@
     <i class="Hui-iconfont"></i> 
     <a href="<?php echo base_url('/') ?>" class="maincolor">Allocation</a> 
     <span class="c-999 en">&gt;</span>
-    <span class="c-666">Create</span>
+    <span class="c-666">Edit</span>
 </nav>
 <div class="Hui-article">
     <article class="cl pd-20">
@@ -43,7 +43,7 @@
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">Days Left:</label>
                 <div class="formControls col-xs-2 col-sm-2">
-                    <input type="text" class="input-text">
+                    <input type="text" class="input-text" id="daysLeft" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -450,233 +450,258 @@
 <link rel="stylesheet" type="text/css" href="<?php echo base_url('/css/bootstrap-datepicker.css')?>">
 <script type="text/javascript" src="<?php echo base_url('/lib/bootstrap-datepicker/bootstrap-datepicker.js')?>"></script>
 <script>
-var staffList = <?php echo json_encode($staffList); ?>;
-var docLoc    = <?php echo json_encode($docLoc); ?>;
-var acMgr     = <?php echo json_encode($acMgr); ?>;
-var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
-var clientList= <?php echo json_encode($clientList); ?>; 
-var uploadurl ="";
-$(function () {    
-    $("#QuotationAgreedFee").html(formatFee(<?php echo $jobMtn['QuotationAgreedFee'];?>));
-    function formatFee(value){
-        if (value) {
-        return value.toLocaleString('en-US', {
-            style: 'currency',
-            currency: 'USD',
-        });
-        } else { return ' ';};
-    }
+    var staffList = <?php echo json_encode($staffList); ?>;
+    var docLoc    = <?php echo json_encode($docLoc); ?>;
+    var acMgr     = <?php echo json_encode($acMgr); ?>;
+    var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
+    var clientList= <?php echo json_encode($clientList); ?>; 
+    var uploadurl ="";
+    $(function () {    
+        $("#QuotationAgreedFee").html(formatFee(<?php echo $jobMtn['QuotationAgreedFee'];?>));
+        function formatFee(value){
+            if (value) {
+            return value.toLocaleString('en-US', {
+                style: 'currency',
+                currency: 'USD',
+            });
+            } else { return ' ';};
+        }
 
-    $(".need_date").datetimepicker({
-        todayBtn: 1,
-        startView: 2,
-        minView: 2,
-        autoclose: 1,
-        format: 'yyyy-mm-dd'
-    });
-    $("input[id^='create_btn_']").click(function () {
-        $("#Allocation_form").submit();        
-    });
-    $("#MSPctI,#MSPctII").keyup(function () {
-        var is_done_checked = $("#Done").is(':checked');
-        if (is_done_checked) {
-            var num = this.value.replace(/%/, "");
-            if (num) {
-                var amount = $("#countAmount").val();
-                amount = amount.replace(/HK\$/, "").replace(/,/, "");
-                var MSEntitledAmount = (amount * num / 100).toFixed(2);
-                if (this.id == "MSPctI") {
-                    $("#MSEntitledAmount1").val(MSEntitledAmount);
-                } else {
-                    $("#MSEntitledAmount2").val(MSEntitledAmount);
+        $(".need_date").datetimepicker({
+            todayBtn: 1,
+            startView: 2,
+            minView: 2,
+            autoclose: 1,
+            format: 'yyyy-mm-dd'
+        });
+        $("input[id^='create_btn_']").click(function () {
+            $("#Allocation_form").submit();        
+        });
+        $("#MSPctI,#MSPctII").keyup(function () {
+            var is_done_checked = $("#Done").is(':checked');
+            if (is_done_checked) {
+                var num = this.value.replace(/%/, "");
+                if (num) {
+                    var amount = $("#countAmount").val();
+                    amount = amount.replace(/HK\$/, "").replace(/,/, "");
+                    var MSEntitledAmount = (amount * num / 100).toFixed(2);
+                    if (this.id == "MSPctI") {
+                        $("#MSEntitledAmount1").val(MSEntitledAmount);
+                    } else {
+                        $("#MSEntitledAmount2").val(MSEntitledAmount);
+                    }
                 }
             }
+        });
+        $("#Done").click(function () {
+            if (!this.checked) {
+                $("#MSEntitledAmount1").val("");
+                $("#MSEntitledAmount2").val("");
+            } else {
+                $("#MSPctI,#MSPctII").trigger("keyup");
+            }
+        });
+    });
+
+    var clientCode=[];
+    for(var i=0; i<clientList.length; i++){
+        clientCode.push({value: clientList[i].clientcode1, data: clientList[i].clientname, clientcode2: clientList[i].clientcode2, clientcode3: clientList[i].clientcode3, NormalYearEndDate: clientList[i].NormalYearEndDate, NonTaxDeadlineDate: clientList[i].NonTaxDeadlineDate});
+    }
+
+    $('#autocomplete_clientCode1').autocomplete({
+        lookup: clientCode,
+        onSelect: function (suggestion) {
+            $("#client_Code2").val(suggestion.clientcode2);
+            $("#client_code3").val(suggestion.clientcode3);
+            $("#client_name").val(suggestion.data);
+            $("#NormalYearEndDate").val(suggestion.NormalYearEndDate);
+            $("#NonTaxDeadlineDate").val(suggestion.NonTaxDeadlineDate);
         }
     });
-    $("#Done").click(function () {
-        if (!this.checked) {
-            $("#MSEntitledAmount1").val("");
-            $("#MSEntitledAmount2").val("");
-        } else {
-            $("#MSPctI,#MSPctII").trigger("keyup");
+
+    $('#autocomplete_clientCode1').bind('input propertychange', function(){
+        var value = $(this).val();
+        if(!value){
+            $("#client_Code2").val('');
+            $("#client_code3").val('');
+            $("#client_name").val('');
+            $("#NormalYearEndDate").val('');
+            $("#NonTaxDeadlineDate").val('');
         }
     });
-});
 
-var clientCode=[];
-for(var i=0; i<clientList.length; i++){
-    clientCode.push({value: clientList[i].clientcode1, data: clientList[i].clientname, clientcode2: clientList[i].clientcode2, clientcode3: clientList[i].clientcode3, NormalYearEndDate: clientList[i].NormalYearEndDate, NonTaxDeadlineDate: clientList[i].NonTaxDeadlineDate});
-}
-
-$('#autocomplete_clientCode1').autocomplete({
-    lookup: clientCode,
-    onSelect: function (suggestion) {
-        $("#client_Code2").val(suggestion.clientcode2);
-        $("#client_code3").val(suggestion.clientcode3);
-        $("#client_name").val(suggestion.data);
-        $("#NormalYearEndDate").val(suggestion.NormalYearEndDate);
-        $("#NonTaxDeadlineDate").val(suggestion.NonTaxDeadlineDate);
+    var officeHandledHtml='';
+    for(var i=0; i<docLoc.length; i++){
+        officeHandledHtml+='<option>'+docLoc[i].DocLoc+'</option>';
     }
-});
+    $(".office_handled").html(officeHandledHtml);
 
-$('#autocomplete_clientCode1').bind('input propertychange', function(){
-    var value = $(this).val();
-    if(!value){
-        $("#client_Code2").val('');
-        $("#client_code3").val('');
-        $("#client_name").val('');
-        $("#NormalYearEndDate").val('');
-        $("#NonTaxDeadlineDate").val('');
+    var docTransferHtml='';
+    for(var i=0; i<sentOutVia.length; i++){
+        docTransferHtml+='<option>'+sentOutVia[i].SentOutMeans+'</option>';
     }
-});
+    $(".doc_transfer").html(docTransferHtml);
 
-var officeHandledHtml='';
-for(var i=0; i<docLoc.length; i++){
-    officeHandledHtml+='<option>'+docLoc[i].DocLoc+'</option>';
-}
-$(".office_handled").html(officeHandledHtml);
+    var staffHtml='';
+    for(var i=0; i<staffList.length; i++){
+        staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
+    }
+    <?php if ($jobProg['S1DCStaff']) {?>
+    $("#jobProg_1").html(staffHtml);
+    $("#jobProg_1").val("<?php echo $jobProg['S1DCStaff'];?>");
+    <?php } else {?>
+    $("#jobProg_1").attr("disabled", true);
+    <?php }?>
+    <?php if ($jobProg['S2DDStaff']) {?>
+    $("#jobProg_2").html(staffHtml);
+    $("#jobProg_2").val("<?php echo $jobProg['S2DDStaff'];?>");
+    <?php } else {?>
+    $("#jobProg_2").attr("disabled", true);
+    <?php }?>
+    <?php if ($jobProg['S3ACStaff1']) {?>
+    $("#jobProg_3").html(staffHtml);
+    $("#jobProg_3").val("<?php echo $jobProg['S3ACStaff1'];?>");
+    <?php } else {?>
+    $("#jobProg_3").attr("disabled", true);
+    <?php }?>
+    <?php if ($jobProg['S3ACStaff2']) {?>
+    $("#jobProg_4").html(staffHtml);
+    $("#jobProg_4").val("<?php echo $jobProg['S3ACStaff2'];?>");
+    <?php } else {?>
+    $("#jobProg_4").attr("disabled", true);
+    <?php }?>
+    <?php if ($jobProg['S4FSRStaff']) {?>
+    $("#jobProg_5").html(staffHtml);
+    $("#jobProg_5").val("<?php echo $jobProg['S4FSRStaff'];?>");
+    <?php } else {?>
+    $("#jobProg_5").attr("disabled", true);
+    <?php }?>
+    <?php if ($jobProg['S5FSFChecklistSignoffBy']) {?>
+    $("#jobProg_6").html(staffHtml);
+    $("#jobProg_6").val("<?php echo $jobProg['S5FSFChecklistSignoffBy'];?>");
+    <?php } else {?>
+    $("#jobProg_6").attr("disabled", true);
+    <?php }?>
 
-var docTransferHtml='';
-for(var i=0; i<sentOutVia.length; i++){
-    docTransferHtml+='<option>'+sentOutVia[i].SentOutMeans+'</option>';
-}
-$(".doc_transfer").html(docTransferHtml);
+    var ACManagerHtml='';
+    for(var i=0; i<acMgr.length; i++){
+        ACManagerHtml+='<option>'+acMgr[i].AcMgr+'</option>';
+    }
+    $(".AC_Manager").html(ACManagerHtml);
 
-var staffHtml='';
-for(var i=0; i<staffList.length; i++){
-     staffHtml+='<option value='+staffList[i].StaffCode+'>'+staffList[i].StaffCode+' | '+ (staffList[i].StaffName == null ? '': staffList[i].StaffName) +'</option>';
-}
-<?php if ($jobProg['S1DCStaff']) {?>
-$("#jobProg_1").html(staffHtml);
-$("#jobProg_1").val("<?php echo $jobProg['S1DCStaff'];?>");
-<?php } else {?>
-$("#jobProg_1").attr("disabled", true);
-<?php }?>
-<?php if ($jobProg['S2DDStaff']) {?>
-$("#jobProg_2").html(staffHtml);
-$("#jobProg_2").val("<?php echo $jobProg['S2DDStaff'];?>");
-<?php } else {?>
-$("#jobProg_2").attr("disabled", true);
-<?php }?>
-<?php if ($jobProg['S3ACStaff1']) {?>
-$("#jobProg_3").html(staffHtml);
-$("#jobProg_3").val("<?php echo $jobProg['S3ACStaff1'];?>");
-<?php } else {?>
-$("#jobProg_3").attr("disabled", true);
-<?php }?>
-<?php if ($jobProg['S3ACStaff2']) {?>
-$("#jobProg_4").html(staffHtml);
-$("#jobProg_4").val("<?php echo $jobProg['S3ACStaff2'];?>");
-<?php } else {?>
-$("#jobProg_4").attr("disabled", true);
-<?php }?>
-<?php if ($jobProg['S4FSRStaff']) {?>
-$("#jobProg_5").html(staffHtml);
-$("#jobProg_5").val("<?php echo $jobProg['S4FSRStaff'];?>");
-<?php } else {?>
-$("#jobProg_5").attr("disabled", true);
-<?php }?>
-<?php if ($jobProg['S5FSFChecklistSignoffBy']) {?>
-$("#jobProg_6").html(staffHtml);
-$("#jobProg_6").val("<?php echo $jobProg['S5FSFChecklistSignoffBy'];?>");
-<?php } else {?>
-$("#jobProg_6").attr("disabled", true);
-<?php }?>
+    $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 
-var ACManagerHtml='';
-for(var i=0; i<acMgr.length; i++){
-    ACManagerHtml+='<option>'+acMgr[i].AcMgr+'</option>';
-}
-$(".AC_Manager").html(ACManagerHtml);
-
-$('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
-
-//part1
-$("#setp1_Adj_l").change(function(){
-    var value=$(this).val();
-    adj_public('setp1_Adj_r',value);
-});
-$("#setp1_Adj_r").change(function(){
-    var value=$(this).val();
-    adj_public('setp1_Adj_l',value);
-});
-function adj_public(id,value){
-    if(value == '-2.5%'){
-        $("#"+id).val('+2.5%');
-    }else if(value == '-2%'){
-        $("#"+id).val('+2%');
-    }else if(value == '-1.5%'){
-        $("#"+id).val('+1.5%');
-    }else if(value == '-1%'){
-        $("#"+id).val('+1%');
-    }else if(value == '-0.5%'){
-        $("#"+id).val('+0.5%');
-    }else if(value == '0%'){
-        $("#"+id).val('0%');
-    }else if(value == '+0.5%'){
-        $("#"+id).val('-0.5%');
-    }else if(value == '+1%'){
-        $("#"+id).val('-1%');
-    }else if(value == '+1.5%'){
-        $("#"+id).val('-1.5%');
-    }else if(value == '+2%'){
-        $("#"+id).val('-2%');
-    }else if(value == '+2.5%'){
-        $("#"+id).val('-2.5%');
+    //top
+    var todyDate=new Date();
+    var daysLeft = DateDiff(getMyDate(todyDate),'<?php echo $jobMtn['WorkingDeadline'];?>')
+    $("#daysLeft").val(daysLeft);
+    function DateDiff(sDate, eDate) {
+    　　var date1 = new Date(sDate);
+    　　var date2 = new Date(eDate);
+    　　var date3=date2.getTime()-date1.getTime();
+    　　var days=Math.floor(date3/(24*3600*1000));
+    　　return days;
     }
 
-    EntitledAmount_l();
-    EntitledAmount_r();
-}
-$("#step1_CSFactor_l,#step1_CSFactor_r").change(function(){
-    EntitledAmount_l();
-    EntitledAmount_r();
-});
-
-function EntitledAmount_l(){
-    var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-    var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
-    var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
-    var CSFactor=$("#step1_CSFactor_l").val();
-    var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
-    $("#step1_EntitledAmount_l").val(value);
-}
-
-function EntitledAmount_r(){
-    var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-    var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
-    var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
-    var CSFactor=$("#step1_CSFactor_r").val();
-    var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
-    $("#step1_EntitledAmount_r").val(value);
-}
-EntitledAmount_l();
-EntitledAmount_r();
-
-//part3
-$("#SIBSS4EntitledAmount").val(part3EA('SIBSS4EntitledAmount'));
-$("#SIBSS5EntitledAmount").val(part3EA('SIBSS5EntitledAmount'));
-function part3EA(id){
-    var QuotationAgreedFee,overallBonus,SIBSSNCSFtr,SIBSSNSetPct,SIBSSNAdjPct;
-    if(id == 'SIBSS4EntitledAmount'){
-        QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        SIBSSNCSFtr = <?php echo $data['SIBSS4CSFtr'];?>;
-        SIBSSNSetPct = <?php echo $data['SIBSS4SetPct'];?>;
-        SIBSSNAdjPct = <?php echo $data['SIBSS4AdjPct'];?>;
-    }else if(id == 'SIBSS5EntitledAmount'){
-        QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        SIBSSNCSFtr = <?php echo $data['SIBSS5CSFtr'];?>;
-        SIBSSNSetPct = <?php echo $data['SIBSS5SetPct'];?>;
-        SIBSSNAdjPct = <?php echo $data['SIBSS5AdjPct'];?>;
-    }
-    // console.log(QuotationAgreedFee);
-    // console.log(overallBonus);
-    // console.log(SIBSSNCSFtr);
-    // console.log(SIBSSNSetPct);
-    // console.log(SIBSSNAdjPct);
-    return QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct);
+    function getMyDate(str){
+        var oDate = new Date(str),
+            oYear = oDate.getFullYear(),
+            oMonth = oDate.getMonth()+1,
+            oDay = oDate.getDate(),
+            oHour = oDate.getHours(),
+            oMin = oDate.getMinutes(),
+            oSen = oDate.getSeconds(),
+            oTime = oYear +'-'+ getzf(oMonth) +'-'+ getzf(oDay);
+        return oTime;
+    };
     
-}
+    function getzf(num){
+        if(parseInt(num) < 10){
+            num = '0'+num;
+        }
+        return num;
+    }
+
+    //part1
+    $("#setp1_Adj_l").change(function(){
+        var value=$(this).val();
+        adj_public('setp1_Adj_r',value);
+    });
+    $("#setp1_Adj_r").change(function(){
+        var value=$(this).val();
+        adj_public('setp1_Adj_l',value);
+    });
+    function adj_public(id,value){
+        if(value == '-2.5%'){
+            $("#"+id).val('+2.5%');
+        }else if(value == '-2%'){
+            $("#"+id).val('+2%');
+        }else if(value == '-1.5%'){
+            $("#"+id).val('+1.5%');
+        }else if(value == '-1%'){
+            $("#"+id).val('+1%');
+        }else if(value == '-0.5%'){
+            $("#"+id).val('+0.5%');
+        }else if(value == '0%'){
+            $("#"+id).val('0%');
+        }else if(value == '+0.5%'){
+            $("#"+id).val('-0.5%');
+        }else if(value == '+1%'){
+            $("#"+id).val('-1%');
+        }else if(value == '+1.5%'){
+            $("#"+id).val('-1.5%');
+        }else if(value == '+2%'){
+            $("#"+id).val('-2%');
+        }else if(value == '+2.5%'){
+            $("#"+id).val('-2.5%');
+        }
+
+        EntitledAmount_l();
+        EntitledAmount_r();
+    }
+    $("#step1_CSFactor_l,#step1_CSFactor_r").change(function(){
+        EntitledAmount_l();
+        EntitledAmount_r();
+    });
+
+    function EntitledAmount_l(){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
+        var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
+        var CSFactor=$("#step1_CSFactor_l").val();
+        var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
+        $("#step1_EntitledAmount_l").val(value);
+    }
+
+    function EntitledAmount_r(){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
+        var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
+        var CSFactor=$("#step1_CSFactor_r").val();
+        var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
+        $("#step1_EntitledAmount_r").val(value);
+    }
+    EntitledAmount_l();
+    EntitledAmount_r();
+
+    //part3
+    $("#SIBSS4EntitledAmount").val(part3EA('SIBSS4EntitledAmount'));
+    $("#SIBSS5EntitledAmount").val(part3EA('SIBSS5EntitledAmount'));
+    function part3EA(id){
+        var QuotationAgreedFee,overallBonus,SIBSSNCSFtr,SIBSSNSetPct,SIBSSNAdjPct;
+        if(id == 'SIBSS4EntitledAmount'){
+            QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            SIBSSNCSFtr = <?php echo $data['SIBSS4CSFtr'];?>;
+            SIBSSNSetPct = <?php echo $data['SIBSS4SetPct'];?>;
+            SIBSSNAdjPct = <?php echo $data['SIBSS4AdjPct'];?>;
+        }else if(id == 'SIBSS5EntitledAmount'){
+            QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            SIBSSNCSFtr = <?php echo $data['SIBSS5CSFtr'];?>;
+            SIBSSNSetPct = <?php echo $data['SIBSS5SetPct'];?>;
+            SIBSSNAdjPct = <?php echo $data['SIBSS5AdjPct'];?>;
+        }
+        return QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct);    
+    }
 </script>

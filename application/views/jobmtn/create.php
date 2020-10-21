@@ -60,7 +60,8 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">QuotationProposedFee:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFee">
+                    <input type="text" class="input-text" name="QuotationProposedFeeVal" id="QuotationProposedFeeVal">
+                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFee" hidden>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">QuotationConfirmedDate:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -70,7 +71,8 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">QuotationAgreedFee:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFee">
+                    <input type="text" class="input-text" name="QuotationAgreedFeeVal" id="QuotationAgreedFeeVal">
+                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFee" hidden>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">JobCode:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -122,14 +124,21 @@ $(function () {
         }
     });
 
-    $("#QuotationProposedFee,#QuotationAgreedFee").focus(function(){
+    $("#QuotationProposedFeeVal").focus(function(){
+        $("#QuotationProposedFee").val('');
         $(this).val('');
     })
-    $("#QuotationProposedFee").change(function(){
+    $("#QuotationAgreedFeeVal").focus(function(){
+        $("#QuotationAgreedFee").val('');
+        $(this).val('');
+    })
+    $("#QuotationProposedFeeVal").change(function(){
+        $("#QuotationProposedFee").val($(this).val());
         $(this).val(formatFee(Number($(this).val())));
     });
 
-    $("#QuotationAgreedFee").change(function(){
+    $("#QuotationAgreedFeeVal").change(function(){
+        $("#QuotationAgreedFee").val($(this).val());
         $(this).val(formatFee(Number($(this).val())));
     });
     function formatFee(value){
