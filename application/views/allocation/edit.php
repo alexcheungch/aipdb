@@ -283,7 +283,15 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">CS Factor:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>">
+                                    <!-- <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>"> -->
+                                    <select class="select_staff" id="step2_CSFactor_l">
+                                        <option>0.9</option>
+                                        <option>0.95</option>
+                                        <option selected>1</option>
+                                        <option>1.05</option>
+                                        <option>1.1</option>
+                                        <option>1.125</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="row cl">
