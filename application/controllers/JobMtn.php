@@ -82,6 +82,7 @@ class JobMtn extends MY_Controller {
                 $id = $postdata['ID'];
                 unset($postdata['ID']);
                 $result = $this->JobMtn_model->update_data(array('ID' =>$id), $postdata);
+                $is_insert = false;
             } else {
                 $jobMtnInfo = $this->JobMtn_model->get_data(array('JobCode' =>$postdata['JobCode']));
                 if ($jobMtnInfo) {
@@ -89,9 +90,10 @@ class JobMtn extends MY_Controller {
                 } else {
                     $result = $this->JobMtn_model->insert($postdata);
                 }
+                $is_insert = true;
             }
             if ($result) {
-                if (!isset($postdata['ID'])) {
+                if ($is_insert) {
                     $this->load->model('JobProg_model');
                     $this->JobProg_model->insert(array('JobCode'=>$postdata['JobCode']));
                     $this->load->model('Allocation_model');
