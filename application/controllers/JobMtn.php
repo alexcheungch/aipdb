@@ -97,7 +97,14 @@ class JobMtn extends MY_Controller {
                     $this->load->model('Allocation_model');
                     $this->load->model('Allocationparam_model');
                     $default_value = $this->Allocationparam_model->get_all_data();
-                    $allocation_data = array('JobCode'=>$postdata['JobCode']);
+                    $allocation_data = array(
+                        'JobCode'=>$postdata['JobCode'],
+                        'SIBSS1CSFtr' => 1,
+                        'SIBSS2CSFtr' => 1,
+                        'SIBSS3CSFtr' => 1,
+                        'SIBSS4CSFtr' => 1,
+                        'SIBSS5CSFtr' => 1
+                    );
                     foreach ($default_value as $value) {
                         if ($value) {
                             $allocation_data[$value['FieldName']] = $value['FieldValue'];
