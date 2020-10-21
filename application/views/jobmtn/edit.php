@@ -65,7 +65,8 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">QuotationProposedFee:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFee" value="">
+                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFeeVal" value="">
+                    <input type="text" class="input-text" name="QuotationProposedFee" id="QuotationProposedFee" value="" hidden>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">QuotationConfirmedDate:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -75,7 +76,8 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">QuotationAgreedFee:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFee" value="">
+                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFeeVal" value="">
+                    <input type="text" class="input-text" name="QuotationAgreedFee" id="QuotationAgreedFee" value="" hidden>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">JobCode:</label>
                 <div class="formControls col-xs-3 col-sm-3">
@@ -115,17 +117,26 @@
 var uploadurl ="";
 $(function () {
 
-    $("#QuotationProposedFee").val(formatFee(<?php echo $data['QuotationProposedFee'];?>));
-    $("#QuotationAgreedFee").val(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
+    $("#QuotationProposedFeeVal").val(formatFee(<?php echo $data['QuotationProposedFee'];?>));
+    $("#QuotationProposedFee").val(<?php echo $data['QuotationProposedFee'];?>);
+    $("#QuotationAgreedFeeVal").val(formatFee(<?php echo $data['QuotationAgreedFee'];?>));
+    $("#QuotationAgreedFee").val(<?php echo $data['QuotationAgreedFee'];?>);
 
-    $("#QuotationProposedFee,#QuotationAgreedFee").focus(function(){
+    $("#QuotationProposedFeeVal").focus(function(){
+        $("#QuotationProposedFee").val('');
         $(this).val('');
     })
-    $("#QuotationProposedFee").change(function(){
+    $("#QuotationAgreedFeeVal").focus(function(){
+        $("#QuotationAgreedFee").val('');
+        $(this).val('');
+    })
+    $("#QuotationProposedFeeVal").change(function(){
+        $("#QuotationProposedFee").val($(this).val());
         $(this).val(formatFee(Number($(this).val())));
     });
 
-    $("#QuotationAgreedFee").change(function(){
+    $("#QuotationAgreedFeeVal").change(function(){
+        $("#QuotationAgreedFee").val($(this).val());
         $(this).val(formatFee(Number($(this).val())));
     });
 
