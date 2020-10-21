@@ -348,19 +348,38 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled % | Set:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS4SetPct" value="<?php echo $data['SIBSS4SetPct'];?>" disabled>
+                                            <input type="text" class="input-text" name="SIBSS4SetPct" value="<?php if (($data['SIBSS4SetPct'] != '') && ($data['SIBSS4SetPct'] != '0')) {echo $data['SIBSS4SetPct'].'%';} else {echo '11%'; } ?>" id="SIBSS4SetPct" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS4AdjPct" value="<?php echo $data['SIBSS4AdjPct'];?>">
+                                            <select class="select_staff" id="setp3_Adj_l">
+                                                <option value="-2.5%">-2.5%</option>
+                                                <option value="-2%">-2%</option>
+                                                <option value="-1.5%">-1.5%</option>
+                                                <option value="-1%">-1%</option>
+                                                <option value="-0.5%">-0.5%</option>
+                                                <option value="0%" selected>0%</option>
+                                                <option value="+0.5%">+0.5%</option>
+                                                <option value="+1%">+1%</option>
+                                                <option value="+1.5%">+1.5%</option>
+                                                <option value="+2%">+2%</option>
+                                                <option value="+2.5%">+2.5%</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS4CSFtr" value="<?php echo $data['SIBSS4CSFtr'];?>">
+                                            <select class="select_staff" id="step3_CSFactor_l">
+                                                <option>0.9</option>
+                                                <option>0.95</option>
+                                                <option selected>1</option>
+                                                <option>1.05</option>
+                                                <option>1.1</option>
+                                                <option>1.125</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row cl">
@@ -389,19 +408,38 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Entitled % | Set:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS5SetPct" value="<?php echo $data['SIBSS5SetPct'];?>" disabled>
+                                            <input type="text" class="input-text" name="SIBSS5SetPct" value="<?php if (($data['SIBSS5SetPct'] != '') && ($data['SIBSS5SetPct'] != '0')) {echo $data['SIBSS5SetPct'].'%';} else {echo '11%'; } ?>" id="SIBSS5SetPct" disabled>
                                         </div>
                                     </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS5AdjPct" value="<?php echo $data['SIBSS5AdjPct'];?>">
+                                            <select class="select_staff" id="setp3_Adj_r">
+                                                <option value="-2.5%">-2.5%</option>
+                                                <option value="-2%">-2%</option>
+                                                <option value="-1.5%">-1.5%</option>
+                                                <option value="-1%">-1%</option>
+                                                <option value="-0.5%">-0.5%</option>
+                                                <option value="0%" selected>0%</option>
+                                                <option value="+0.5%">+0.5%</option>
+                                                <option value="+1%">+1%</option>
+                                                <option value="+1.5%">+1.5%</option>
+                                                <option value="+2%">+2%</option>
+                                                <option value="+2.5%">+2.5%</option>
+                                            </select>
                                         </div>
                                     </div>
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text" name="SIBSS5CSFtr" value="<?php echo $data['SIBSS5CSFtr'];?>">
+                                            <select class="select_staff" id="step3_CSFactor_r">
+                                                <option>0.9</option>
+                                                <option>0.95</option>
+                                                <option selected>1</option>
+                                                <option>1.05</option>
+                                                <option>1.1</option>
+                                                <option>1.125</option>
+                                            </select>
                                         </div>
                                     </div>                                    
                                     <div class="row cl">
@@ -684,24 +722,69 @@
     EntitledAmount_l();
     EntitledAmount_r();
 
-    //part3
-    $("#SIBSS4EntitledAmount").val(part3EA('SIBSS4EntitledAmount'));
-    $("#SIBSS5EntitledAmount").val(part3EA('SIBSS5EntitledAmount'));
-    function part3EA(id){
-        var QuotationAgreedFee,overallBonus,SIBSSNCSFtr,SIBSSNSetPct,SIBSSNAdjPct;
-        if(id == 'SIBSS4EntitledAmount'){
-            QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-            overallBonus=$("#overallBonus").val().split('%')[0]/100;
-            SIBSSNCSFtr = <?php echo $data['SIBSS4CSFtr'];?>;
-            SIBSSNSetPct = <?php echo $data['SIBSS4SetPct'];?>;
-            SIBSSNAdjPct = <?php echo $data['SIBSS4AdjPct'];?>;
-        }else if(id == 'SIBSS5EntitledAmount'){
-            QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-            overallBonus=$("#overallBonus").val().split('%')[0]/100;
-            SIBSSNCSFtr = <?php echo $data['SIBSS5CSFtr'];?>;
-            SIBSSNSetPct = <?php echo $data['SIBSS5SetPct'];?>;
-            SIBSSNAdjPct = <?php echo $data['SIBSS5AdjPct'];?>;
+    //part3    
+    $("#setp3_Adj_l").change(function(){
+        var value=$(this).val();
+        adj_public_part3('setp3_Adj_r',value);
+    });
+    $("#setp3_Adj_r").change(function(){
+        var value=$(this).val();
+        adj_public_part3('setp3_Adj_l',value);
+    });
+    
+    function adj_public_part3(id,value){
+        if(value == '-2.5%'){
+            $("#"+id).val('+2.5%');
+        }else if(value == '-2%'){
+            $("#"+id).val('+2%');
+        }else if(value == '-1.5%'){
+            $("#"+id).val('+1.5%');
+        }else if(value == '-1%'){
+            $("#"+id).val('+1%');
+        }else if(value == '-0.5%'){
+            $("#"+id).val('+0.5%');
+        }else if(value == '0%'){
+            $("#"+id).val('0%');
+        }else if(value == '+0.5%'){
+            $("#"+id).val('-0.5%');
+        }else if(value == '+1%'){
+            $("#"+id).val('-1%');
+        }else if(value == '+1.5%'){
+            $("#"+id).val('-1.5%');
+        }else if(value == '+2%'){
+            $("#"+id).val('-2%');
+        }else if(value == '+2.5%'){
+            $("#"+id).val('-2.5%');
         }
-        return QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct);    
+
+        part3EA_l();
+        part3EA_r();
     }
+    
+    $("#step3_CSFactor_l,#step3_CSFactor_r").change(function(){
+        part3EA_l();
+        part3EA_r();
+    });
+    
+    function part3EA_l(id){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+        var SIBSSNCSFtr = $("#step3_CSFactor_l").val();
+        var SIBSSNSetPct = $("#SIBSS4SetPct").val().split('%')[0]/100;
+        var SIBSSNAdjPct = $("#setp3_Adj_l").val().split('%')[0]/100;
+        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct)).toFixed(2);;
+        $("#SIBSS4EntitledAmount").val(value);
+    }
+    function part3EA_r(id){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+        var SIBSSNCSFtr = $("#step3_CSFactor_r").val();
+        var SIBSSNSetPct = $("#SIBSS5SetPct").val().split('%')[0]/100;
+        var SIBSSNAdjPct = $("#setp3_Adj_r").val().split('%')[0]/100;
+        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct)).toFixed(2);;  
+        $("#SIBSS5EntitledAmount").val(value);
+    }
+
+    part3EA_l();
+    part3EA_r();
 </script>
