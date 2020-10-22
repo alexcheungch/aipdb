@@ -158,14 +158,14 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
-                                            <!-- <input type="text" class="input-text" value="<?php if (($data['SIBSS1AdjPct'] != '') && ($data['SIBSS1AdjPct'] != '0')) {echo $data['SIBSS1AdjPct'].'%';} else {echo '-1%'; } ?>" name="SIBSS1AdjPct" id="SIBSS1AdjPct">                   -->
+                                            <input type="text" class="input-text" value="<?php echo $data['SIBSS1AdjPct'];?>" name="SIBSS1AdjPct" id="SIBSS1AdjPct" hidden>
                                             <select class="select_staff" id="setp1_Adj_l">
                                                 <option value="-2.5%">-2.5%</option>
                                                 <option value="-2%">-2%</option>
                                                 <option value="-1.5%">-1.5%</option>
                                                 <option value="-1%">-1%</option>
                                                 <option value="-0.5%">-0.5%</option>
-                                                <option value="0%" selected>0%</option>
+                                                <option value="0%">0%</option>
                                                 <option value="+0.5%">+0.5%</option>
                                                 <option value="+1%">+1%</option>
                                                 <option value="+1.5%">+1.5%</option>
@@ -177,11 +177,11 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
-                                            <!-- <input type="text" class="input-text" value="<?php if (($data['SIBSS1CSFtr'] != '') && ($data['SIBSS1CSFtr'] != '0')) {echo $data['SIBSS1CSFtr'];} else {echo '1'; } ?>" name="SIBSS1CSFtr" id="SIBSS1CSFtr">                   -->
+                                            <input type="text" class="input-text" value="<?php echo $data['SIBSS1CSFtr'];?>" name="SIBSS1CSFtr" id="SIBSS1CSFtr" hidden>
                                             <select class="select_staff" id="step1_CSFactor_l">
                                                 <option>0.9</option>
                                                 <option>0.95</option>
-                                                <option selected>1</option>
+                                                <option>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
                                                 <option>1.125</option>
@@ -220,14 +220,14 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
-                                            <!-- <input type="text" class="input-text" name="SIBSS2AdjPct" value="<?php echo $data['SIBSS2AdjPct'];?>"> -->
+                                            <input type="text" class="input-text" value="<?php echo $data['SIBSS2AdjPct'];?>" name="SIBSS2AdjPct" id="SIBSS2AdjPct" hidden>
                                             <select class="select_staff" id="setp1_Adj_r">
                                                 <option value="-2.5%">-2.5%</option>
                                                 <option value="-2%">-2%</option>
                                                 <option value="-1.5%">-1.5%</option>
                                                 <option value="-1%">-1%</option>
                                                 <option value="-0.5%">-0.5%</option>
-                                                <option value="0%" selected>0%</option>
+                                                <option value="0%">0%</option>
                                                 <option value="+0.5%">+0.5%</option>
                                                 <option value="+1%">+1%</option>
                                                 <option value="+1.5%">+1.5%</option>
@@ -239,11 +239,11 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
-                                            <!-- <input type="text" class="input-text" name="SIBSS2CSFtr" value="<?php echo $data['SIBSS2CSFtr'];?>"> -->
+                                            <input type="text" class="input-text" value="<?php echo $data['SIBSS2CSFtr'];?>" name="SIBSS2CSFtr" id="SIBSS2CSFtr" hidden>
                                             <select class="select_staff" id="step1_CSFactor_r">
                                                 <option>0.9</option>
                                                 <option>0.95</option>
-                                                <option selected>1</option>
+                                                <option>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
                                                 <option>1.125</option>
@@ -283,7 +283,7 @@
                             <div class="row cl">
                                 <label class="form-label col-xs-2 col-sm-2">CS Factor:</label>
                                 <div class="formControls col-xs-3 col-sm-3">
-                                    <!-- <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>"> -->
+                                    <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>" id="SIBSS3CSFtr" hidden>
                                     <select class="select_staff" id="step2_CSFactor_l">
                                         <option>0.9</option>
                                         <option>0.95</option>
@@ -362,6 +362,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS4AdjPct" value="<?php echo $data['SIBSS4AdjPct'];?>" id="SIBSS4AdjPct" hidden>
                                             <select class="select_staff" id="setp3_Adj_l">
                                                 <option value="-2.5%">-2.5%</option>
                                                 <option value="-2%">-2%</option>
@@ -380,6 +381,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS4CSFtr" value="<?php echo $data['SIBSS4CSFtr'];?>" id="SIBSS4CSFtr" hidden>
                                             <select class="select_staff" id="step3_CSFactor_l">
                                                 <option>0.9</option>
                                                 <option>0.95</option>
@@ -422,6 +424,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">| Adj:</label>
                                         <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS5AdjPct" value="<?php echo $data['SIBSS5AdjPct'];?>" id="SIBSS5AdjPct" hidden>
                                             <select class="select_staff" id="setp3_Adj_r">
                                                 <option value="-2.5%">-2.5%</option>
                                                 <option value="-2%">-2%</option>
@@ -440,6 +443,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">CS Factor:</label>
                                         <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS5CSFtr" value="<?php echo $data['SIBSS5CSFtr'];?>" id="SIBSS5CSFtr" hidden>
                                             <select class="select_staff" id="step3_CSFactor_r">
                                                 <option>0.9</option>
                                                 <option>0.95</option>
@@ -669,6 +673,17 @@
     }
 
     //part1
+    var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
+    var part1_CSFactor_l= <?php echo $data["SIBSS1CSFtr"]; ?>;
+    var part1_Adj_r= <?php echo $data["SIBSS2AdjPct"]; ?>;
+    var part1_CSFactor_r= <?php echo $data["SIBSS2CSFtr"]; ?>;
+
+    defualt_adj('setp1_Adj_l',part1_Adj_l);
+    defualt_adj('setp1_Adj_r',part1_Adj_r);
+
+    defualt_CSFactor('step1_CSFactor_l',part1_CSFactor_l);
+    defualt_CSFactor('step1_CSFactor_r',part1_CSFactor_r);
+
     $("#setp1_Adj_l").change(function(){
         var value=$(this).val();
         adj_public('setp1_Adj_r',value);
@@ -677,6 +692,7 @@
         var value=$(this).val();
         adj_public('setp1_Adj_l',value);
     });
+
     function adj_public(id,value){
         if(value == '-2.5%'){
             $("#"+id).val('+2.5%');
@@ -714,7 +730,9 @@
         var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
         var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
         var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
+        $("#SIBSS1AdjPct").val(Number($("#setp1_Adj_l").val().split('%')[0]));
         var CSFactor=$("#step1_CSFactor_l").val();
+        $("#SIBSS1CSFtr").val(CSFactor);
         var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
         $("#step1_EntitledAmount_l").val(value);
     }
@@ -723,14 +741,35 @@
         var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
         var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
         var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
+        $("#SIBSS2AdjPct").val(Number($("#setp1_Adj_r").val().split('%')[0]));
         var CSFactor=$("#step1_CSFactor_r").val();
+        $("#SIBSS2CSFtr").val(CSFactor);
         var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
         $("#step1_EntitledAmount_r").val(value);
     }
     EntitledAmount_l();
     EntitledAmount_r();
 
-    //part3    
+    //part2    
+    var part2_CSFactor_l= <?php echo $data["SIBSS3CSFtr"]; ?>;
+    defualt_CSFactor('step2_CSFactor_l',part2_CSFactor_l);
+    $("#step2_CSFactor_l").change(function(){
+        var value=$(this).val();
+        $("#SIBSS3CSFtr").val(value);
+    });
+
+    //part3
+    var part3_Adj_l= <?php echo $data["SIBSS4AdjPct"]; ?>;
+    var part3_CSFactor_l= <?php echo $data["SIBSS4CSFtr"]; ?>;
+    var part3_Adj_r= <?php echo $data["SIBSS5AdjPct"]; ?>;
+    var part3_CSFactor_r= <?php echo $data["SIBSS5CSFtr"]; ?>;
+
+    defualt_adj('setp3_Adj_l',part3_Adj_l);
+    defualt_adj('setp3_Adj_r',part3_Adj_r);
+
+    defualt_CSFactor('step3_CSFactor_l',part3_CSFactor_l);
+    defualt_CSFactor('step3_CSFactor_r',part3_CSFactor_r);
+
     $("#setp3_Adj_l").change(function(){
         var value=$(this).val();
         adj_public_part3('setp3_Adj_r',value);
@@ -774,25 +813,62 @@
         part3EA_r();
     });
     
-    function part3EA_l(id){
+    function part3EA_l(){
         var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
         var overallBonus=$("#overallBonus").val().split('%')[0]/100;
         var SIBSSNCSFtr = $("#step3_CSFactor_l").val();
+        $("#SIBSS4CSFtr").val(SIBSSNCSFtr);
         var SIBSSNSetPct = $("#SIBSS4SetPct").val().split('%')[0]/100;
         var SIBSSNAdjPct = $("#setp3_Adj_l").val().split('%')[0]/100;
+        $("#SIBSS4AdjPct").val(Number($("#setp3_Adj_l").val().split('%')[0]));
         var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct)).toFixed(2);;
         $("#SIBSS4EntitledAmount").val(value);
     }
-    function part3EA_r(id){
+    function part3EA_r(){
         var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
         var overallBonus=$("#overallBonus").val().split('%')[0]/100;
         var SIBSSNCSFtr = $("#step3_CSFactor_r").val();
+        $("#SIBSS5CSFtr").val(SIBSSNCSFtr);
         var SIBSSNSetPct = $("#SIBSS5SetPct").val().split('%')[0]/100;
         var SIBSSNAdjPct = $("#setp3_Adj_r").val().split('%')[0]/100;
+        $("#SIBSS5AdjPct").val(Number($("#setp3_Adj_r").val().split('%')[0]));
         var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct)).toFixed(2);;  
         $("#SIBSS5EntitledAmount").val(value);
     }
 
     part3EA_l();
     part3EA_r();
+
+    //public
+    function defualt_adj(id,value){
+        var result;
+        if(value == '-2.5'){
+            result='-2.5%';
+        }else if(value == '-2'){
+            result='-2%';
+        }else if(value == '-1.5'){
+            result='-1.5%';
+        }else if(value == '-1'){
+            result='-1%';
+        }else if(value == '-0.5'){
+            result='-0.5%';
+        }else if(value == '0'){
+            result='0%';
+        }else if(value == '0.5'){
+            result='+0.5%';
+        }else if(value == '1'){
+            result='+1%';
+        }else if(value == '1.5'){
+            result='+1.5%';
+        }else if(value == '2'){
+            result='+2%';
+        }else if(value == '2.5'){
+            result='+2.5%';
+        }
+        $("#"+id).val(result);
+    }
+    
+    function defualt_CSFactor(id,value){
+        $("#"+id).val(value);
+    }
 </script>
