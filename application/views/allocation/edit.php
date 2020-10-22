@@ -274,64 +274,90 @@
                     </div>
                     <div class="tab-pane" id="tab2">
                         <div class="form form-horizontal">
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Step 3 %:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3SetPct" value="<?php echo $data['SIBSS3SetPct'];?>">
+                            <div class="row">
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Step 3 %:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS3SetPct" value="<?php echo $data['SIBSS3SetPct'];?>" id="SIBSS3SetPct" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">CS Factor:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>" id="SIBSS3CSFtr" hidden>
+                                            <select class="select_staff" id="step2_CSFactor_l">
+                                                <option>0.9</option>
+                                                <option>0.95</option>
+                                                <option selected>1</option>
+                                                <option>1.05</option>
+                                                <option>1.1</option>
+                                                <option>1.125</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Staff:</label>
+                                        <div class="formControls col-xs-8">
+                                            1
+                                            <select class="select_staff" id="jobProg_3">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled %:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS3Staff1Pct" value="<?php if (($data['SIBSS3Staff1Pct'] == 0)) {echo $data['SIBSS3SetPct'];} else {echo $data['SIBSS3Staff1Pct'];} ?>" id="SIBSS3Staff1Pct">
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled Amount:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS3Staff1EntitledAmount" value="<?php echo $data['SIBSS3Staff1EntitledAmount'];?>" id="SIBSS3Staff1EntitledAmount" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Paid Date:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text need_date" name="SIBSS3Staff1PaidDate" value="<?php echo $data['SIBSS3Staff1PaidDate'];?>" readonly>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">CS Factor:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>" id="SIBSS3CSFtr" hidden>
-                                    <select class="select_staff" id="step2_CSFactor_l">
-                                        <option>0.9</option>
-                                        <option>0.95</option>
-                                        <option selected>1</option>
-                                        <option>1.05</option>
-                                        <option>1.1</option>
-                                        <option>1.125</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Staff:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    1
-                                    <select class="select_staff" id="jobProg_3">
-                                    </select>
-                                </div>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    2
-                                    <select class="select_staff" id="jobProg_4">
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Entitled %:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3Staff1Pct" value="<?php echo $data['SIBSS3Staff1Pct'];?>" disabled>
-                                </div>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3Staff2Pct" value="<?php echo $data['SIBSS3Staff2Pct'];?>" disabled>
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Entitled Amount:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3Staff1EntitledAmount" value="<?php echo $data['SIBSS3Staff1EntitledAmount'];?>">
-                                </div>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text" name="SIBSS3Staff2EntitledAmount" value="<?php echo $data['SIBSS3Staff2EntitledAmount'];?>">
-                                </div>
-                            </div>
-                            <div class="row cl">
-                                <label class="form-label col-xs-2 col-sm-2">Paid Date:</label>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="SIBSS3Staff1PaidDate" value="<?php echo $data['SIBSS3Staff1PaidDate'];?>" readonly>
-                                </div>
-                                <div class="formControls col-xs-3 col-sm-3">
-                                    <input type="text" class="input-text need_date" name="SIBSS3Staff2PaidDate" value="<?php echo $data['SIBSS3Staff2PaidDate'];?>" readonly>
+                                <div class="col-xs-12 col-sm-6">
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">&nbsp;</label>
+                                        <div class="formControls col-xs-8">&nbsp;</div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">&nbsp;</label>
+                                        <div class="formControls col-xs-8">&nbsp;</div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Staff:</label>
+                                        <div class="formControls col-xs-8">
+                                            2
+                                            <select class="select_staff" id="jobProg_4">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled %:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS3Staff2Pct" value="<?php echo $data['SIBSS3Staff2Pct'];?>" id="SIBSS3Staff2Pct" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Entitled Amount:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text" name="SIBSS3Staff2EntitledAmount" value="<?php echo $data['SIBSS3Staff2EntitledAmount'];?>" id="SIBSS3Staff2EntitledAmount" disabled>
+                                        </div>
+                                    </div>
+                                    <div class="row cl">
+                                        <label class="form-label col-xs-4">Paid Date:</label>
+                                        <div class="formControls col-xs-8">
+                                            <input type="text" class="input-text need_date" name="SIBSS3Staff2PaidDate" value="<?php echo $data['SIBSS3Staff2PaidDate'];?>" readonly>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                             <div class="row cl">
@@ -672,6 +698,10 @@
         return num;
     }
 
+    var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+    var overallBonus=$("#MSPctI").val().split('%')[0]/100;
+    $("#MSEntitledAmount1").val(QuotationAgreedFee * overallBonus);
+
     //part1
     var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
     var part1_CSFactor_l= <?php echo $data["SIBSS1CSFtr"]; ?>;
@@ -728,23 +758,25 @@
 
     function EntitledAmount_l(){
         var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
         var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
         var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
         $("#SIBSS1AdjPct").val(Number($("#setp1_Adj_l").val().split('%')[0]));
         var CSFactor=$("#step1_CSFactor_l").val();
         $("#SIBSS1CSFtr").val(CSFactor);
-        var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
+        var value=(QuotationAgreedFee * overallBonus * (Entitled + Adj) * CSFactor).toFixed(2);
         $("#step1_EntitledAmount_l").val(value);
     }
 
     function EntitledAmount_r(){
         var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
         var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
         var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
         $("#SIBSS2AdjPct").val(Number($("#setp1_Adj_r").val().split('%')[0]));
         var CSFactor=$("#step1_CSFactor_r").val();
         $("#SIBSS2CSFtr").val(CSFactor);
-        var value=(QuotationAgreedFee * (Entitled - Adj) * CSFactor).toFixed(2);
+        var value=(QuotationAgreedFee * overallBonus * (Entitled + Adj) * CSFactor).toFixed(2);
         $("#step1_EntitledAmount_r").val(value);
     }
     EntitledAmount_l();
@@ -757,6 +789,47 @@
         var value=$(this).val();
         $("#SIBSS3CSFtr").val(value);
     });
+
+    $("#SIBSS3Staff1Pct").change(function(){
+        var value=$(this).val();
+        if(value <= Number($("#SIBSS3SetPct").val())){
+            SIBSS3Staff2Pct();
+        }else{
+            $("#SIBSS3Staff1Pct").val($("#SIBSS3SetPct").val());
+            SIBSS3Staff2Pct();
+        }        
+    });
+
+    SIBSS3Staff2Pct();
+    function SIBSS3Staff2Pct(){
+        var SIBSS3Staff2Pct=$("#SIBSS3SetPct").val() - $("#SIBSS3Staff1Pct").val();
+        $("#SIBSS3Staff2Pct").val(SIBSS3Staff2Pct);
+        
+        SIBSS3Staff1EntitledAmount();
+        SIBSS3Staff2EntitledAmount();
+    }
+
+    SIBSS3Staff1EntitledAmount();
+    SIBSS3Staff2EntitledAmount();
+    function SIBSS3Staff1EntitledAmount(){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+        var SIBSSNSetPct = $("#SIBSS3SetPct").val()/100;
+        var step2_CSFactor_l = $("#step2_CSFactor_l").val();
+        var SIBSSNStaff1Pct = $("#SIBSS3Staff1Pct").val()/100;
+        var value=(QuotationAgreedFee * overallBonus * SIBSSNSetPct * step2_CSFactor_l * SIBSSNStaff1Pct).toFixed(2);
+        $("#SIBSS3Staff1EntitledAmount").val(value);
+    }
+    
+    function SIBSS3Staff2EntitledAmount(){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+        var SIBSSNSetPct = $("#SIBSS3SetPct").val()/100;
+        var step2_CSFactor_l = $("#step2_CSFactor_l").val();
+        var SIBSSNStaff1Pct = $("#SIBSS3Staff2Pct").val()/100;
+        var value=(QuotationAgreedFee * overallBonus * SIBSSNSetPct * step2_CSFactor_l * SIBSSNStaff1Pct).toFixed(2);
+        $("#SIBSS3Staff2EntitledAmount").val(value);
+    }
 
     //part3
     var part3_Adj_l= <?php echo $data["SIBSS4AdjPct"]; ?>;
@@ -821,7 +894,7 @@
         var SIBSSNSetPct = $("#SIBSS4SetPct").val().split('%')[0]/100;
         var SIBSSNAdjPct = $("#setp3_Adj_l").val().split('%')[0]/100;
         $("#SIBSS4AdjPct").val(Number($("#setp3_Adj_l").val().split('%')[0]));
-        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct)).toFixed(2);;
+        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct + SIBSSNAdjPct)).toFixed(2);
         $("#SIBSS4EntitledAmount").val(value);
     }
     function part3EA_r(){
@@ -832,7 +905,7 @@
         var SIBSSNSetPct = $("#SIBSS5SetPct").val().split('%')[0]/100;
         var SIBSSNAdjPct = $("#setp3_Adj_r").val().split('%')[0]/100;
         $("#SIBSS5AdjPct").val(Number($("#setp3_Adj_r").val().split('%')[0]));
-        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct - SIBSSNAdjPct)).toFixed(2);;  
+        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct + SIBSSNAdjPct)).toFixed(2);
         $("#SIBSS5EntitledAmount").val(value);
     }
 
