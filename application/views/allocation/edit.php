@@ -267,7 +267,7 @@
                         </div>                       
                         <div class="row cl">
                             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                                <input type="button" id="create_btn" value="Save" class="btn btn-primary radius"/>
+                                <input type="button" id="create_btn_1" value="Save" class="btn btn-primary radius"/>
                                 <a class="btn btn-primary" href="<?php echo base_url('JobProg');?>" style="color: #fff;">Cancel</a>
                             </div>
                         </div>
