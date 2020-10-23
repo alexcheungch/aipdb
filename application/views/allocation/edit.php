@@ -82,30 +82,29 @@
                     <?php echo $clientMtn['AcMgr'];?>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">AC Manager 2:</label>
-                <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" name="MSAcMgrII" value="" id="MSAcMgrII" hidden>                
-                    <select class="AC_Manager">
+                <div class="formControls col-xs-3 col-sm-3">          
+                    <select class="AC_Manager" name="MSAcMgrII">
                     </select>
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" value="<?php if (($data['MSPctI'] != '') && ($data['MSPctI'] != '0')) {echo $data['MSPctI'].'%';} else {echo '5%'; } ?>" name="MSPctI" id="MSPctI">
+                    <input type="text" class="input-text" value="<?php if (($data['MSPctI'] != '') && ($data['MSPctI'] != '0')) {echo $data['MSPctI'];} else {echo '5'; } ?>" name="MSPctI" id="MSPctI">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" value="<?php if (($data['MSPctII'] != '') && ($data['MSPctII'] != '0')) {echo $data['MSPctII'].'%';} else {echo '0%'; } ?>" name="MSPctII" id="MSPctII">
+                    <input type="text" class="input-text" value="<?php if (($data['MSPctII'] != '') && ($data['MSPctII'] != '0')) {echo $data['MSPctII'];} else {echo '0'; } ?>" name="MSPctII" id="MSPctII">
                 </div>
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Entitled Amount:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="MSEntitledAmount1" id="MSEntitledAmount1" value="<?php echo $data['MSEntitledAmount1'];?>">
+                    <input type="text" class="input-text" name="MSEntitledAmount1" id="MSEntitledAmount1" value="<?php echo $data['MSEntitledAmount1'];?>" disabled>
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">Entitled Amount:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="MSEntitledAmount2" id="MSEntitledAmount2" value="<?php echo $data['MSEntitledAmount2'];?>">
+                    <input type="text" class="input-text" name="MSEntitledAmount2" id="MSEntitledAmount2" value="<?php echo $data['MSEntitledAmount2'];?>" disabled>
                 </div>
             </div>
             <div class="row cl">
@@ -665,16 +664,8 @@
         ACManagerHtml+='<option>'+acMgr[i].AcMgr+'</option>';
     }
     $(".AC_Manager").html(ACManagerHtml);
-
-    
-    $(".AC_Manager").change(function(){
-        MSAcMgrII();
-    });
-    MSAcMgrII();
-    function MSAcMgrII(){
-        var value=$(".AC_Manager").val();
-        $("#MSAcMgrII").val(value);
-    }
+    var MSAcMgrII= '<?php echo $data['MSAcMgrII'];?>';
+    $(".AC_Manager").val(MSAcMgrII);
 
     $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 
@@ -709,11 +700,24 @@
         return num;
     }
 
-    var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-    var MSPctI=$("#MSPctI").val().split('%')[0]/100;
-    var MSPctII=$("#MSPctII").val().split('%')[0]/100;
-    $("#MSEntitledAmount1").val(QuotationAgreedFee * MSPctI);
-    $("#MSEntitledAmount2").val(QuotationAgreedFee * MSPctII);
+    $("#MSPctI,#MSPctII").change(function(){
+        MSEntitledAmount_l();
+        MSEntitledAmount_r();
+    });
+
+    MSEntitledAmount_l();
+    MSEntitledAmount_r();
+    function MSEntitledAmount_l(){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var MSPctI=$("#MSPctI").val()/100;
+        $("#MSEntitledAmount1").val(QuotationAgreedFee * MSPctI);
+    }
+
+    function MSEntitledAmount_r(){
+        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+        var MSPctII=$("#MSPctII").val()/100;
+        $("#MSEntitledAmount2").val(QuotationAgreedFee * MSPctII);
+    }
 
     //part1
     var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
