@@ -83,7 +83,8 @@
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">AC Manager 2:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <select class="AC_Manager" name="MSAcMgrII">
+                    <input type="text" name="MSAcMgrII" value="" id="MSAcMgrII" hidden>                
+                    <select class="AC_Manager">
                     </select>
                 </div>
             </div>
@@ -665,6 +666,16 @@
     }
     $(".AC_Manager").html(ACManagerHtml);
 
+    
+    $(".AC_Manager").change(function(){
+        MSAcMgrII();
+    });
+    MSAcMgrII();
+    function MSAcMgrII(){
+        var value=$(".AC_Manager").val();
+        $("#MSAcMgrII").val(value);
+    }
+
     $('#rootwizard').bootstrapWizard({'tabClass': 'bwizard-steps'});
 
     //top
@@ -699,8 +710,10 @@
     }
 
     var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-    var overallBonus=$("#MSPctI").val().split('%')[0]/100;
-    $("#MSEntitledAmount1").val(QuotationAgreedFee * overallBonus);
+    var MSPctI=$("#MSPctI").val().split('%')[0]/100;
+    var MSPctII=$("#MSPctII").val().split('%')[0]/100;
+    $("#MSEntitledAmount1").val(QuotationAgreedFee * MSPctI);
+    $("#MSEntitledAmount2").val(QuotationAgreedFee * MSPctII);
 
     //part1
     var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
