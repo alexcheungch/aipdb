@@ -72,7 +72,7 @@
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">Paid:</label>
                 <div class="formControls col-xs-2 col-sm-2">
-                    <input type="checkbox" name="Paid" value="1" <?php if ($data['Paid'] == 1) {echo 'checked';}?>>
+                    <input type="checkbox" name="Paid" value="1" <?php if ($data['Paid'] == 1) {echo 'checked';}?> id="Paid">
                 </div>
             </div>
             <h3>Marketing Scheme</h3>
@@ -110,11 +110,11 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Paid Date:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text need_date" name="MSPaidDateI" value="<?php echo $data['MSPaidDateI'];?>" readonly>
+                    <input type="text" class="input-text need_date" name="MSPaidDateI" value="<?php echo $data['MSPaidDateI'];?>" id="MSPaidDate_l">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">Paid Date:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text need_date" name="MSPaidDateII" value="<?php echo $data['MSPaidDateII'];?>" readonly>
+                    <input type="text" class="input-text need_date" name="MSPaidDateII" value="<?php echo $data['MSPaidDateII'];?>" id="MSPaidDate_r">
                 </div>
             </div>
             <h3>Staff Incentive / Bonus Schem</h3>
@@ -700,23 +700,47 @@
         return num;
     }
 
-    $("#MSPctI,#MSPctII").change(function(){
-        MSEntitledAmount_l();
-        MSEntitledAmount_r();
+    $("#Paid").change(function(){
+        var flagPaid = $(this).is(':checked');
+        MSEntitledAmount_l(flagPaid);
+        MSEntitledAmount_r(flagPaid);
     });
 
-    MSEntitledAmount_l();
-    MSEntitledAmount_r();
-    function MSEntitledAmount_l(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var MSPctI=$("#MSPctI").val()/100;
-        $("#MSEntitledAmount1").val(QuotationAgreedFee * MSPctI);
+    $("#MSPctI,#MSPctII").change(function(){
+        var flagPaid = $("#Paid").is(':checked');
+        MSEntitledAmount_l(flagPaid);
+        MSEntitledAmount_r(flagPaid);
+    });
+
+    var flagPaid = $("#Paid").is(':checked');
+    MSEntitledAmount_l(flagPaid);
+    MSEntitledAmount_r(flagPaid);
+    function MSEntitledAmount_l(flagPaid){
+        if(flagPaid){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var MSPctI=$("#MSPctI").val()/100;
+            $("#MSEntitledAmount1").val(QuotationAgreedFee * MSPctI);
+
+            $("#MSPaidDate_l").attr("disabled",false);
+        }else{
+            $("#MSEntitledAmount1").val(0);
+            $("#MSPaidDate_l").attr("disabled",true);
+            $("#MSPaidDate_l").val("0000-00-00");
+        }
     }
 
-    function MSEntitledAmount_r(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var MSPctII=$("#MSPctII").val()/100;
-        $("#MSEntitledAmount2").val(QuotationAgreedFee * MSPctII);
+    function MSEntitledAmount_r(flagPaid){
+        if(flagPaid){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var MSPctII=$("#MSPctII").val()/100;
+            $("#MSEntitledAmount2").val(QuotationAgreedFee * MSPctII);
+
+            $("#MSPaidDate_r").attr("disabled",false);
+        }else{
+            $("#MSEntitledAmount2").val(0);
+            $("#MSPaidDate_r").attr("disabled",true);
+            $("#MSPaidDate_r").val("0000-00-00");
+        }
     }
 
     //part1
