@@ -3,19 +3,19 @@
 class Allocation extends MY_Controller {
 
     public function index() {
-        $this->load->model('Allocation_model');
-        $this_list = $this->Allocation_model->get_all_data();
+        $this->load->model('Job_model');
+        $this_list = $this->Job_model->get_all_data();
         $this->assign('Allocation_list', $this_list);
         $this->display();
     }
 
     public function delete($id = 0) {
-        $this->load->model('Allocation_model');
-        $data = $this->Allocation_model->get($id);
+        $this->load->model('Job_model');
+        $data = $this->Job_model->get($id);
         if (!$data) {
             $this->redirect_msg('刪除的數據不存在');
         }
-        $result = $this->Allocation_model->delete($id);
+        $result = $this->Job_model->delete($id);
         if ($result) {
             $this->redirect_msg('刪除成功', 'Allocation');
         } else {
@@ -24,7 +24,7 @@ class Allocation extends MY_Controller {
     }
 
     public function edit($jobcode = '') {
-        $this->load->model('Allocation_model');
+        $this->load->model('Job_model');
         $this->load->model('ClientMtn_model');
         $this->load->model('ListStaffList_model');
         $this->load->model('ListDocLoc_model');
@@ -41,11 +41,11 @@ class Allocation extends MY_Controller {
         $this->assign('docLoc', $docLoc);
         $this->assign('acMgr', $acMgr);
         $this->assign('sentOutVia', $sentOutVia);
-        $data = $this->Allocation_model->get_data(array('JobCode' => $jobcode));
+        $data = $this->Job_model->get_data(array('JobCode' => $jobcode));
         $this->assign('data', $data);
-        $this->load->model('JobMtn_model');
-        $jobMtn = $this->JobMtn_model->get_data(array('JobCode' => $jobcode));
-        $this->assign('jobMtn', $jobMtn);
+//        $this->load->model('Job_model');
+//        $jobMtn = $this->Job_model->get_data(array('JobCode' => $jobcode));
+        $this->assign('jobMtn', $data);
         $clientMtn = $this->ClientMtn_model->get_data(array('ClientCode1'=>$jobMtn['ClientCode1']));
         $this->assign('clientMtn', $clientMtn);
         $jobProg = $this->JobProg_model->get_data(array('JobCode' => $jobcode));
@@ -55,7 +55,7 @@ class Allocation extends MY_Controller {
     }
 
     public function create() {
-        $this->load->model('Allocation_model');
+        $this->load->model('Job_model');
         $this->load->model('ClientMtn_model');
         $this->load->model('JobProg_model');
         $this->load->model('ListStaffList_model');
@@ -77,18 +77,18 @@ class Allocation extends MY_Controller {
 
     public function save() {
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
-            $this->load->model('Allocation_model');
+            $this->load->model('Job_model');
             $postdata = $this->input->post(null, true);
             if (!isset($postdata['JobCode']) || !$postdata['JobCode']) {
                 $this->redirect_msg('缺少JobCode');
             }
-            $job_prog_info = $this->Allocation_model->get_data(array('JobCode'=>$postdata['JobCode']));
+            $job_prog_info = $this->Job_model->get_data(array('JobCode'=>$postdata['JobCode']));
             if (!$job_prog_info) {
                 $this->redirect_msg('JobProg不存在');
             }
             $job_code = $postdata['JobCode'];
             unset($postdata['JobCode']);
-            $result = $this->Allocation_model->update_data(array('JobCode' => $job_code), $postdata);
+            $result = $this->Job_model->update_data(array('JobCode' => $job_code), $postdata);
             if ($result) {
                 $this->redirect_msg('保存成功', 'Allocation');
             } else {

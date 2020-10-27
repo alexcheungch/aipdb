@@ -14,8 +14,8 @@ class JobMtn extends MY_Controller {
             $to = strtotime($to);
             $condition['JobPeriodTo <='] = date('Y-m-d',$to);
         }
-        $this->load->model('JobMtn_model');
-        $this_list = $this->JobMtn_model->get_all_data($condition);
+        $this->load->model('Job_model');
+        $this_list = $this->Job_model->get_all_data($condition);
         $this->load->model('ClientMtn_model');
         $clientList = $this->ClientMtn_model->get_clients();
         $this->assign('JobMtn_list', $this_list);
@@ -24,17 +24,17 @@ class JobMtn extends MY_Controller {
     }
 
     public function delete($id = 0) {
-        $this->load->model('JobMtn_model');
-        $data = $this->JobMtn_model->get_data($id);
+        $this->load->model('Job_model');
+        $data = $this->Job_model->get_data($id);
         if (!$data) {
             $this->redirect_msg('刪除的數據不存在');
         }
-        $result = $this->JobMtn_model->delete($id);
+        $result = $this->Job_model->delete($id);
         if ($result) {
-            $this->load->model('JobProg_model');
-            $this->JobProg_model->delete(array('JobCode' =>$data['JobCode']));
-            $this->load->model('Allocation_model');
-            $this->Allocation_model->delete(array('JobCode' =>$data['JobCode']));
+//            $this->load->model('JobProg_model');
+//            $this->JobProg_model->delete(array('JobCode' =>$data['JobCode']));
+//            $this->load->model('Allocation_model');
+//            $this->Allocation_model->delete(array('JobCode' =>$data['JobCode']));
             $this->redirect_msg('刪除成功', 'JobMtn');
         } else {
             $this->redirect_msg('刪除失敗');
@@ -42,8 +42,8 @@ class JobMtn extends MY_Controller {
     }
 
     public function edit($id = 0) {
-        $this->load->model('JobMtn_model');
-        $data = $this->JobMtn_model->get_data($id);
+        $this->load->model('Job_model');
+        $data = $this->Job_model->get_data($id);
         if (!$data) {
             $this->redirect_msg('修改的數據不存在');
         }
@@ -76,43 +76,61 @@ class JobMtn extends MY_Controller {
 
     public function save() {
         if ($this->input->server('REQUEST_METHOD') === 'POST') {
-            $this->load->model('JobMtn_model');
-            $postdata = $this->input->post(null, true);
+            $this->load->model('Job_model');
+            $alldata = $this->input->post(null, true);
+            $postdata = array();
+            foreach ($alldata as $key => $value) {
+                if (substr($key, -3) != 'Val') {
+                    $postdata[$key] = $value;
+                }
+            }
             if (isset($postdata['ID']) && $postdata['ID']) {
                 $id = $postdata['ID'];
                 unset($postdata['ID']);
-                $result = $this->JobMtn_model->update_data(array('ID' =>$id), $postdata);
+                $result = $this->Job_model->update_data(array('ID' =>$id), $postdata);
                 $is_insert = false;
             } else {
-                $jobMtnInfo = $this->JobMtn_model->get_data(array('JobCode' =>$postdata['JobCode']));
+                $jobMtnInfo = $this->Job_model->get_data(array('JobCode' =>$postdata['JobCode']));
                 if ($jobMtnInfo) {
                     $this->redirect_msg('JobCode 已經存在。');
                 } else {
-                    $result = $this->JobMtn_model->insert($postdata);
+                    $postdata['SIBSS1CSFtr'] = 1;
+                    $postdata['SIBSS2CSFtr'] = 1;
+                    $postdata['SIBSS3CSFtr'] = 1;
+                    $postdata['SIBSS4CSFtr'] = 1;
+                    $postdata['SIBSS5CSFtr'] = 1;
+                    $this->load->model('Allocationparam_model');
+                    $default_value = $this->Allocationparam_model->get_all_data();
+                    foreach ($default_value as $value) {
+                        if ($value) {
+                            $postdata[$value['FieldName']] = $value['FieldValue'];
+                        }
+                    }
+                    $result = $this->Job_model->insert($postdata);
                 }
                 $is_insert = true;
             }
             if ($result) {
                 if ($is_insert) {
-                    $this->load->model('JobProg_model');
-                    $this->JobProg_model->insert(array('JobCode'=>$postdata['JobCode']));
-                    $this->load->model('Allocation_model');
-                    $this->load->model('Allocationparam_model');
-                    $default_value = $this->Allocationparam_model->get_all_data();
-                    $allocation_data = array(
-                        'JobCode'=>$postdata['JobCode'],
-                        'SIBSS1CSFtr' => 1,
-                        'SIBSS2CSFtr' => 1,
-                        'SIBSS3CSFtr' => 1,
-                        'SIBSS4CSFtr' => 1,
-                        'SIBSS5CSFtr' => 1
-                    );
-                    foreach ($default_value as $value) {
-                        if ($value) {
-                            $allocation_data[$value['FieldName']] = $value['FieldValue'];
-                        }
-                    }
-                    $this->Allocation_model->insert($allocation_data);
+//                    $this->load->model('JobProg_model');
+//                    $this->JobProg_model->insert(array('JobCode'=>$postdata['JobCode']));
+//                    $this->load->model('Allocation_model');
+//                    $this->load->model('Allocationparam_model');
+//                    $default_value = $this->Allocationparam_model->get_all_data();
+//                    $allocation_data = array(
+//                        'JobCode'=>$postdata['JobCode'],
+//                        'SIBSS1CSFtr' => 1,
+//                        'SIBSS2CSFtr' => 1,
+//                        'SIBSS3CSFtr' => 1,
+//                        'SIBSS4CSFtr' => 1,
+//                        'SIBSS5CSFtr' => 1
+//                    );
+//                    foreach ($default_value as $value) {
+//                        if ($value) {
+//                            $allocation_data[$value['FieldName']] = $value['FieldValue'];
+//                        }
+//                    }
+//                    $this->Allocation_model->insert($allocation_data);
                 }
                 $this->redirect_msg('保存成功', 'JobMtn');
             } else {
