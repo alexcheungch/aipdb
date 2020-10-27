@@ -46,10 +46,10 @@ class Allocation extends MY_Controller {
 //        $this->load->model('Job_model');
 //        $jobMtn = $this->Job_model->get_data(array('JobCode' => $jobcode));
         $this->assign('jobMtn', $data);
-        $clientMtn = $this->ClientMtn_model->get_data(array('ClientCode1'=>$jobMtn['ClientCode1']));
+        $clientMtn = $this->ClientMtn_model->get_data(array('ClientCode1'=>$data['ClientCode1']));
         $this->assign('clientMtn', $clientMtn);
-        $jobProg = $this->JobProg_model->get_data(array('JobCode' => $jobcode));
-        $this->assign('jobProg', $jobProg);
+//        $jobProg = $this->JobProg_model->get_data(array('JobCode' => $jobcode));
+        $this->assign('jobProg', $data);
         $this->assign('jobcode', $jobcode);
         $this->display();
     }
