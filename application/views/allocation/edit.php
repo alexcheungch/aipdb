@@ -197,7 +197,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text need_date" name="SIBSS1PaidDate" value="<?php echo $data['SIBSS1PaidDate'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="SIBSS1PaidDate" value="<?php echo $data['SIBSS1PaidDate'];?>" id="step1_SIBSS1PaidDate_l" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -259,7 +259,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text need_date" name="SIBSS2PaidDate" value="<?php echo $data['SIBSS2PaidDate'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="SIBSS2PaidDate" value="<?php echo $data['SIBSS2PaidDate'];?>" id="step1_SIBSS2PaidDate_r" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -319,7 +319,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text need_date" name="SIBSS3Staff1PaidDate" value="<?php echo $data['SIBSS3Staff1PaidDate'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="SIBSS3Staff1PaidDate" value="<?php echo $data['SIBSS3Staff1PaidDate'];?>" id="step2_SIBSS3Staff1PaidDate_l" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -355,7 +355,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text need_date" name="SIBSS3Staff2PaidDate" value="<?php echo $data['SIBSS3Staff2PaidDate'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="SIBSS3Staff2PaidDate" value="<?php echo $data['SIBSS3Staff2PaidDate'];?>" id="step2_SIBSS3Staff2PaidDate_r" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -427,7 +427,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text need_date" name="SIBSS4PaidDate" value="<?php echo $data['SIBSS4PaidDate'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="SIBSS4PaidDate" value="<?php echo $data['SIBSS4PaidDate'];?>" id="step3_SIBSS4PaidDate_l" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -489,7 +489,7 @@
                                     <div class="row cl">
                                         <label class="form-label col-xs-4">Paid Date:</label>
                                         <div class="formControls col-xs-8">
-                                            <input type="text" class="input-text need_date" name="SIBSS5PaidDate" value="<?php echo $data['SIBSS5PaidDate'];?>" readonly>
+                                            <input type="text" class="input-text need_date" name="SIBSS5PaidDate" value="<?php echo $data['SIBSS5PaidDate'];?>" id="step3_SIBSS5PaidDate_r" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -520,6 +520,7 @@
                     </div>
                 </div>
             </div>
+            <input type="text" class="input-text" name="StaffPaid" id="StaffPaid" value="0" disabled hidden>
         </form>
     </article>
 </div>
@@ -553,32 +554,6 @@
         $("input[id^='create_btn_']").click(function () {
             $("#Allocation_form").submit();        
         });
-
-        // $("#MSPctI,#MSPctII").keyup(function () {
-        //     var is_done_checked = $("#Done").is(':checked');
-        //     if (is_done_checked) {
-        //         var num = this.value.replace(/%/, "");
-        //         if (num) {
-        //             var amount = $("#countAmount").val();
-        //             amount = amount.replace(/HK\$/, "").replace(/,/, "");
-        //             var MSEntitledAmount = (amount * num / 100).toFixed(2);
-        //             if (this.id == "MSPctI") {
-        //                 $("#MSEntitledAmount1").val(MSEntitledAmount);
-        //             } else {
-        //                 $("#MSEntitledAmount2").val(MSEntitledAmount);
-        //             }
-        //         }
-        //     }
-        // });
-
-        // $("#Done").click(function () {
-        //     if (!this.checked) {
-        //         $("#MSEntitledAmount1").val("");
-        //         $("#MSEntitledAmount2").val("");
-        //     } else {
-        //         $("#MSPctI,#MSPctII").trigger("keyup");
-        //     }
-        // });
     });
 
     var clientCode=[];
@@ -702,6 +677,49 @@
         return num;
     }
 
+    //done
+    var S1PD_l = $("#step1_SIBSS1PaidDate_l").val();
+    var S1PD_r = $("#step1_SIBSS2PaidDate_r").val();
+    var S2PD_l = $("#step2_SIBSS3Staff1PaidDate_l").val();
+    var S2PD_r = $("#step2_SIBSS3Staff2PaidDate_r").val();
+    var S3PD_l = $("#step3_SIBSS4PaidDate_l").val();
+    var S3PD_r = $("#step3_SIBSS5PaidDate_r").val();
+    if((S1PD_l || S1PD_r || S2PD_l || S2PD_r || S3PD_l || S3PD_r) && (S1PD_l != '0000-00-00' || S1PD_r != '0000-00-00' || S2PD_l != '0000-00-00' || S2PD_r != '0000-00-00' || S3PD_l != '0000-00-00' || S3PD_r != '0000-00-00')){
+        $("#Done").attr('disabled',true);
+    }
+
+    $("#Done").change(function(){
+        var flagDone = $(this).is(':checked');
+        EntitledAmount_l(flagDone);
+        EntitledAmount_r(flagDone);
+        SIBSS3Staff1EntitledAmount(flagDone);
+        SIBSS3Staff2EntitledAmount(flagDone);
+        part3EA_l(flagDone);
+        part3EA_r(flagDone);
+    });
+
+    //StaffPaid -> 0,1
+    $("#step1_SIBSS1PaidDate_l,#step1_SIBSS2PaidDate_r,#step2_SIBSS3Staff1PaidDate_l,#step2_SIBSS3Staff2PaidDate_r,#step3_SIBSS4PaidDate_l,#step3_SIBSS5PaidDate_r").change(function(){
+        var S1PD_l = $("#step1_SIBSS1PaidDate_l").val();
+        var S1PD_r = $("#step1_SIBSS2PaidDate_r").val();
+        var S2PD_l = $("#step2_SIBSS3Staff1PaidDate_l").val();
+        var S2PD_r = $("#step2_SIBSS3Staff2PaidDate_r").val();
+        var S3PD_l = $("#step3_SIBSS4PaidDate_l").val();
+        var S3PD_r = $("#step3_SIBSS5PaidDate_r").val();
+        if((S1PD_l || S1PD_r || S2PD_l || S2PD_r || S3PD_l || S3PD_r) && (S1PD_l != '0000-00-00' || S1PD_r != '0000-00-00' || S2PD_l != '0000-00-00' || S2PD_r != '0000-00-00' || S3PD_l != '0000-00-00' || S3PD_r != '0000-00-00')){
+            $("#StaffPaid").val(1);
+        }else{
+            $("#StaffPaid").val(0);
+        }
+    });
+    
+    //Paid
+    var MSPD_l = $("#MSPaidDate_l").val();
+    var MSPD_r = $("#MSPaidDate_r").val();
+    if(MSPD_l || MSPD_r){
+        $("#Paid").attr('disabled',true);
+    }
+
     $("#Paid").change(function(){
         var flagPaid = $(this).is(':checked');
         MSEntitledAmount_l(flagPaid);
@@ -744,6 +762,9 @@
             $("#MSPaidDate_r").val("<?php echo $data['MSPaidDateII'];?>");
         }
     }
+
+    //part all
+    var flagDone = $("#Done").is(':checked');
 
     //part1
     var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
@@ -791,39 +812,57 @@
             $("#"+id).val('-2.5%');
         }
 
-        EntitledAmount_l();
-        EntitledAmount_r();
+        var flagDone = $("#Done").is(':checked');
+        EntitledAmount_l(flagDone);
+        EntitledAmount_r(flagDone);
     }
     $("#step1_CSFactor_l,#step1_CSFactor_r").change(function(){
-        EntitledAmount_l();
-        EntitledAmount_r();
+        var flagDone = $("#Done").is(':checked');
+        EntitledAmount_l(flagDone);
+        EntitledAmount_r(flagDone);
     });
 
-    function EntitledAmount_l(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
-        var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
-        $("#SIBSS1AdjPct").val(Number($("#setp1_Adj_l").val().split('%')[0]));
-        var CSFactor=$("#step1_CSFactor_l").val();
-        $("#SIBSS1CSFtr").val(CSFactor);
-        var value=(QuotationAgreedFee * overallBonus * (Entitled + Adj) * CSFactor).toFixed(2);
-        $("#step1_EntitledAmount_l").val(value);
+    function EntitledAmount_l(flagDone){        
+        if(flagDone){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            var Entitled=$("#SIBSS1SetPct").val().split('%')[0]/100;
+            var Adj=$("#setp1_Adj_l").val().split('%')[0]/100;
+            $("#SIBSS1AdjPct").val(Number($("#setp1_Adj_l").val().split('%')[0]));
+            var CSFactor=$("#step1_CSFactor_l").val();
+            $("#SIBSS1CSFtr").val(CSFactor);
+            var value=(QuotationAgreedFee * overallBonus * (Entitled + Adj) * CSFactor).toFixed(2);
+            $("#step1_EntitledAmount_l").val(value);
+
+            $("#step1_SIBSS1PaidDate_l").attr("disabled",false);
+        }else{
+            $("#step1_EntitledAmount_l").val(0);
+            $("#step1_SIBSS1PaidDate_l").attr("disabled",true);
+            $("#step1_SIBSS1PaidDate_l").val("<?php echo $data['SIBSS1PaidDate'];?>");
+        }
     }
 
-    function EntitledAmount_r(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
-        var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
-        $("#SIBSS2AdjPct").val(Number($("#setp1_Adj_r").val().split('%')[0]));
-        var CSFactor=$("#step1_CSFactor_r").val();
-        $("#SIBSS2CSFtr").val(CSFactor);
-        var value=(QuotationAgreedFee * overallBonus * (Entitled + Adj) * CSFactor).toFixed(2);
-        $("#step1_EntitledAmount_r").val(value);
+    function EntitledAmount_r(flagDone){ 
+        if(flagDone){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            var Entitled=$("#SIBSS2SetPct").val().split('%')[0]/100;
+            var Adj=$("#setp1_Adj_r").val().split('%')[0]/100;
+            $("#SIBSS2AdjPct").val(Number($("#setp1_Adj_r").val().split('%')[0]));
+            var CSFactor=$("#step1_CSFactor_r").val();
+            $("#SIBSS2CSFtr").val(CSFactor);
+            var value=(QuotationAgreedFee * overallBonus * (Entitled + Adj) * CSFactor).toFixed(2);
+            $("#step1_EntitledAmount_r").val(value);
+
+            $("#step1_SIBSS2PaidDate_r").attr("disabled",false);
+        }else{
+            $("#step1_EntitledAmount_r").val(0);
+            $("#step1_SIBSS2PaidDate_r").attr("disabled",true);
+            $("#step1_SIBSS2PaidDate_r").val("<?php echo $data['SIBSS2PaidDate'];?>");
+        }
     }
-    EntitledAmount_l();
-    EntitledAmount_r();
+    EntitledAmount_l(flagDone);
+    EntitledAmount_r(flagDone);
 
     //part2    
     var part2_CSFactor_l= <?php echo $data["SIBSS3CSFtr"]; ?>;
@@ -848,30 +887,47 @@
         var SIBSS3Staff2Pct=$("#SIBSS3SetPct").val() - $("#SIBSS3Staff1Pct").val();
         $("#SIBSS3Staff2Pct").val(SIBSS3Staff2Pct);
         
-        SIBSS3Staff1EntitledAmount();
-        SIBSS3Staff2EntitledAmount();
+        var flagDone = $("#Done").is(':checked');
+        SIBSS3Staff1EntitledAmount(flagDone);
+        SIBSS3Staff2EntitledAmount(flagDone);
     }
 
-    SIBSS3Staff1EntitledAmount();
-    SIBSS3Staff2EntitledAmount();
-    function SIBSS3Staff1EntitledAmount(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        var SIBSSNSetPct = $("#SIBSS3SetPct").val()/100;
-        var step2_CSFactor_l = $("#step2_CSFactor_l").val();
-        var SIBSSNStaff1Pct = $("#SIBSS3Staff1Pct").val()/100;
-        var value=(QuotationAgreedFee * overallBonus * SIBSSNSetPct * step2_CSFactor_l * SIBSSNStaff1Pct).toFixed(2);
-        $("#SIBSS3Staff1EntitledAmount").val(value);
+    SIBSS3Staff1EntitledAmount(flagDone);
+    SIBSS3Staff2EntitledAmount(flagDone);
+    function SIBSS3Staff1EntitledAmount(flagDone){
+        if(flagDone){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            var SIBSSNSetPct = $("#SIBSS3SetPct").val()/100;
+            var step2_CSFactor_l = $("#step2_CSFactor_l").val();
+            var SIBSSNStaff1Pct = $("#SIBSS3Staff1Pct").val()/100;
+            var value=(QuotationAgreedFee * overallBonus * SIBSSNSetPct * step2_CSFactor_l * SIBSSNStaff1Pct).toFixed(2);
+            $("#SIBSS3Staff1EntitledAmount").val(value);
+            
+            $("#step2_SIBSS3Staff1PaidDate_l").attr("disabled",false);
+        }else{
+            $("#SIBSS3Staff1EntitledAmount").val(0);
+            $("#step2_SIBSS3Staff1PaidDate_l").attr("disabled",true);
+            $("#step2_SIBSS3Staff1PaidDate_l").val("<?php echo $data['SIBSS3Staff1PaidDate'];?>");
+        }
     }
     
-    function SIBSS3Staff2EntitledAmount(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        var SIBSSNSetPct = $("#SIBSS3SetPct").val()/100;
-        var step2_CSFactor_l = $("#step2_CSFactor_l").val();
-        var SIBSSNStaff1Pct = $("#SIBSS3Staff2Pct").val()/100;
-        var value=(QuotationAgreedFee * overallBonus * SIBSSNSetPct * step2_CSFactor_l * SIBSSNStaff1Pct).toFixed(2);
-        $("#SIBSS3Staff2EntitledAmount").val(value);
+    function SIBSS3Staff2EntitledAmount(flagDone){
+        if(flagDone){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            var SIBSSNSetPct = $("#SIBSS3SetPct").val()/100;
+            var step2_CSFactor_l = $("#step2_CSFactor_l").val();
+            var SIBSSNStaff1Pct = $("#SIBSS3Staff2Pct").val()/100;
+            var value=(QuotationAgreedFee * overallBonus * SIBSSNSetPct * step2_CSFactor_l * SIBSSNStaff1Pct).toFixed(2);
+            $("#SIBSS3Staff2EntitledAmount").val(value);
+            
+            $("#step2_SIBSS3Staff2PaidDate_r").attr("disabled",false);
+        }else{            
+            $("#SIBSS3Staff2EntitledAmount").val(0);
+            $("#step2_SIBSS3Staff2PaidDate_r").attr("disabled",true);
+            $("#step2_SIBSS3Staff2PaidDate_r").val("<?php echo $data['SIBSS3Staff2PaidDate'];?>");
+        }
     }
 
     //part3
@@ -920,40 +976,58 @@
             $("#"+id).val('-2.5%');
         }
 
-        part3EA_l();
-        part3EA_r();
+        var flagDone = $("#Done").is(':checked');
+        part3EA_l(flagDone);
+        part3EA_r(flagDone);
     }
     
     $("#step3_CSFactor_l,#step3_CSFactor_r").change(function(){
-        part3EA_l();
-        part3EA_r();
+        var flagDone = $("#Done").is(':checked');
+        part3EA_l(flagDone);
+        part3EA_r(flagDone);
     });
     
-    function part3EA_l(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        var SIBSSNCSFtr = $("#step3_CSFactor_l").val();
-        $("#SIBSS4CSFtr").val(SIBSSNCSFtr);
-        var SIBSSNSetPct = $("#SIBSS4SetPct").val().split('%')[0]/100;
-        var SIBSSNAdjPct = $("#setp3_Adj_l").val().split('%')[0]/100;
-        $("#SIBSS4AdjPct").val(Number($("#setp3_Adj_l").val().split('%')[0]));
-        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct + SIBSSNAdjPct)).toFixed(2);
-        $("#SIBSS4EntitledAmount").val(value);
+    function part3EA_l(flagDone){
+        if(flagDone){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            var SIBSSNCSFtr = $("#step3_CSFactor_l").val();
+            $("#SIBSS4CSFtr").val(SIBSSNCSFtr);
+            var SIBSSNSetPct = $("#SIBSS4SetPct").val().split('%')[0]/100;
+            var SIBSSNAdjPct = $("#setp3_Adj_l").val().split('%')[0]/100;
+            $("#SIBSS4AdjPct").val(Number($("#setp3_Adj_l").val().split('%')[0]));
+            var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct + SIBSSNAdjPct)).toFixed(2);
+            $("#SIBSS4EntitledAmount").val(value);
+            
+            $("#step3_SIBSS4PaidDate_l").attr("disabled",false);
+        }else{
+            $("#SIBSS4EntitledAmount").val(0);
+            $("#step3_SIBSS4PaidDate_l").attr("disabled",true);
+            $("#step3_SIBSS4PaidDate_l").val("<?php echo $data['SIBSS4PaidDate'];?>");
+        }
     }
-    function part3EA_r(){
-        var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
-        var overallBonus=$("#overallBonus").val().split('%')[0]/100;
-        var SIBSSNCSFtr = $("#step3_CSFactor_r").val();
-        $("#SIBSS5CSFtr").val(SIBSSNCSFtr);
-        var SIBSSNSetPct = $("#SIBSS5SetPct").val().split('%')[0]/100;
-        var SIBSSNAdjPct = $("#setp3_Adj_r").val().split('%')[0]/100;
-        $("#SIBSS5AdjPct").val(Number($("#setp3_Adj_r").val().split('%')[0]));
-        var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct + SIBSSNAdjPct)).toFixed(2);
-        $("#SIBSS5EntitledAmount").val(value);
+    function part3EA_r(flagDone){
+        if(flagDone){
+            var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
+            var overallBonus=$("#overallBonus").val().split('%')[0]/100;
+            var SIBSSNCSFtr = $("#step3_CSFactor_r").val();
+            $("#SIBSS5CSFtr").val(SIBSSNCSFtr);
+            var SIBSSNSetPct = $("#SIBSS5SetPct").val().split('%')[0]/100;
+            var SIBSSNAdjPct = $("#setp3_Adj_r").val().split('%')[0]/100;
+            $("#SIBSS5AdjPct").val(Number($("#setp3_Adj_r").val().split('%')[0]));
+            var value = (QuotationAgreedFee * overallBonus * SIBSSNCSFtr * (SIBSSNSetPct + SIBSSNAdjPct)).toFixed(2);
+            $("#SIBSS5EntitledAmount").val(value);
+            
+            $("#step3_SIBSS5PaidDate_r").attr("disabled",false);
+        }else{
+            $("#SIBSS5EntitledAmount").val(0);
+            $("#step3_SIBSS5PaidDate_r").attr("disabled",true);
+            $("#step3_SIBSS5PaidDate_r").val("<?php echo $data['SIBSS5PaidDate'];?>");
+        }
     }
 
-    part3EA_l();
-    part3EA_r();
+    part3EA_l(flagDone);
+    part3EA_r(flagDone);
 
     //public
     function defualt_adj(id,value){
