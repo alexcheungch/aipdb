@@ -553,30 +553,32 @@
         $("input[id^='create_btn_']").click(function () {
             $("#Allocation_form").submit();        
         });
-        $("#MSPctI,#MSPctII").keyup(function () {
-            var is_done_checked = $("#Done").is(':checked');
-            if (is_done_checked) {
-                var num = this.value.replace(/%/, "");
-                if (num) {
-                    var amount = $("#countAmount").val();
-                    amount = amount.replace(/HK\$/, "").replace(/,/, "");
-                    var MSEntitledAmount = (amount * num / 100).toFixed(2);
-                    if (this.id == "MSPctI") {
-                        $("#MSEntitledAmount1").val(MSEntitledAmount);
-                    } else {
-                        $("#MSEntitledAmount2").val(MSEntitledAmount);
-                    }
-                }
-            }
-        });
-        $("#Done").click(function () {
-            if (!this.checked) {
-                $("#MSEntitledAmount1").val("");
-                $("#MSEntitledAmount2").val("");
-            } else {
-                $("#MSPctI,#MSPctII").trigger("keyup");
-            }
-        });
+
+        // $("#MSPctI,#MSPctII").keyup(function () {
+        //     var is_done_checked = $("#Done").is(':checked');
+        //     if (is_done_checked) {
+        //         var num = this.value.replace(/%/, "");
+        //         if (num) {
+        //             var amount = $("#countAmount").val();
+        //             amount = amount.replace(/HK\$/, "").replace(/,/, "");
+        //             var MSEntitledAmount = (amount * num / 100).toFixed(2);
+        //             if (this.id == "MSPctI") {
+        //                 $("#MSEntitledAmount1").val(MSEntitledAmount);
+        //             } else {
+        //                 $("#MSEntitledAmount2").val(MSEntitledAmount);
+        //             }
+        //         }
+        //     }
+        // });
+
+        // $("#Done").click(function () {
+        //     if (!this.checked) {
+        //         $("#MSEntitledAmount1").val("");
+        //         $("#MSEntitledAmount2").val("");
+        //     } else {
+        //         $("#MSPctI,#MSPctII").trigger("keyup");
+        //     }
+        // });
     });
 
     var clientCode=[];
@@ -719,13 +721,13 @@
         if(flagPaid){
             var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
             var MSPctI=$("#MSPctI").val()/100;
-            $("#MSEntitledAmount1").val(QuotationAgreedFee * MSPctI);
+            $("#MSEntitledAmount1").val((QuotationAgreedFee * MSPctI).toFixed(2));
 
             $("#MSPaidDate_l").attr("disabled",false);
         }else{
             $("#MSEntitledAmount1").val(0);
             $("#MSPaidDate_l").attr("disabled",true);
-            $("#MSPaidDate_l").val("0000-00-00");
+            $("#MSPaidDate_l").val("<?php echo $data['MSPaidDateI'];?>");
         }
     }
 
@@ -733,13 +735,13 @@
         if(flagPaid){
             var QuotationAgreedFee = <?php echo $jobMtn['QuotationAgreedFee'];?>;
             var MSPctII=$("#MSPctII").val()/100;
-            $("#MSEntitledAmount2").val(QuotationAgreedFee * MSPctII);
+            $("#MSEntitledAmount2").val((QuotationAgreedFee * MSPctII).toFixed(2));
 
             $("#MSPaidDate_r").attr("disabled",false);
         }else{
             $("#MSEntitledAmount2").val(0);
             $("#MSPaidDate_r").attr("disabled",true);
-            $("#MSPaidDate_r").val("0000-00-00");
+            $("#MSPaidDate_r").val("<?php echo $data['MSPaidDateII'];?>");
         }
     }
 
