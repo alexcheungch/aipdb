@@ -113,4 +113,22 @@ class MY_Controller extends CI_Controller {
         }
         exit;
     }
+    
+    protected function get_sys_params($key = '') {
+        $this->load->model('SysParam_model');
+        $result = array();
+        if ($key) {
+            $sys_result = $this->SysParam_model->get_data(array('ParamType'=>$key));
+            $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $sys_result['ParamValue']);
+            $result = explode(',', $param_value);
+        } else {
+            $sys_result = $this->SysParam_model->get_all_data();
+            foreach ($sys_result as $value) {
+                $param_value = str_replace(array('[',']',"'",'"'), array('','','',''), $value['ParamValue']);
+                $result[] = explode(',', $param_value);
+            }
+        }
+        
+        return $result;
+    }
 }

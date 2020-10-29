@@ -644,27 +644,27 @@ $(function () {
 
     var docrequestViaHtml='';
     for(var i=0; i<sentOutVia.length; i++){
-        if (sentOutVia[i].SentOutMeans == "<?php echo $data['S1DCDocRequestVia'];?>")
-            docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+' selected>'+sentOutVia[i].SentOutMeans+'</option>';
+        if (sentOutVia[i] == "<?php echo $data['S1DCDocRequestVia'];?>")
+            docrequestViaHtml+='<option value='+sentOutVia[i]+' selected>'+sentOutVia[i]+'</option>';
         else 
-            docrequestViaHtml+='<option value='+sentOutVia[i].SentOutMeans+'>'+sentOutVia[i].SentOutMeans+'</option>';
+            docrequestViaHtml+='<option value='+sentOutVia[i]+'>'+sentOutVia[i]+'</option>';
     }
     $("#S1DCDocRequestVia").html(docrequestViaHtml);
 
     var docLocHtml='';
     for(var i=0; i<docLoc.length; i++){
-        if (docLoc[i].DocLoc == "<?php echo $data['SRDRStoreLoc'];?>" )
-        docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
+        if (docLoc[i] == "<?php echo $data['SRDRStoreLoc'];?>" )
+        docLocHtml+='<option value='+docLoc[i]+' selected>'+docLoc[i]+'</option>';
         else
-        docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
+        docLocHtml+='<option value='+docLoc[i]+'>'+docLoc[i]+'</option>';  
     }
     $("#SRDRStoreLoc").html(docLocHtml);
     var docLocHtml='';
     for(var i=0; i<docLoc.length; i++){
-        if (docLoc[i].DocLoc == "<?php echo $data['S6DFDocLoc'];?>" )
-        docLocHtml+='<option value='+docLoc[i].DocLoc+' selected>'+docLoc[i].DocLoc+'</option>';
+        if (docLoc[i] == "<?php echo $data['S6DFDocLoc'];?>" )
+        docLocHtml+='<option value='+docLoc[i]+' selected>'+docLoc[i]+'</option>';
         else
-        docLocHtml+='<option value='+docLoc[i].DocLoc+'>'+docLoc[i].DocLoc+'</option>';  
+        docLocHtml+='<option value='+docLoc[i]+'>'+docLoc[i]+'</option>';  
     }
     $("#S6DFDocLoc").html(docLocHtml);
 

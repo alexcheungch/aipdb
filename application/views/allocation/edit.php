@@ -608,13 +608,13 @@
 
     var officeHandledHtml='';
     for(var i=0; i<docLoc.length; i++){
-        officeHandledHtml+='<option>'+docLoc[i].DocLoc+'</option>';
+        officeHandledHtml+='<option>'+docLoc[i]+'</option>';
     }
     $(".office_handled").html(officeHandledHtml);
 
     var docTransferHtml='';
     for(var i=0; i<sentOutVia.length; i++){
-        docTransferHtml+='<option>'+sentOutVia[i].SentOutMeans+'</option>';
+        docTransferHtml+='<option>'+sentOutVia[i]+'</option>';
     }
     $(".doc_transfer").html(docTransferHtml);
 

@@ -12,21 +12,22 @@ class JobProg extends MY_Controller {
     public function edit($jobcode = '') {
         $this->load->model('Job_model');
         $this->load->model('ListStaffList_model');
-        $this->load->model('ListDocLoc_model');
+//        $this->load->model('ListDocLoc_model');
         $this->load->model('ListAcMgr_model');
-        $this->load->model('ListSentOutVia_model');
+//        $this->load->model('ListSentOutVia_model');
         $this->load->model('ClientMtn_model');
-        $this->load->model('SysParam_model');
+        $sys_result = $this->get_sys_params('ListDocLoc');
+        $sys_result1 = $this->get_sys_params('ListSentOutVia');
         $this_list = $this->ClientMtn_model->get_clients();
         $staffList = $this->ListStaffList_model->get_all();
-        $docLoc = $this->ListDocLoc_model->get_all();
+//        $docLoc = $this->ListDocLoc_model->get_all();
         $acMgr = $this->ListAcMgr_model->get_all();
-        $sentOutVia = $this->ListSentOutVia_model->get_all();
+//        $sentOutVia = $this->ListSentOutVia_model->get_all();
         $this->assign('clientList', $this_list);
         $this->assign('staffList', $staffList);
-        $this->assign('docLoc', $docLoc);
+        $this->assign('docLoc', $sys_result);
         $this->assign('acMgr', $acMgr);
-        $this->assign('sentOutVia', $sentOutVia);
+        $this->assign('sentOutVia', $sys_result1);
         $data = $this->Job_model->getfullJob($jobcode);
         $this->assign('data', $data);
         $result = $this->SysParam_model->get_all_data();
@@ -44,19 +45,21 @@ class JobProg extends MY_Controller {
         $this->load->model('ClientMtn_model');
         $this->load->model('Job_model');
         $this->load->model('ListStaffList_model');
-        $this->load->model('ListDocLoc_model');
+//        $this->load->model('ListDocLoc_model');
         $this->load->model('ListAcMgr_model');
-        $this->load->model('ListSentOutVia_model');
+//        $this->load->model('ListSentOutVia_model');
+        $sys_result = $this->get_sys_params('ListDocLoc');
+        $sys_result1 = $this->get_sys_params('ListSentOutVia');
         $this_list = $this->ClientMtn_model->get_clients();
         $staffList = $this->ListStaffList_model->get_all();
-        $docLoc = $this->ListDocLoc_model->get_all();
+//        $docLoc = $this->ListDocLoc_model->get_all();
         $acMgr = $this->ListAcMgr_model->get_all();
-        $sentOutVia = $this->ListSentOutVia_model->get_all();
+//        $sentOutVia = $this->ListSentOutVia_model->get_all();
         $this->assign('clientList', $this_list);
         $this->assign('staffList', $staffList);
-        $this->assign('docLoc', $docLoc);
+        $this->assign('docLoc', $sys_result);
         $this->assign('acMgr', $acMgr);
-        $this->assign('sentOutVia', $sentOutVia);
+        $this->assign('sentOutVia', $sys_result1);
         $this->display();
     }
 

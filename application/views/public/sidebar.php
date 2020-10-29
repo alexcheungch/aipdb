@@ -7,8 +7,10 @@
                 'li' => array(
                     array('TableAdm/liststafflist', 'System Maintenance', 'Staff List'), 
                     array('TableAdm/listacmgr', 'System Maintenance', 'AC Manager List'), 
-                    array('TableAdm/listdocloc', 'System Maintenance', 'Document Location List'), 
-                    array('TableAdm/listsentoutvia', 'System Maintenance', 'Send Out Via List')
+                    array('sysparam/index', 'SysParam', 'SysParam List'), 
+                    array('asuser/index', 'ASUser', 'ASUser List'),
+//                    array('TableAdm/listdocloc', 'System Maintenance', 'Document Location List'), 
+//                    array('TableAdm/listsentoutvia', 'System Maintenance', 'Send Out Via List')
                 )
             ),
             'ClientMtn' => array(
@@ -38,13 +40,13 @@
                     array('Allocation/defaultvalue', 'Allocation Default Value', 'default value')
                 )
             ),
-            'SystemAdm' => array(
-                'name' => 'System Administration', 
-                'li' => array(
-                    array('sysparam/index', 'SysParam', 'SysParam List'), 
-                    array('asuser/index', 'ASUser', 'ASUser List')
-                )
-            ),
+//            'SystemAdm' => array(
+//                'name' => 'System Administration', 
+//                'li' => array(
+//                    array('sysparam/index', 'SysParam', 'SysParam List'), 
+//                    array('asuser/index', 'ASUser', 'ASUser List')
+//                )
+//            ),
         );
 //        if (defined('ROLE0')) {
 //            $ROLE = array(ROLE0, ROLE1, ROLE2, ROLE3, ROLE4, ROLE5, ROLE6, ROLE7);
