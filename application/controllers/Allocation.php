@@ -37,6 +37,10 @@ class Allocation extends MY_Controller {
         $this->assign('part3adj', $sys_result2);
         $sys_result3 = $this->get_sys_params('Part1Adj');
         $this->assign('part1adj', $sys_result3);
+        $sys_result4 = $this->get_sys_params('Part2Adj');
+        $this->assign('part2adj', $sys_result4);
+        $sys_result5 = $this->get_sys_params('CSFactor');
+        $this->assign('csfactor', $sys_result5);
         $this_list = $this->ClientMtn_model->get_clients();
         $staffList = $this->ListStaffList_model->get_all();
 //        $docLoc = $this->ListDocLoc_model->get_all();

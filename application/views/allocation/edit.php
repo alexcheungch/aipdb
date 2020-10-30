@@ -534,6 +534,8 @@
     var clientList= <?php echo json_encode($clientList); ?>; 
     var part3adj= <?php echo json_encode($part3adj); ?>; 
     var part1adj= <?php echo json_encode($part1adj); ?>; 
+    var part2adj= <?php echo json_encode($part2adj); ?>; 
+    var csfactor= <?php echo json_encode($csfactor); ?>; 
     var uploadurl ="";
     $(function () {    
         $("#QuotationAgreedFee").html(formatFee(<?php echo $jobMtn['QuotationAgreedFee'];?>));
