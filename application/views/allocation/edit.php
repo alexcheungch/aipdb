@@ -160,17 +160,17 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" value="<?php echo $data['SIBSS1AdjPct'];?>" name="SIBSS1AdjPct" id="SIBSS1AdjPct" hidden>
                                             <select class="select_staff" id="setp1_Adj_l">
-                                                <option value="-2.5%">-2.5%</option>
-                                                <option value="-2%">-2%</option>
+                                                <!-- <option value="-2.5%">-2.5%</option>
+                                                <option value="-2.0%">-2.0%</option>
                                                 <option value="-1.5%">-1.5%</option>
-                                                <option value="-1%">-1%</option>
+                                                <option value="-1.0%">-1.0%</option>
                                                 <option value="-0.5%">-0.5%</option>
-                                                <option value="0%">0%</option>
-                                                <option value="+0.5%">+0.5%</option>
-                                                <option value="+1%">+1%</option>
-                                                <option value="+1.5%">+1.5%</option>
-                                                <option value="+2%">+2%</option>
-                                                <option value="+2.5%">+2.5%</option>
+                                                <option value="0.0%">0.0%</option>
+                                                <option value="0.5%">0.5%</option>
+                                                <option value="1.0%">1.0%</option>
+                                                <option value="1.5%">1.5%</option>
+                                                <option value="2.0%">2.0%</option>
+                                                <option value="2.5%">2.5%</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -179,12 +179,12 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" value="<?php echo $data['SIBSS1CSFtr'];?>" name="SIBSS1CSFtr" id="SIBSS1CSFtr" hidden>
                                             <select class="select_staff" id="step1_CSFactor_l">
-                                                <option>0.9</option>
+                                                <!-- <option>0.9</option>
                                                 <option>0.95</option>
                                                 <option>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
-                                                <option>1.125</option>
+                                                <option>1.125</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -222,17 +222,17 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" value="<?php echo $data['SIBSS2AdjPct'];?>" name="SIBSS2AdjPct" id="SIBSS2AdjPct" hidden>
                                             <select class="select_staff" id="setp1_Adj_r">
-                                                <option value="-2.5%">-2.5%</option>
-                                                <option value="-2%">-2%</option>
+                                                <!-- <option value="-2.5%">-2.5%</option>
+                                                <option value="-2.0%">-2.0%</option>
                                                 <option value="-1.5%">-1.5%</option>
-                                                <option value="-1%">-1%</option>
+                                                <option value="-1.0%">-1.0%</option>
                                                 <option value="-0.5%">-0.5%</option>
-                                                <option value="0%">0%</option>
-                                                <option value="+0.5%">+0.5%</option>
-                                                <option value="+1%">+1%</option>
-                                                <option value="+1.5%">+1.5%</option>
-                                                <option value="+2%">+2%</option>
-                                                <option value="+2.5%">+2.5%</option>
+                                                <option value="0.0%">0.0%</option>
+                                                <option value="0.5%">0.5%</option>
+                                                <option value="1.0%">1.0%</option>
+                                                <option value="1.5%">1.5%</option>
+                                                <option value="2.0%">2.0%</option>
+                                                <option value="2.5%">2.5%</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -241,12 +241,12 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" value="<?php echo $data['SIBSS2CSFtr'];?>" name="SIBSS2CSFtr" id="SIBSS2CSFtr" hidden>
                                             <select class="select_staff" id="step1_CSFactor_r">
-                                                <option>0.9</option>
+                                                <!-- <option>0.9</option>
                                                 <option>0.95</option>
                                                 <option>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
-                                                <option>1.125</option>
+                                                <option>1.125</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -287,12 +287,12 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" name="SIBSS3CSFtr" value="<?php echo $data['SIBSS3CSFtr'];?>" id="SIBSS3CSFtr" hidden>
                                             <select class="select_staff" id="step2_CSFactor_l">
-                                                <option>0.9</option>
+                                                <!-- <option>0.9</option>
                                                 <option>0.95</option>
                                                 <option selected>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
-                                                <option>1.125</option>
+                                                <option>1.125</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -390,17 +390,17 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" name="SIBSS4AdjPct" value="<?php echo $data['SIBSS4AdjPct'];?>" id="SIBSS4AdjPct" hidden>
                                             <select class="select_staff" id="setp3_Adj_l">
-                                                <option value="-2.5%">-2.5%</option>
-                                                <option value="-2%">-2%</option>
+                                                <!-- <option value="-2.5%">-2.5%</option>
+                                                <option value="-2.0%">-2.0%</option>
                                                 <option value="-1.5%">-1.5%</option>
-                                                <option value="-1%">-1%</option>
+                                                <option value="-1.0%">-1.0%</option>
                                                 <option value="-0.5%">-0.5%</option>
-                                                <option value="0%" selected>0%</option>
-                                                <option value="+0.5%">+0.5%</option>
-                                                <option value="+1%">+1%</option>
-                                                <option value="+1.5%">+1.5%</option>
-                                                <option value="+2%">+2%</option>
-                                                <option value="+2.5%">+2.5%</option>
+                                                <option value="0.0%">0.0%</option>
+                                                <option value="0.5%">0.5%</option>
+                                                <option value="1.0%">1.0%</option>
+                                                <option value="1.5%">1.5%</option>
+                                                <option value="2.0%">2.0%</option>
+                                                <option value="2.5%">2.5%</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -409,12 +409,12 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" name="SIBSS4CSFtr" value="<?php echo $data['SIBSS4CSFtr'];?>" id="SIBSS4CSFtr" hidden>
                                             <select class="select_staff" id="step3_CSFactor_l">
-                                                <option>0.9</option>
+                                                <!-- <option>0.9</option>
                                                 <option>0.95</option>
                                                 <option selected>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
-                                                <option>1.125</option>
+                                                <option>1.125</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -452,17 +452,17 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" name="SIBSS5AdjPct" value="<?php echo $data['SIBSS5AdjPct'];?>" id="SIBSS5AdjPct" hidden>
                                             <select class="select_staff" id="setp3_Adj_r">
-                                                <option value="-2.5%">-2.5%</option>
-                                                <option value="-2%">-2%</option>
+                                                <!-- <option value="-2.5%">-2.5%</option>
+                                                <option value="-2.0%">-2.0%</option>
                                                 <option value="-1.5%">-1.5%</option>
-                                                <option value="-1%">-1%</option>
+                                                <option value="-1.0%">-1.0%</option>
                                                 <option value="-0.5%">-0.5%</option>
-                                                <option value="0%" selected>0%</option>
-                                                <option value="+0.5%">+0.5%</option>
-                                                <option value="+1%">+1%</option>
-                                                <option value="+1.5%">+1.5%</option>
-                                                <option value="+2%">+2%</option>
-                                                <option value="+2.5%">+2.5%</option>
+                                                <option value="0.0%">0.0%</option>
+                                                <option value="0.5%">0.5%</option>
+                                                <option value="1.0%">1.0%</option>
+                                                <option value="1.5%">1.5%</option>
+                                                <option value="2.0%">2.0%</option>
+                                                <option value="2.5%">2.5%</option> -->
                                             </select>
                                         </div>
                                     </div>
@@ -471,12 +471,12 @@
                                         <div class="formControls col-xs-8">
                                             <input type="text" class="input-text" name="SIBSS5CSFtr" value="<?php echo $data['SIBSS5CSFtr'];?>" id="SIBSS5CSFtr" hidden>
                                             <select class="select_staff" id="step3_CSFactor_r">
-                                                <option>0.9</option>
+                                                <!-- <option>0.9</option>
                                                 <option>0.95</option>
                                                 <option selected>1</option>
                                                 <option>1.05</option>
                                                 <option>1.1</option>
-                                                <option>1.125</option>
+                                                <option>1.125</option> -->
                                             </select>
                                         </div>
                                     </div>                                    
@@ -532,10 +532,6 @@
     var acMgr     = <?php echo json_encode($acMgr); ?>;
     var sentOutVia= <?php echo json_encode($sentOutVia); ?>;
     var clientList= <?php echo json_encode($clientList); ?>; 
-    var part3adj= <?php echo json_encode($part3adj); ?>; 
-    var part1adj= <?php echo json_encode($part1adj); ?>; 
-    var part2adj= <?php echo json_encode($part2adj); ?>; 
-    var csfactor= <?php echo json_encode($csfactor); ?>; 
     var uploadurl ="";
     $(function () {    
         $("#QuotationAgreedFee").html(formatFee(<?php echo $jobMtn['QuotationAgreedFee'];?>));
@@ -767,15 +763,34 @@
         }
     }
 
-    //part all
+    //part all default
     var flagDone = $("#Done").is(':checked');
+    var part1adj= <?php echo json_encode($part1adj); ?>; 
+    var part2adj= <?php echo json_encode($part2adj); ?>; 
+    var part3adj= <?php echo json_encode($part3adj); ?>; 
+    var csfactor= <?php echo json_encode($csfactor); ?>;
+    var html_setp1_Adj='';
+    for(var i=0; i<part1adj.length; i++){
+        html_setp1_Adj+='<option value="'+part1adj[i]+'">'+part1adj[i]+'</option>';
+    }
+    $("#setp1_Adj_l,#setp1_Adj_r").html(html_setp1_Adj);
+    var html_setp3_Adj='';
+    for(var i=0; i<part3adj.length; i++){
+        html_setp3_Adj+='<option value="'+part3adj[i]+'">'+part3adj[i]+'</option>';
+    }
+    $("#setp3_Adj_l,#setp3_Adj_r").html(html_setp3_Adj);
+    var html_csfactor='';
+    for(var i=0; i<csfactor.length; i++){
+        html_csfactor+='<option value="'+csfactor[i]+'">'+csfactor[i]+'</option>';
+    }
+    $("#step1_CSFactor_l,#step1_CSFactor_r,#step2_CSFactor_l,#step3_CSFactor_l,#step3_CSFactor_r").html(html_csfactor);
 
     //part1
     var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
     var part1_CSFactor_l= <?php echo $data["SIBSS1CSFtr"]; ?>;
     var part1_Adj_r= <?php echo $data["SIBSS2AdjPct"]; ?>;
     var part1_CSFactor_r= <?php echo $data["SIBSS2CSFtr"]; ?>;
-
+    
     defualt_adj('setp1_Adj_l',part1_Adj_l);
     defualt_adj('setp1_Adj_r',part1_Adj_r);
 
@@ -792,27 +807,28 @@
     });
 
     function adj_public(id,value){
+        console.log(value);
         if(value == '-2.5%'){
-            $("#"+id).val('+2.5%');
-        }else if(value == '-2%'){
-            $("#"+id).val('+2%');
+            $("#"+id).val('2.5%');
+        }else if(value == '-2.0%'){
+            $("#"+id).val('2.0%');
         }else if(value == '-1.5%'){
-            $("#"+id).val('+1.5%');
-        }else if(value == '-1%'){
-            $("#"+id).val('+1%');
+            $("#"+id).val('1.5%');
+        }else if(value == '-1.0%'){
+            $("#"+id).val('1.0%');
         }else if(value == '-0.5%'){
-            $("#"+id).val('+0.5%');
-        }else if(value == '0%'){
-            $("#"+id).val('0%');
-        }else if(value == '+0.5%'){
+            $("#"+id).val('0.5%');
+        }else if(value == '0.0%'){
+            $("#"+id).val('0.0%');
+        }else if(value == '0.5%'){
             $("#"+id).val('-0.5%');
-        }else if(value == '+1%'){
-            $("#"+id).val('-1%');
-        }else if(value == '+1.5%'){
+        }else if(value == '1.0%'){
+            $("#"+id).val('-1.0%');
+        }else if(value == '1.5%'){
             $("#"+id).val('-1.5%');
-        }else if(value == '+2%'){
-            $("#"+id).val('-2%');
-        }else if(value == '+2.5%'){
+        }else if(value == '2.0%'){
+            $("#"+id).val('-2.0%');
+        }else if(value == '2.5%'){
             $("#"+id).val('-2.5%');
         }
 
@@ -942,7 +958,7 @@
 
     defualt_adj('setp3_Adj_l',part3_Adj_l);
     defualt_adj('setp3_Adj_r',part3_Adj_r);
-
+    
     defualt_CSFactor('step3_CSFactor_l',part3_CSFactor_l);
     defualt_CSFactor('step3_CSFactor_r',part3_CSFactor_r);
 
@@ -957,26 +973,26 @@
     
     function adj_public_part3(id,value){
         if(value == '-2.5%'){
-            $("#"+id).val('+2.5%');
-        }else if(value == '-2%'){
-            $("#"+id).val('+2%');
+            $("#"+id).val('2.5%');
+        }else if(value == '-2.0%'){
+            $("#"+id).val('2.0%');
         }else if(value == '-1.5%'){
-            $("#"+id).val('+1.5%');
-        }else if(value == '-1%'){
-            $("#"+id).val('+1%');
+            $("#"+id).val('1.5%');
+        }else if(value == '-1.0%'){
+            $("#"+id).val('1.0%');
         }else if(value == '-0.5%'){
-            $("#"+id).val('+0.5%');
-        }else if(value == '0%'){
-            $("#"+id).val('0%');
-        }else if(value == '+0.5%'){
+            $("#"+id).val('0.5%');
+        }else if(value == '0.0%'){
+            $("#"+id).val('0.0%');
+        }else if(value == '0.5%'){
             $("#"+id).val('-0.5%');
-        }else if(value == '+1%'){
-            $("#"+id).val('-1%');
-        }else if(value == '+1.5%'){
+        }else if(value == '1.0%'){
+            $("#"+id).val('-1.0%');
+        }else if(value == '1.5%'){
             $("#"+id).val('-1.5%');
-        }else if(value == '+2%'){
-            $("#"+id).val('-2%');
-        }else if(value == '+2.5%'){
+        }else if(value == '2.0%'){
+            $("#"+id).val('-2.0%');
+        }else if(value == '2.5%'){
             $("#"+id).val('-2.5%');
         }
 
@@ -1039,30 +1055,44 @@
         if(value == '-2.5'){
             result='-2.5%';
         }else if(value == '-2'){
-            result='-2%';
+            result='-2.0%';
         }else if(value == '-1.5'){
             result='-1.5%';
         }else if(value == '-1'){
-            result='-1%';
+            result='-1.0%';
         }else if(value == '-0.5'){
             result='-0.5%';
         }else if(value == '0'){
-            result='0%';
+            result='0.0%';
         }else if(value == '0.5'){
             result='+0.5%';
         }else if(value == '1'){
-            result='+1%';
+            result='1.0%';
         }else if(value == '1.5'){
-            result='+1.5%';
+            result='1.5%';
         }else if(value == '2'){
-            result='+2%';
+            result='2.0%';
         }else if(value == '2.5'){
-            result='+2.5%';
+            result='2.5%';
         }
         $("#"+id).val(result);
     }
     
     function defualt_CSFactor(id,value){
-        $("#"+id).val(value);
+        var result;
+        if(value == '0.9'){
+            result='0.90';
+        }else if(value == '0.95'){
+            result='0.95';
+        }else if(value == '1'){
+            result='1.0';
+        }else if(value == '1.05'){
+            result='1.05';
+        }else if(value == '1.1'){
+            result='1.10';
+        }else if(value == '1.125'){
+            result='1.125';
+        }
+        $("#"+id).val(result);
     }
 </script>
