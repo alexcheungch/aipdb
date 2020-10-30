@@ -33,6 +33,10 @@ class Allocation extends MY_Controller {
         $this->load->model('JobProg_model');
         $sys_result = $this->get_sys_params('ListDocLoc');
         $sys_result1 = $this->get_sys_params('ListSentOutVia');
+        $sys_result2 = $this->get_sys_params('Part3Adj');
+        $this->assign('part3adj', $sys_result2);
+        $sys_result3 = $this->get_sys_params('Part1Adj');
+        $this->assign('part1adj', $sys_result3);
         $this_list = $this->ClientMtn_model->get_clients();
         $staffList = $this->ListStaffList_model->get_all();
 //        $docLoc = $this->ListDocLoc_model->get_all();
