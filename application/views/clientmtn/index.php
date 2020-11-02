@@ -35,9 +35,9 @@
                     <td><?php echo $ClientMtn['ClientLegalEntity'];?></td>
                     <td>
                         <?php 
-                            $Date = date_parse_from_format('Y-m-d',$ClientMtn['NormalYearEndDate']);
-                            $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
-                            echo $NormalYearEndDate;
+//                            $Date = date_parse_from_format('Y-m-d',$ClientMtn['NormalYearEndDate']);
+//                            $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
+                            echo $ClientMtn['NormalYearEndDate'];
                         ?>
                     </td>
                     <td><?php echo $ClientMtn['NonTaxDeadlineNature'];?></td>

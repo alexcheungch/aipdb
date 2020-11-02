@@ -69,9 +69,9 @@
                 <div class="formControls col-xs-3 col-sm-3">
                     <input type="text" class="input-text date" name="NormalYearEndDate" id="NormalYearEndDate" 
                         value="<?php 
-                                $Date = date_parse_from_format('Y-m-d',$data['NormalYearEndDate']);
-                                $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
-                                echo $NormalYearEndDate;
+//                                $Date = date_parse_from_format('Y-m-d',$data['NormalYearEndDate']);
+//                                $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
+                                echo $data['NormalYearEndDate'];
                             ?>" 
                         readonly>
                 </div>
@@ -93,9 +93,9 @@
                 <div class="formControls col-xs-3 col-sm-3">
                     <input type="text" class="input-text date" 
                         value="<?php 
-                                $Date = date_parse_from_format('Y-m-d',$data['NonTaxDeadlineDate']);
-                                $NonTaxDeadlineDate = $Date['month'] .'-'. $Date['day'];
-                                echo $NonTaxDeadlineDate;
+//                                $Date = date_parse_from_format('Y-m-d',$data['NonTaxDeadlineDate']);
+//                                $NonTaxDeadlineDate = $Date['month'] .'-'. $Date['day'];
+                                echo $data['NonTaxDeadlineDate'];
                             ?>" 
                         name="NonTaxDeadlineDate" id="NonTaxDeadlineDate" readonly>
                 </div>
