@@ -71,6 +71,13 @@ class JobMtn extends MY_Controller {
         $this_list = $this->ClientMtn_model->get_clients();
         $this->assign('clientList', $this_list);
         $this->assign('sys_param', $sys_param);
+        $this->load->model('Job_model');
+        $max_job = $this->Job_model->get_data(array(),'JobNo',array('JobNo', 'desc'));
+        $job_no = 1;
+        if ($max_job) {
+            $job_no = $max_job['JobNo'] + 1;
+        }
+        $this->assign('job_no', $job_no);
         $this->display();
     }
 
@@ -106,6 +113,12 @@ class JobMtn extends MY_Controller {
                             $postdata[$value['FieldName']] = $value['FieldValue'];
                         }
                     }
+                    $max_job = $this->Job_model->get_data(array(),'JobNo',array('JobNo', 'desc'));
+                    $job_no = 1;
+                    if ($max_job) {
+                        $job_no = $max_job['JobNo'] + 1;
+                    }
+                    $postdata['JobNo'] = $job_no;
                     $result = $this->Job_model->insert($postdata);
                 }
                 $is_insert = true;
