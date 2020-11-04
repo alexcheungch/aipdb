@@ -49,7 +49,7 @@
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">JobNo:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="JobNo" id="JobNo" value="<?php echo $data['JobNo'];?>">
+                    <input type="text" class="input-text" name="JobNo" id="JobNo" value="<?php echo $data['JobNo'];?>" readonly>
                 </div>
             </div>
             <div class="row cl">
