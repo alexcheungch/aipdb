@@ -786,10 +786,10 @@
     $("#step1_CSFactor_l,#step1_CSFactor_r,#step2_CSFactor_l,#step3_CSFactor_l,#step3_CSFactor_r").html(html_csfactor);
 
     //part1
-    var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]; ?>;
-    var part1_CSFactor_l= <?php echo $data["SIBSS1CSFtr"]; ?>;
-    var part1_Adj_r= <?php echo $data["SIBSS2AdjPct"]; ?>;
-    var part1_CSFactor_r= <?php echo $data["SIBSS2CSFtr"]; ?>;
+    var part1_Adj_l= <?php echo $data["SIBSS1AdjPct"]?:0; ?>;
+    var part1_CSFactor_l= <?php echo $data["SIBSS1CSFtr"]?:0; ?>;
+    var part1_Adj_r= <?php echo $data["SIBSS2AdjPct"]?:0; ?>;
+    var part1_CSFactor_r= <?php echo $data["SIBSS2CSFtr"]?:0; ?>;
     
     defualt_adj('setp1_Adj_l',part1_Adj_l);
     defualt_adj('setp1_Adj_r',part1_Adj_r);
@@ -885,7 +885,7 @@
     EntitledAmount_r(flagDone);
 
     //part2    
-    var part2_CSFactor_l= <?php echo $data["SIBSS3CSFtr"]; ?>;
+    var part2_CSFactor_l= <?php echo $data["SIBSS3CSFtr"]?:0; ?>;
     defualt_CSFactor('step2_CSFactor_l',part2_CSFactor_l);
     $("#step2_CSFactor_l").change(function(){
         var value=$(this).val();
@@ -951,10 +951,10 @@
     }
 
     //part3
-    var part3_Adj_l= <?php echo $data["SIBSS4AdjPct"]; ?>;
-    var part3_CSFactor_l= <?php echo $data["SIBSS4CSFtr"]; ?>;
-    var part3_Adj_r= <?php echo $data["SIBSS5AdjPct"]; ?>;
-    var part3_CSFactor_r= <?php echo $data["SIBSS5CSFtr"]; ?>;
+    var part3_Adj_l= <?php echo $data["SIBSS4AdjPct"]?:0; ?>;
+    var part3_CSFactor_l= <?php echo $data["SIBSS4CSFtr"]?:0; ?>;
+    var part3_Adj_r= <?php echo $data["SIBSS5AdjPct"]?:0; ?>;
+    var part3_CSFactor_r= <?php echo $data["SIBSS5CSFtr"]?:0; ?>;
 
     defualt_adj('setp3_Adj_l',part3_Adj_l);
     defualt_adj('setp3_Adj_r',part3_Adj_r);
