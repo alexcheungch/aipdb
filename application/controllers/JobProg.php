@@ -77,7 +77,7 @@ class JobProg extends MY_Controller {
             $job_code = $postdata['JobCode'];
             unset($postdata['JobCode']);
             
-            $fields = $this->db->field_data('job');
+            $fields = $this->db->field_data('Job');
             $jobtable_fields = array();
             foreach ($fields as $field) {
                 $jobtable_fields[$field->name] = $field->type;
