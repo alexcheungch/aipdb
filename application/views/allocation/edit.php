@@ -117,7 +117,7 @@
                     <input type="text" class="input-text need_date" name="MSPaidDateII" value="<?php echo $data['MSPaidDateII'];?>" id="MSPaidDate_r">
                 </div>
             </div>
-            <h3>Staff Incentive / Bonus Schem</h3>
+            <h3>Staff Incentive / Bonus Scheme</h3>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Overall Bonus%:</label>
                 <div class="formControls col-xs-3 col-sm-3">
