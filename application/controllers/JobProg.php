@@ -76,7 +76,24 @@ class JobProg extends MY_Controller {
             }
             $job_code = $postdata['JobCode'];
             unset($postdata['JobCode']);
-            $result = $this->Job_model->update_data(array('JobCode' => $job_code), $postdata);
+            
+            $fields = $this->db->field_data('job');
+            $jobtable_fields = array();
+            foreach ($fields as $field) {
+                $jobtable_fields[$field->name] = $field->type;
+            }
+            $update_data = array();
+            foreach ($postdata as $key => $value) {
+                if (isset($jobtable_fields[$key]) && $jobtable_fields[$key] == 'int') {
+                    $update_data[$key] = (int) $value;
+                } elseif (isset($jobtable_fields[$key]) && $jobtable_fields[$key] == 'float') {
+                    $update_data[$key] = (float) $value;
+                } else {
+                    $update_data[$key] = $value;
+                }
+            }
+            
+            $result = $this->Job_model->update_data(array('JobCode' => $job_code), $update_data);
             if ($result) {
                 $this->redirect_msg('保存成功', 'JobProg');
             } else {
