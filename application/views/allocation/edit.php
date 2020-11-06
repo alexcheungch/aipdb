@@ -48,7 +48,8 @@
             </div>
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Quotation Amount:</label>
-                <div class="formControls col-xs-3 col-sm-3" id="QuotationAgreedFee">
+                <div class="formControls col-xs-3 col-sm-3">
+                    <?php echo $jobMtn['QuotationProposedFee'];?>
                 </div>
             </div>
             <div class="row cl">
@@ -57,8 +58,7 @@
                     <input type="text" class="input-text">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">| Amount:</label>
-                <div class="formControls col-xs-2 col-sm-2">
-                    <input type="text" class="input-text" id="countAmount">
+                <div class="formControls col-xs-2 col-sm-2" id="QuotationAgreedFee">
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">| Received Date:</label>
                 <div class="formControls col-xs-2 col-sm-2">
