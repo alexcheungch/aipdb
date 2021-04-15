@@ -61,7 +61,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Date of Incorporation:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text date" name="DateOfIncorp" id="DateOfIncorp" value="<?php echo $data['DateOfIncorp'];?>" readonly>
+                    <input type="text" class="input-text date" name="DateOfIncorp" id="DateOfIncorp" value="<?php echo $data['DateOfIncorp'];?>">
                 </div>
             </div>
             <div class="row cl">
@@ -155,6 +155,7 @@ $(function () {
     $("#NormalYearEndDate,#NonTaxDeadlineDate").datetimepicker({
         todayBtn: 1,
         startView: 2,
+        maxView: 2,
         minView: 2,
         autoclose: 1,
         format: 'mm-dd'
@@ -170,11 +171,11 @@ $(function () {
             alert("請填寫 ClientCode1");
             return false;
         }
-        let ClientCode2 = $.trim($("#ClientCode2").val());
-        if (!ClientCode2) {
-            alert("請填寫 ClientCode2");
-            return false;
-        }
+        // let ClientCode2 = $.trim($("#ClientCode2").val());
+        // if (!ClientCode2) {
+        //     alert("請填寫 ClientCode2");
+        //     return false;
+        // }
         let NormalYearEndDate = $.trim($("#NormalYearEndDate").val());
         if (!NormalYearEndDate) {
             alert("請填寫 NormalYearEndDate");
