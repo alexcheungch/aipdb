@@ -152,13 +152,31 @@ $(function () {
         autoclose: 1,
         format: 'yyyy-mm-dd'
     });
-    $("#NormalYearEndDate,#NonTaxDeadlineDate").datetimepicker({
+    var datetimepicker2 = $("#NormalYearEndDate,#NonTaxDeadlineDate").datetimepicker({
+        ttile: '',
         todayBtn: 1,
         startView: 2,
         maxView: 2,
         minView: 2,
         autoclose: 1,
         format: 'mm-dd'
+    }).on('show', function(e) {
+        setTimeout(function(){
+        var month = $(".datetimepicker").eq(2).find('.switch').html().split(' ')[1]
+        $(".datetimepicker").eq(2).find('.switch').html(month)
+        }, 1)
+    });
+    $(".datetimepicker").eq(2).find('.prev').click(function(){
+        setTimeout(function(){
+        var month = $(".datetimepicker").eq(2).find('.switch').html().split(' ')[1]
+        $(".datetimepicker").eq(2).find('.switch').html(month)
+        }, 1)
+    });
+    $(".datetimepicker").eq(2).find('.next').click(function(){
+        setTimeout(function(){
+        var month = $(".datetimepicker").eq(2).find('.switch').html().split(' ')[1]
+        $(".datetimepicker").eq(2).find('.switch').html(month)
+        }, 1)
     });
     $("#edit_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());
