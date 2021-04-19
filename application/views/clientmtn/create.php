@@ -138,8 +138,11 @@ $(function () {
         format: 'mm-dd'
     }).on('show', function(e) {
         setTimeout(function(){
-        var month = $(".datetimepicker").eq(2).find('.switch').html().split(' ')[1]
-        $(".datetimepicker").eq(2).find('.switch').html(month)
+            var month = $(".datetimepicker").eq(2).find('.switch').html().split(' ')[1]
+            $(".datetimepicker").eq(2).find('.switch').html(month)
+            
+            var month = $(".datetimepicker").eq(3).find('.switch').html().split(' ')[1]
+            $(".datetimepicker").eq(3).find('.switch').html(month)
         }, 1)
     });
     $(".datetimepicker").eq(2).find('.prev').click(function(){
@@ -154,6 +157,19 @@ $(function () {
         $(".datetimepicker").eq(2).find('.switch').html(month)
         }, 1)
     });
+    $(".datetimepicker").eq(3).find('.prev').click(function(){
+        setTimeout(function(){
+        var month = $(".datetimepicker").eq(3).find('.switch').html().split(' ')[1]
+        $(".datetimepicker").eq(3).find('.switch').html(month)
+        }, 1)
+    });
+    $(".datetimepicker").eq(3).find('.next').click(function(){
+        setTimeout(function(){
+        var month = $(".datetimepicker").eq(3).find('.switch').html().split(' ')[1]
+        $(".datetimepicker").eq(3).find('.switch').html(month)
+        }, 1)
+    });
+    
     $("#create_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());
         if (!title_ch) {
