@@ -49,7 +49,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Date of Incorporation:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="DateOfIncorp" id="DateOfIncorp">
+                    <input type="text" class="input-text" name="DateOfIncorp" id="DateOfIncorp" maxlength="8">
                 </div>
             </div>
             <div class="row cl">
@@ -173,6 +173,11 @@ $(function () {
         let ClientCode3 = $.trim($("#ClientCode3").val());
         if (!ClientCode3) {
             alert("請填寫 ClientCode3");
+            return false;
+        }
+        let DateOfIncorp = $.trim($("#DateOfIncorp").val());
+        if (!DateOfIncorp.split('-')[1]) {
+            alert("請填寫正確的 DateOfIncorp");
             return false;
         }
         let NormalYearEndDate = $.trim($("#NormalYearEndDate").val());
