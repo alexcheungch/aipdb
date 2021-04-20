@@ -220,11 +220,11 @@ $(function () {
             alert("請填寫 NormalYearEndDate");
             return false;
         }
-        let NonTaxDeadlineDate = $.trim($("#NonTaxDeadlineDate").val());
-        if (!NonTaxDeadlineDate) {
-            alert("請填寫 NonTaxDeadlineDate");
-            return false;
-        }
+        // let NonTaxDeadlineDate = $.trim($("#NonTaxDeadlineDate").val());
+        // if (!NonTaxDeadlineDate) {
+        //     alert("請填寫 NonTaxDeadlineDate");
+        //     return false;
+        // }
         let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
         if (!LastClientStatusDate) {
             alert("請填寫 LastClientStatusDate");
