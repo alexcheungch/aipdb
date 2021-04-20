@@ -192,7 +192,7 @@ $(function () {
             return false;
         }
         let DateOfIncorp = $.trim($("#DateOfIncorp").val());
-        if (!DateOfIncorp.split('-')[1]) {
+        if (!DateOfIncorp.split('-')[1] || DateOfIncorp.split('-')[0].length != 4) {
             alert("請填寫正確的 DateOfIncorp");
             return false;
         }
