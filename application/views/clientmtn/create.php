@@ -206,11 +206,11 @@ $(function () {
         //     alert("請填寫 NonTaxDeadlineDate");
         //     return false;
         // }
-        let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
-        if (!LastClientStatusDate) {
-            alert("請填寫 LastClientStatusDate");
-            return false;
-        }
+        // let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
+        // if (!LastClientStatusDate) {
+        //     alert("請填寫 LastClientStatusDate");
+        //     return false;
+        // }
 //        let resource_link = $.trim($("#AcMgr").val());
 //        if (!resource_link) {
 //            alert("請填寫 Account manager");

@@ -225,11 +225,11 @@ $(function () {
         //     alert("請填寫 NonTaxDeadlineDate");
         //     return false;
         // }
-        let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
-        if (!LastClientStatusDate) {
-            alert("請填寫 LastClientStatusDate");
-            return false;
-        }
+        // let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
+        // if (!LastClientStatusDate) {
+        //     alert("請填寫 LastClientStatusDate");
+        //     return false;
+        // }
         $("#ClientMtn_form").submit();
     });
 });
