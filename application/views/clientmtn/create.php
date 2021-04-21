@@ -49,7 +49,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Date of Incorporation:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="DateOfIncorp" id="DateOfIncorp" maxlength="8">
+                    <input type="text" class="input-text" name="DateOfIncorp" id="DateOfIncorp">
                 </div>
             </div>
             <div class="row cl">
@@ -126,7 +126,9 @@ $(function () {
         startView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'yyyy-mm-dd'
+        format: 'yyyy-mm-dd',
+        autoclose: true,
+        clearBtn: true
     });
     $("#NormalYearEndDate,#NonTaxDeadlineDate").datetimepicker({
         ttile: '',
@@ -135,7 +137,9 @@ $(function () {
         maxView: 2,
         minView: 2,
         autoclose: 1,
-        format: 'mm-dd'
+        format: 'mm-dd',
+        autoclose: true,
+        clearBtn: true
     }).on('show', function(e) {
         setTimeout(function(){
             var month = $(".datetimepicker").eq(2).find('.switch').html().split(' ')[1]
