@@ -79,7 +79,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Non Tax Deadline | Nature:</label>
                 <div class="formControls col-xs-3 col-sm-3" value="<?php echo $data['NonTaxDeadlineNature'];?>">
-                    <select name="NonTaxDeadlineNature">
+                    <select name="NonTaxDeadlineNature" id="NonTaxDeadlineNature">
                         <?php foreach ($sys_param['NonTaxDeadlineNature'] as $value) {
                             $select = '';
                             if ($value == $data['NonTaxDeadlineNature']) {
@@ -197,6 +197,20 @@ $(function () {
         $(".datetimepicker").eq(3).find('.switch').html(month)
         }, 1)
     });
+
+    NonTaxDeadlineDate();
+    $("#NonTaxDeadlineNature").change(function(){
+        NonTaxDeadlineDate()
+    });
+    function NonTaxDeadlineDate(){
+        var val = $("#NonTaxDeadlineNature").val();
+        if(val == 'x'){
+            $("#NonTaxDeadlineDate").val('')
+            $("#NonTaxDeadlineDate").prop('disabled', true)
+        }else{
+            $("#NonTaxDeadlineDate").prop('disabled', false)
+        }
+    };
 
     $("#edit_btn").click(function () {
         let title_ch = $.trim($("#ClientName").val());
