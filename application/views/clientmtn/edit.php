@@ -103,7 +103,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">Client Status | Last:</label>
                 <div class="formControls col-xs-3 col-sm-3" value="<?php echo $data['LastClientStatus'];?>">
-                    <select name="LastClientStatus">
+                    <select name="LastClientStatus" id="LastClientStatus">
                         <?php foreach ($sys_param['LastClientStatus'] as $value) {
                             $select = '';
                             if ($value == $data['LastClientStatus']) {
@@ -209,6 +209,20 @@ $(function () {
             $("#NonTaxDeadlineDate").prop('disabled', true)
         }else{
             $("#NonTaxDeadlineDate").prop('disabled', false)
+        }
+    };
+
+    LastClientStatus();
+    $("#LastClientStatus").change(function(){
+        LastClientStatus()
+    });
+    function LastClientStatus(){
+        var val = $("#LastClientStatus").val();
+        if(val == '-'){
+            $("#LastClientStatusDate").val('')
+            $("#LastClientStatusDate").prop('disabled', true)
+        }else{
+            $("#LastClientStatusDate").prop('disabled', false)
         }
     };
 
