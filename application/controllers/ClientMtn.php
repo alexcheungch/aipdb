@@ -66,6 +66,10 @@ class ClientMtn extends MY_Controller {
             $postdata = $this->input->post(null, true);
             $operate = $postdata['operate'];
             unset($postdata['operate']);
+            if (isset($postdata['DateOfIncorp'])) {
+                $dateOfIncorp = strtotime($postdata['DateOfIncorp']);
+                $postdata['DateOfIncorp'] = date('Ymd', $dateOfIncorp);
+            }
             if ($operate == 'edit') {
                 $ClientCode1 = $postdata['ClientCode1'];
                 unset($postdata['ClientCode1']);
