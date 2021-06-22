@@ -68,7 +68,10 @@ class ClientMtn extends MY_Controller {
             unset($postdata['operate']);
             if (isset($postdata['DateOfIncorp'])) {
                 $dateOfIncorp = strtotime($postdata['DateOfIncorp']);
-                $postdata['DateOfIncorp'] = date('Ymd', $dateOfIncorp);
+                $postdata['DateOfIncorp'] = date('Y-m-d', $dateOfIncorp);
+            }
+            if (isset($postdata['NormalYearEndDate'])) {
+                $postdata['NormalYearEndDate'] = date('Y').'-'.$postdata['NormalYearEndDate'];
             }
             if ($operate == 'edit') {
                 $ClientCode1 = $postdata['ClientCode1'];

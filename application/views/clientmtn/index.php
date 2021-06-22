@@ -37,7 +37,12 @@
                         <?php 
 //                            $Date = date_parse_from_format('Y-m-d',$ClientMtn['NormalYearEndDate']);
 //                            $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
-                            echo $ClientMtn['NormalYearEndDate'];
+                            $NormalYearEndDate = explode('-', $ClientMtn['NormalYearEndDate']);
+                            if (count($NormalYearEndDate) == 3) {
+                                echo $NormalYearEndDate[1] .'-'. $NormalYearEndDate[2];
+                            } else {
+                                echo $ClientMtn['NormalYearEndDate'];
+                            }
                         ?>
                     </td>
                     <td><?php echo $ClientMtn['NonTaxDeadlineNature'];?></td>
