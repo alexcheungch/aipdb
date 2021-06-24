@@ -71,7 +71,31 @@ class ClientMtn extends MY_Controller {
                 $postdata['DateOfIncorp'] = date('Y-m-d', $dateOfIncorp);
             }
             if (isset($postdata['NormalYearEndDate'])) {
-                $postdata['NormalYearEndDate'] = date('Y').'-'.$postdata['NormalYearEndDate'];
+                $NormalYearEndDateArray = explode('-', $postdata['NormalYearEndDate']);
+                if (count($NormalYearEndDateArray) == 2) {
+                    $postdata['NormalYearEndDate'] = date('Y').'-'.$postdata['NormalYearEndDate'];
+                } else {
+                    $NormalYearEndDateStr = strtotime($postdata['NormalYearEndDate']);
+                    $postdata['NormalYearEndDate'] = date('Y-m-d', $NormalYearEndDateStr);
+                }
+            }
+            if (isset($postdata['NonTaxDeadlineDate'])) {
+                $NonTaxDeadlineDateArray = explode('-', $postdata['NonTaxDeadlineDate']);
+                if (count($NonTaxDeadlineDateArray) == 2) {
+                    $postdata['NonTaxDeadlineDate'] = date('Y').'-'.$postdata['NonTaxDeadlineDate'];
+                } else {
+                    $NonTaxDeadlineDateStr = strtotime($postdata['NonTaxDeadlineDate']);
+                    $postdata['NonTaxDeadlineDate'] = date('Y-m-d', $NonTaxDeadlineDateStr);
+                }
+            }
+            if (isset($postdata['LastClientStatusDate'])) {
+                $LastClientStatusDateArray = explode('-', $postdata['LastClientStatusDate']);
+                if (count($LastClientStatusDateArray) == 2) {
+                    $postdata['LastClientStatusDate'] = date('Y').'-'.$postdata['LastClientStatusDate'];
+                } else {
+                    $LastClientStatusDateStr = strtotime($postdata['LastClientStatusDate']);
+                    $postdata['LastClientStatusDate'] = date('Y-m-d', $LastClientStatusDateStr);
+                }
             }
             if ($operate == 'edit') {
                 $ClientCode1 = $postdata['ClientCode1'];
