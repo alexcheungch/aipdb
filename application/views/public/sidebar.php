@@ -5,8 +5,8 @@
             'TableAdm' => array(
                 'name' => 'Table Administration', 
                 'li' => array(
-                    array('TableAdm/liststafflist', 'System Maintenance', 'Staff List'), 
-                    array('TableAdm/listacmgr', 'System Maintenance', 'AC Manager List'), 
+                    array('TableAdm/liststafflist', 'System Maintenance', 'List'), 
+                    array('TableAdm/listacmgr', 'System Maintenance', 'List'), 
                     array('sysparam/index', 'SysParam', 'SysParam List'), 
                     array('asuser/index', 'ASUser', 'ASUser List'),
 //                    array('TableAdm/listdocloc', 'System Maintenance', 'Document Location List'), 

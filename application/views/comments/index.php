@@ -18,7 +18,7 @@
                     <td>comment marks to</td>
                     <td>comment title</td>
                     <td>comment body</td>
-                    <td>操作</td>
+                    <td>Operation</td>
                 </tr>
             </thead>
             <tbody>
@@ -47,7 +47,7 @@ $(function () {
 		            columnDefs:[{
 		                targets: 6,
 		                render: function (data, type, row, meta) {
-							  return '<button class="btn btn-default comments" type="button"  attrid="'+ row.id +'" >編輯</button><button class="btn btn-default delete_btn" type="button"  attrid="'+ row.id +'" >刪除</button>';
+							  return '<button class="btn btn-default comments" type="button"  attrid="'+ row.id +'" >Edit</button><button class="btn btn-default delete_btn" type="button"  attrid="'+ row.id +'" >刪除</button>';
 		            }}],
 		            //列表表头字段
 		            columns: [

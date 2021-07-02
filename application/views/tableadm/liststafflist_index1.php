@@ -13,7 +13,7 @@
                 <tr>
                     <td>Code</td>
                     <td>Name </td>
-                    <td>操作</td>
+                    <td>Operation</td>
                 </tr>
             </thead>
             <tbody>
@@ -25,8 +25,8 @@
                 	<td><?php echo $Record['StaffCode'];?></td>
                     <td><?php echo $Record['StaffName'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Record['StaffCode'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $Record['StaffCode'];?>">刪除</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Record['StaffCode'];?>">Edit</button>
+                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $Record['StaffCode'];?>">Delete</button>
                     </td>
                 </tr>
             <?php }}?>

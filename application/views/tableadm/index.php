@@ -15,7 +15,7 @@
                     <td>Name </td>
                     <td>Legal Entity </td>
                     <td>Account Manager </td>
-                    <td>操作</td>
+                    <td>Operation</td>
                 </tr>
             </thead>
             <tbody>
@@ -29,8 +29,8 @@
                     <td><?php echo $ClientMtn['clientlegalentity'];?></td>
                     <td><?php echo $ClientMtn['acmgr'];?></td>
                     <td>
-                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $ClientMtn['clientcode1'];?>">編輯</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $ClientMtn['clientcode1'];?>">刪除</button>
+                        <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $ClientMtn['clientcode1'];?>">Edit</button>
+                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $ClientMtn['clientcode1'];?>">Delete</button>
                     </td>
                 </tr>
             <?php }}?>

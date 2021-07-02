@@ -17,7 +17,7 @@
             <div class="row cl">
                 <label class="form-label col-xs-2 col-sm-2">ParamValue:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text" name="ParamValue" id="ParamValue" value="<?php echo $data['ParamValue'];?>">
+                    <input type="text" class="input-text" name="ParamValue" id="ParamValue" value="<?php echo addslashes($data['ParamValue']);?>">
                 </div>
             </div>
             <div class="row cl">
