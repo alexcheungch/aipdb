@@ -69,9 +69,10 @@
                 <div class="formControls col-xs-3 col-sm-3">
                     <input type="text" class="input-text date" name="NormalYearEndDate" id="NormalYearEndDate" 
                         value="<?php 
-//                                $Date = date_parse_from_format('Y-m-d',$data['NormalYearEndDate']);
-//                                $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
-                                echo $data['NormalYearEndDate'];
+                                $Date = date_parse_from_format('Y-m-d',$data['NormalYearEndDate']);
+                                $NormalYearEndDate = $Date['month'] .'-'. $Date['day'];
+//                                echo $data['NormalYearEndDate'];
+                                echo $NormalYearEndDate;
                             ?>" 
                         readonly>
                 </div>
