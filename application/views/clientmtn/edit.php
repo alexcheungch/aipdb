@@ -94,9 +94,9 @@
                 <div class="formControls col-xs-3 col-sm-3">
                     <input type="text" class="input-text date" 
                         value="<?php 
-//                                $Date = date_parse_from_format('Y-m-d',$data['NonTaxDeadlineDate']);
-//                                $NonTaxDeadlineDate = $Date['month'] .'-'. $Date['day'];
-                                echo $data['NonTaxDeadlineDate'];
+                                $Date = date_parse_from_format('Y-m-d',$data['NonTaxDeadlineDate']);
+                                $NonTaxDeadlineDate = $Date['month'] .'-'. $Date['day'];
+//                                echo $data['NonTaxDeadlineDate'];
                             ?>" 
                         name="NonTaxDeadlineDate" id="NonTaxDeadlineDate" readonly>
                 </div>
