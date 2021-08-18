@@ -118,6 +118,11 @@ class TableAdm extends MY_Controller {
                     $action = " update:";
                     $result = $this->ListStaffList_model->update_data(array('ID' => $postdata['ID']), array('StaffName' => $postdata['StaffName'], 'StaffCode' => $postdata['StaffCode']));
                 } else {
+                    $isStaffCodeExists = $this->ListStaffList_model->get_data(array('StaffCode' => $postdata['StaffCode']));
+                    $isStaffNameExists = $this->ListStaffList_model->get_data(array('StaffName' => $postdata['StaffName']));
+                    if ($isStaffCodeExists || $isStaffNameExists) {
+                        $this->redirect_msg('Code和Name已经存在', 'TableAdm/' . $table);
+                    }
                     $action = " insert:";
                     $result = $this->ListStaffList_model->insert(array('StaffCode' => $postdata['StaffCode'], 'StaffName' => $postdata['StaffName']));
                 }
@@ -128,6 +133,10 @@ class TableAdm extends MY_Controller {
                     $result = $this->ListAcMgr_model->update_data(array('ID' => $postdata['ID']), array('AcMgr' => $postdata['AcMgr']));
                 } else {
                     $action = " insert:";
+                    $isAcMgrExists = $this->ListAcMgr_model->get_data(array('AcMgr' => $postdata['AcMgr']));
+                    if ($isAcMgrExists) {
+                        $this->redirect_msg('AcMgr已经存在', 'TableAdm/' . $table);
+                    }
                     $result = $this->ListAcMgr_model->insert(array('AcMgr' => $postdata['AcMgr']));
                 }
             } elseif ($table == 'ListDocLoc') {
@@ -137,6 +146,10 @@ class TableAdm extends MY_Controller {
                     $result = $this->ListDocLoc_model->update_data(array('ID' => $postdata['ID']), array('DocLoc' => $postdata['DocLoc']));
                 } else {
                     $action = " insert:";
+                    $isDocLocExists = $this->ListDocLoc_model->get_data(array('DocLoc' => $postdata['DocLoc']));
+                    if ($isDocLocExists) {
+                        $this->redirect_msg('DocLoc已经存在', 'TableAdm/' . $table);
+                    }
                     $result = $this->ListDocLoc_model->insert(array('DocLoc' => $postdata['DocLoc']));
                 }
             }

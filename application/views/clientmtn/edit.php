@@ -97,6 +97,7 @@
                                 $Date = date_parse_from_format('Y-m-d',$data['NonTaxDeadlineDate']);
                                 $NonTaxDeadlineDate = $Date['month'] .'-'. $Date['day'];
 //                                echo $data['NonTaxDeadlineDate'];
+                                echo $NonTaxDeadlineDate
                             ?>" 
                         name="NonTaxDeadlineDate" id="NonTaxDeadlineDate" readonly>
                 </div>
@@ -116,7 +117,9 @@
                 </div>
                 <label class="form-label col-xs-2 col-sm-2">| Date:</label>
                 <div class="formControls col-xs-3 col-sm-3">
-                    <input type="text" class="input-text date" name="LastClientStatusDate" id="LastClientStatusDate" readonly value="<?php echo $data['LastClientStatusDate'];?>">
+                    <input type="text" class="input-text date" value="<?php 
+                                echo $data['LastClientStatusDate']; ?>"
+                            name="LastClientStatusDate" id="LastClientStatusDate" readonly>
                 </div>
             </div>
             <div class="row cl">
@@ -253,16 +256,20 @@ $(function () {
             alert("請填寫 NormalYearEndDate");
             return false;
         }
-        // let NonTaxDeadlineDate = $.trim($("#NonTaxDeadlineDate").val());
-        // if (!NonTaxDeadlineDate) {
-        //     alert("請填寫 NonTaxDeadlineDate");
-        //     return false;
-        // }
-        // let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
-        // if (!LastClientStatusDate) {
-        //     alert("請填寫 LastClientStatusDate");
-        //     return false;
-        // }
+        let NonTaxDeadlineDate = $.trim($("#NonTaxDeadlineDate").val());
+        let NonTaxDeadlineNature = $.trim($("#NonTaxDeadlineNature").val());
+        if (!(NonTaxDeadlineNature =="x"))  
+            if (!NonTaxDeadlineDate) {
+             alert("請填寫 " + NonTaxDeadlineNature +" Date");
+             return false;
+        }
+        let LastClientStatusDate = $.trim($("#LastClientStatusDate").val());
+        let LastClientStatus = $.trim($("#LastClientStatus").val());
+        if (!(LastClientStatus =="-"))  
+          if (!LastClientStatusDate) {
+             alert("請填寫 Last Client Status Date");
+             return false;
+        }
         $("#ClientMtn_form").submit();
     });
 });
