@@ -26,8 +26,8 @@
             <?php } ?>
              <div class="row cl">
                 <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                    <input type="button" id="edit_btn" value="保存" class="btn btn-primary radius"/>
-                    <a class="btn btn-primary" href="<?php echo base_url('TableAdm/'.$ThisTable);?>">返回</a>
+                    <input type="button" id="edit_btn" value="Save" class="btn btn-primary radius"/>
+                    <a class="btn btn-primary" href="<?php echo base_url('TableAdm/'.$ThisTable);?>">Cancel</a>
                 </div>
             </div>
         </form>
