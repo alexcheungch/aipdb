@@ -9,8 +9,8 @@
                     array('TableAdm/listacmgr', 'System Maintenance', 'AC Mgr List'), 
                     array('sysparam/index', 'SysParam', 'SysParam List'), 
                     array('asuser/index', 'ASUser', 'ASUser List'),
-//                    array('TableAdm/listdocloc', 'System Maintenance', 'Document Location List'), 
-//                    array('TableAdm/listsentoutvia', 'System Maintenance', 'Send Out Via List')
+                    array('TableAdm/listdocloc', 'System Maintenance', 'Document Location List'), 
+                    array('TableAdm/listsentoutvia', 'System Maintenance', 'Send Out Via List')
                 )
             ),
             'ClientMtn' => array(

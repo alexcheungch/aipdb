@@ -34,6 +34,14 @@ class TableAdm extends MY_Controller {
         $this->display();
     }
 
+    public function listsentoutvia() {
+        $this->load->model('ListSentOutVia_model');
+        $this_list = $this->ListSentOutVia_model->get_all_data();
+        $this->assign('ListSentOutVia', $this_list);
+        $this->assign('ThisTable', 'ListSentOutVia');
+        $this->display();
+    }
+
     public function delete($table, $id = 0) {
         $data = false;
         if ($table == 'ListStaffList') {
@@ -45,6 +53,9 @@ class TableAdm extends MY_Controller {
         } elseif ($table == 'ListDocLoc') {
             $this->load->model('ListDocLoc_model');
             $data = $this->ListDocLoc_model->get(array('ID' => $id));
+        } elseif ($table == 'ListSentOutVia') {
+            $this->load->model('ListSentOutVia_model');
+            $data = $this->ListSentOutVia_model->get(array('ID' => $id));            
         }
         if (!$data) {
             $this->redirect_msg('刪除的數據不存在');
@@ -59,6 +70,9 @@ class TableAdm extends MY_Controller {
         } elseif ($table == 'ListDocLoc') {
             $action = 'ListDocLoc';
             $result = $this->ListDocLoc_model->delete($id);
+        } elseif ($table == 'ListSentOutVia') {
+            $action = 'ListSentOutVia';
+            $result = $this->ListSentOutVia_model->delete($id);            
         }
         if ($result) {
             $this->redirect_msg('刪除成功', 'TableAdm/'.$action);
@@ -78,6 +92,9 @@ class TableAdm extends MY_Controller {
         } elseif ($table == 'ListDocLoc') {
             $this->load->model('ListDocLoc_model');
             $data = $this->ListDocLoc_model->get(array('ID' => $id));
+        } elseif ($table == 'ListSentOutVia') {
+            $this->load->model('ListSentOutVia_model');
+            $data = $this->ListSentOutVia_model->get(array('ID' => $id));
         }
         if (!$data) {
             $this->redirect_msg('修改的數據不存在');
@@ -104,6 +121,11 @@ class TableAdm extends MY_Controller {
     
     public function createdocloc() {
         $this->assign('ThisTable', 'ListDocLoc');
+        $this->display();
+    }
+
+    public function createsentoutvia() {
+        $this->assign('ThisTable', 'ListSentOutVia');
         $this->display();
     }
 
@@ -152,6 +174,20 @@ class TableAdm extends MY_Controller {
                     }
                     $result = $this->ListDocLoc_model->insert(array('DocLoc' => $postdata['DocLoc']));
                 }
+            } elseif ($table == 'ListSentOutVia') {
+                $this->load->model('ListSentOutVia_model');
+                if (isset($postdata['ID']) && $postdata['ID']) {
+                    $action = " update:";
+                    $result = $this->ListSentOutVia_model->update_data(array('ID' => $postdata['ID']), array('SentOutMeans' => $postdata['SentOutMeans']));
+                } else {
+                    $action = " insert:";
+                    $isSentOutViaExists = $this->ListSentOutVia_model->get_data(array('SentOutMeans' => $postdata['SentOutMeans']));
+                    if ($isSentOutViaExists) {
+                        $this->redirect_msg('SentOutVia已经存在', 'TableAdm/' . $table);
+                    }
+                    $result = $this->ListSentOutVia_model->insert(array('SentOutMeans' => $postdata['SentOutMeans']));
+                }
+
             }
             if ($result) {
                 $this->redirect_msg('保存成功', 'TableAdm/' . $table);
