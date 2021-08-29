@@ -51,7 +51,7 @@
                         <td><?php echo $asuser['UAllocSuperUser']; ?></td>
                         <td>
                             <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $asuser['ID']; ?>">Edit</button>
-                            <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $asuser['ID']; ?>">Delete</button>
+                            <!--<button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $asuser['ID']; ?>">Delete</button>-->
                         </td>
                     </tr>
                 <?php }?>

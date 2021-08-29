@@ -29,7 +29,7 @@
                         <td><?php echo $sysparam['ParamValue']; ?></td>
                         <td>
                             <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $sysparam['ID']; ?>">Edit</button>
-                            <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $sysparam['ID']; ?>">Delete</button>
+                            <!--<button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $sysparam['ID']; ?>">Delete</button>-->
                         </td>
                     </tr>
                 <?php }?>

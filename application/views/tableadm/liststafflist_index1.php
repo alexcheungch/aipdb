@@ -26,7 +26,7 @@
                     <td><?php echo $Record['StaffName'];?></td>
                     <td>
                         <button class="btn btn-default edit_btn" type="button"  attrid="<?php echo $Record['StaffCode'];?>">Edit</button>
-                        <button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $Record['StaffCode'];?>">Delete</button>
+                        <!--<button class="btn btn-default delete_btn"   type="button"  attrid="<?php echo $Record['StaffCode'];?>">Delete</button>-->
                     </td>
                 </tr>
             <?php }}?>

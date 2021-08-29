@@ -138,6 +138,19 @@ class TableAdm extends MY_Controller {
                 $this->load->model('ListStaffList_model');
                 if (isset($postdata['ID']) && $postdata['ID']) {
                     $action = " update:";
+                    $info = $this->ListStaffList_model->get_data(array('ID' => $postdata['ID']));
+                    if ($info['StaffName'] != $postdata['StaffName']) {
+                        $isStaffNameExists = $this->ListStaffList_model->get_data(array('StaffName' => $postdata['StaffName']));
+                        if ($isStaffNameExists) {
+                            $this->redirect_msg('Name已经存在', 'TableAdm/' . $table);
+                        }
+                    }
+                    if ($info['StaffCode'] != $postdata['StaffCode']) {
+                        $isStaffCodeExists = $this->ListStaffList_model->get_data(array('StaffCode' => $postdata['StaffCode']));
+                        if ($isStaffCodeExists) {
+                            $this->redirect_msg('Code已经存在', 'TableAdm/' . $table);
+                        }
+                    }                    
                     $result = $this->ListStaffList_model->update_data(array('ID' => $postdata['ID']), array('StaffName' => $postdata['StaffName'], 'StaffCode' => $postdata['StaffCode']));
                 } else {
                     $isStaffCodeExists = $this->ListStaffList_model->get_data(array('StaffCode' => $postdata['StaffCode']));
@@ -152,6 +165,13 @@ class TableAdm extends MY_Controller {
                 $this->load->model('ListAcMgr_model');
                 if (isset($postdata['ID']) && $postdata['ID']) {
                     $action = " update:";
+                    $info = $this->ListAcMgr_model->get_data(array('ID' => $postdata['ID']));
+                    if ($info['AcMgr'] != $postdata['AcMgr']) {
+                        $isAcMgrExists = $this->ListAcMgr_model->get_data(array('AcMgr' => $postdata['AcMgr']));
+                        if ($isAcMgrExists) {
+                            $this->redirect_msg('AcMgr已经存在', 'TableAdm/' . $table);
+                        }
+                    }
                     $result = $this->ListAcMgr_model->update_data(array('ID' => $postdata['ID']), array('AcMgr' => $postdata['AcMgr']));
                 } else {
                     $action = " insert:";
@@ -165,6 +185,13 @@ class TableAdm extends MY_Controller {
                 $this->load->model('ListDocLoc_model');
                 if (isset($postdata['ID']) && $postdata['ID']) {
                     $action = " update:";
+                    $info = $this->ListDocLoc_model->get_data(array('ID' => $postdata['ID']));
+                    if ($info['DocLoc'] != $postdata['DocLoc']) {
+                        $isDocLocExists = $this->ListDocLoc_model->get_data(array('DocLoc' => $postdata['DocLoc']));
+                        if ($isDocLocExists) {
+                            $this->redirect_msg('DocLoc已经存在', 'TableAdm/' . $table);
+                        }
+                    }                    
                     $result = $this->ListDocLoc_model->update_data(array('ID' => $postdata['ID']), array('DocLoc' => $postdata['DocLoc']));
                 } else {
                     $action = " insert:";
@@ -178,6 +205,13 @@ class TableAdm extends MY_Controller {
                 $this->load->model('ListSentOutVia_model');
                 if (isset($postdata['ID']) && $postdata['ID']) {
                     $action = " update:";
+                    $info = $this->ListSentOutVia_model->get_data(array('ID' => $postdata['ID']));
+                    if ($info['SentOutMeans'] != $postdata['SentOutMeans']) {
+                        $isDocLocExists = $this->ListSentOutVia_model->get_data(array('SentOutMeans' => $postdata['SentOutMeans']));
+                        if ($isDocLocExists) {
+                            $this->redirect_msg('SentOutMeans已经存在', 'TableAdm/' . $table);
+                        }
+                    }
                     $result = $this->ListSentOutVia_model->update_data(array('ID' => $postdata['ID']), array('SentOutMeans' => $postdata['SentOutMeans']));
                 } else {
                     $action = " insert:";

@@ -7,7 +7,7 @@ class Index extends MY_Controller {
     }
 
     public function index() {
-        redirect('/clientMtn');
+        $this->display();
     }
     
     public function login() {
